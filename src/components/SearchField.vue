@@ -14,7 +14,8 @@
       :model-value="modelValue"
       @update:search="search"
       @update:model-value="goToSearchResults"
-      @update:focused="focused = $event"
+      @update:focused="setFocused"
+      clear-on-select
     >
       <template #item="{ item, props }">
         <v-list-item
@@ -62,6 +63,10 @@
   const searchValue = ref<string | null>(null)
   const focused = ref(false)
 
+  function setFocused(isFocused: boolean) {
+    focused.value = isFocused
+  }
+
   async function search(searchTerm: string | null) {
     searchValue.value = searchTerm
     if (searchTerm === null) {
@@ -78,6 +83,11 @@
   }
 
   async function goToSearchResults(selected: AutocompleteItem | null) {
+    const autocomplete = document.querySelector('.v-autocomplete input')
+    if (autocomplete) {
+      autocomplete.blur()
+    }
+
     if (!selected) return
 
     if ('codePostal' in selected.props) {
