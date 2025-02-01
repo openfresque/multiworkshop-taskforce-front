@@ -13,6 +13,11 @@ import { routes as autoRoutes } from 'vue-router/auto-routes'
 import Apropos from '@/pages/Apropos.vue'
 import Carte from '@/pages/Carte.vue'
 import Mentions from '@/pages/Mentions.vue'
+import SearchResults from '@/pages/SearchResults.vue'
+import {
+  rechercheCommuneDescriptor,
+  rechercheDepartementDescriptor,
+} from '@/routing/DynamicURLs'
 
 // Define additional routes
 const additionalRoutes = [
@@ -27,6 +32,14 @@ const additionalRoutes = [
   {
     path: '/mentions-legales',
     component: Mentions,
+  },
+  {
+    path: rechercheDepartementDescriptor.routerUrl,
+    component: SearchResults,
+  },
+  {
+    path: rechercheCommuneDescriptor.routerUrl,
+    component: SearchResults,
   },
 ]
 

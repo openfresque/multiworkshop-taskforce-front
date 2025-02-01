@@ -19,6 +19,8 @@ module.exports = {
     'vue/html-self-closing': 'off',
     'vue/html-closing-bracket-newline': 'off',
     'vue/attributes-order': 'off',
-    'space-before-function-paren': ['error', 'never'],
+    'no-useless-constructor': 'off',
+    'no-use-before-define': 'off',
+    'space-before-function-paren': 'off',
   },
 }

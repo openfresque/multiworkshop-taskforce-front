@@ -1,4 +1,4 @@
-import type { CodeTriCentre } from '../state/State'
+import type { CodeTriCentre, SearchType } from '../state/State'
 import { Strings } from '../utils/Strings'
 
 export const rechercheDepartementDescriptor = {
@@ -7,13 +7,13 @@ export const rechercheDepartementDescriptor = {
   urlGenerator: ({
     codeDepartement,
     nomDepartement,
+    searchType,
   }: {
     codeDepartement: string
     nomDepartement: string
+    searchType: SearchType
   }) => {
-    return ['standard', 'atelier', 'formation', 'junior'].map(typeRecherche => {
-      return `/dpt${codeDepartement}-${Strings.toReadableURLPathValue(nomDepartement)}/recherche-${typeRecherche}/online-non`
-    })
+    return `/dpt${codeDepartement}-${Strings.toReadableURLPathValue(nomDepartement)}/recherche-${searchType}/online-non`
   },
 }
 
@@ -27,6 +27,7 @@ export const rechercheCommuneDescriptor = {
     codePostal,
     nomCommune,
     tri,
+    searchType,
   }: {
     codeDepartement: string
     nomDepartement: string
@@ -34,9 +35,8 @@ export const rechercheCommuneDescriptor = {
     codePostal: string
     nomCommune: string
     tri: CodeTriCentre
+    searchType: SearchType
   }) => {
-    return ['standard', 'atelier', 'formation', 'junior'].map(typeRecherche => {
-      return `/dpt${codeDepartement}-${Strings.toReadableURLPathValue(nomDepartement)}/commune${codeCommune}-${codePostal}-${Strings.toReadableURLPathValue(nomCommune)}/recherche-${typeRecherche}/en-triant-par-${tri}/online-non`
-    })
+    return `/dpt${codeDepartement}-${Strings.toReadableURLPathValue(nomDepartement)}/commune${codeCommune}-${codePostal}-${Strings.toReadableURLPathValue(nomCommune)}/recherche-${searchType}/en-triant-par-${tri}/online-non`
   },
 }
