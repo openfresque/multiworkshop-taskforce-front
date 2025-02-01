@@ -12,6 +12,7 @@
   "vueIndentScriptAndStyle": true,
   "endOfLine": "lf",
   "embeddedLanguageFormatting": "auto",
+  "arrowParens": "avoid",
   "singleAttributePerLine": true,
   "plugins": [
     "prettier-plugin-organize-imports",

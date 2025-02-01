@@ -65,10 +65,10 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue'
   import { useTheme } from 'vuetify'
-  import { useRoute } from 'vue-router'
+  // import { useRoute } from 'vue-router'
 
   const activeTab = ref(0)
-  const route = useRoute()
+  // const route = useRoute()
   const menu = ref(false)
 
   const links = [
