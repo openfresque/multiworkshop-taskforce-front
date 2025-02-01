@@ -30,7 +30,7 @@
         >
           <v-btn
             color="primary"
-            :href="workshop.tickets_link"
+            :href="workshop.source_link"
             target="_blank"
             size="large"
           >

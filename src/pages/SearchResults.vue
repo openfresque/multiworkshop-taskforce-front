@@ -1,29 +1,34 @@
 <template>
-  <v-container max-width="1200px">
-    <router-view />
-    <!-- search card -->
-    <v-card class="search-card pa-10">
-      <v-card-text class="d-flex justify-center">
-        <SearchField
-          class="d-flex flex-grow-1 justify-center"
-          v-model="searchItem"
-        ></SearchField>
-      </v-card-text>
-    </v-card>
+  <div>
+    <v-container max-width="1200px">
+      <router-view />
+      <!-- search card -->
+      <v-card class="search-card pa-10">
+        <v-card-text class="d-flex justify-center">
+          <SearchField
+            class="d-flex flex-grow-1 justify-center"
+            v-model="searchItem"
+          ></SearchField>
+        </v-card-text>
+      </v-card>
+    </v-container>
     <!-- results -->
-
-    <v-infinite-scroll
-      :items="filteredWorkshopsToDisplay"
-      @load="loadMore"
-    >
-      <template
-        v-for="(item, index) in filteredWorkshopsToDisplay"
-        :key="item"
-      >
-        <SearchResultsCard :workshop="item"></SearchResultsCard>
-      </template>
-    </v-infinite-scroll>
-  </v-container>
+    <div class="results">
+      <v-container max-width="1200px">
+        <v-infinite-scroll
+          :items="filteredWorkshopsToDisplay"
+          @load="loadMore"
+        >
+          <template
+            v-for="(item, index) in filteredWorkshopsToDisplay"
+            :key="item"
+          >
+            <SearchResultsCard :workshop="item"></SearchResultsCard>
+          </template>
+        </v-infinite-scroll>
+      </v-container>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -95,8 +100,11 @@
     filteredWorkshopsToDisplay.value = filteredWorkshops.value.slice(0, end)
   }
 
-  function loadMore({done}) {
-    console.log('loadMore, current length : ', filteredWorkshopsToDisplay.value.length)
+  function loadMore({ done }) {
+    console.log(
+      'loadMore, current length : ',
+      filteredWorkshopsToDisplay.value.length
+    )
     displayXMoreWorkshops()
     console.log('new length : ', filteredWorkshopsToDisplay.value.length)
     done('ok')
@@ -110,3 +118,21 @@
     refresh()
   })
 </script>
+
+<style scoped>
+  .search-card {
+    background: linear-gradient(
+      45deg,
+      rgba(var(--v-theme-secondary), 0.6),
+      rgba(var(--v-theme-primary), 0.6)
+    );
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+
+  .results {
+    margin-top: 20px;
+    background-color: rgb(var(--v-theme-background-2));
+  }
+</style>
