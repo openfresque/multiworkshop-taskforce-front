@@ -511,6 +511,12 @@ export const libelleUrlPathDeCommune = (commune: Commune) => {
 export type SearchType = 'standard' | 'atelier' | 'formation' | 'junior'
 export const TYPE_RECHERCHE_PAR_DEFAUT: SearchType = 'atelier'
 
+export interface AutocompleteItem {
+  value: number
+  title: string
+  props: Commune | Departement
+}
+
 export type SearchTypeConfig = {
   pathParam: string
   standardTabSelected: boolean

@@ -19,25 +19,36 @@ import {
   rechercheDepartementDescriptor,
 } from '@/routing/DynamicURLs'
 
+export const ROUTE_MAP = 'map' as string
+export const ROUTE_ABOUT = 'about' as string
+export const ROUTE_LEGAL = 'legal' as string
+export const ROUTE_SEARCH_DPT = 'searchDpt' as string
+export const ROUTE_SEARCH_CITY = 'searchCom' as string
+
 // Define additional routes
 const additionalRoutes = [
   {
+    name: ROUTE_MAP,
     path: '/carte',
     component: Carte,
   },
   {
+    name: ROUTE_ABOUT,
     path: '/apropos',
     component: Apropos,
   },
   {
+    name: ROUTE_LEGAL,
     path: '/mentions-legales',
     component: Mentions,
   },
   {
+    name: ROUTE_SEARCH_DPT,
     path: rechercheDepartementDescriptor.routerUrl,
     component: SearchResults,
   },
   {
+    name: ROUTE_SEARCH_CITY,
     path: rechercheCommuneDescriptor.routerUrl,
     component: SearchResults,
   },
