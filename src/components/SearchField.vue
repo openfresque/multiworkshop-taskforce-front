@@ -6,7 +6,6 @@
       label="Localisation"
       max-width="500px"
       variant="solo"
-      density="comfortable"
       no-data-text="Aucun résultat"
       :items="autocompleteMatches"
       :return-object="true"
