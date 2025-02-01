@@ -11,11 +11,18 @@
       </v-card-text>
     </v-card>
     <!-- results -->
-    <SearchResultsCard
-      v-for="workshop in filteredWorkshops"
-      :key="workshop.title"
-      :workshop="workshop"
-    ></SearchResultsCard>
+
+    <v-infinite-scroll
+      :items="filteredWorkshopsToDisplay"
+      @load="loadMore"
+    >
+      <template
+        v-for="(item, index) in filteredWorkshopsToDisplay"
+        :key="item"
+      >
+        <SearchResultsCard :workshop="item"></SearchResultsCard>
+      </template>
+    </v-infinite-scroll>
   </v-container>
 </template>
 
@@ -37,6 +44,7 @@
   })
 
   const filteredWorkshops = ref<Workshop[]>([])
+  const filteredWorkshopsToDisplay = ref<Workshop[]>([])
 
   async function refresh() {
     const route = router.currentRoute.value.name
@@ -76,8 +84,22 @@
     }
     const allWorkshops = await State.current.allWorkshops()
     filteredWorkshops.value = allWorkshops.workshopsDisponibles
+    filteredWorkshopsToDisplay.value = []
 
     console.log('workshops : ', filteredWorkshops.value)
+    displayXMoreWorkshops()
+  }
+
+  function displayXMoreWorkshops(nb = 10) {
+    const end = filteredWorkshopsToDisplay.value.length + nb
+    filteredWorkshopsToDisplay.value = filteredWorkshops.value.slice(0, end)
+  }
+
+  function loadMore({done}) {
+    console.log('loadMore, current length : ', filteredWorkshopsToDisplay.value.length)
+    displayXMoreWorkshops()
+    console.log('new length : ', filteredWorkshopsToDisplay.value.length)
+    done('ok')
   }
 
   onMounted(() => {
