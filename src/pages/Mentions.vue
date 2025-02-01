@@ -29,11 +29,11 @@
         Pour toute question concernant vos données personnelles, vous pouvez
         nous contacter à l'adresse suivante : contact@trouverunefresque.org
       </p>
-      <h2>License</h2>
+      <h2>Licence</h2>
       <p>
         <a
-          href="https://github.com/trouver-une-fresque/trouver-une-fresque-front/blob/main/LICENSE"
-          >CC BY-NC-SA 4.0</a
+          href="https://github.com/trouver-une-fresque/multiworkshop-taskforce-front/blob/main/LICENSE"
+          >AGPL-3.0</a
         >
       </p>
     </div>

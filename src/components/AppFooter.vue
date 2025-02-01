@@ -19,9 +19,9 @@
             sm="auto"
           >
             <a
-              href="https://github.com/trouver-une-fresque/trouver-une-fresque-front/blob/main/LICENSE"
+              href="https://github.com/trouver-une-fresque/multiworkshop-taskforce-front/blob/main/LICENSE"
               style="text-decoration: none; color: inherit"
-              >Trouver&nbsp;Une&nbsp;Fresque - (CC&nbsp;BY-NC-SA&nbsp;4.0)</a
+              >Trouver&nbsp;une&nbsp;Fresque - AGPL-3.0</a
             >
           </v-col>
           <v-spacer></v-spacer>
