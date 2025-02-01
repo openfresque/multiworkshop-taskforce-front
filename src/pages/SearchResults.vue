@@ -18,7 +18,7 @@
   import { AutocompleteItem } from '@/state/State'
   import { ref, onMounted } from 'vue'
 
-  const searchItem: AutocompleteItem = ref({
+  const searchItem = ref<AutocompleteItem>({
     value: 0,
     title: '',
     props: {
