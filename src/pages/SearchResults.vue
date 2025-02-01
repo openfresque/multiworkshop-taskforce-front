@@ -10,12 +10,19 @@
         ></SearchField>
       </v-card-text>
     </v-card>
+    <!-- results -->
+    <SearchResultsCard
+      v-for="workshop in filteredWorkshops"
+      :key="workshop.title"
+      :workshop="workshop"
+    ></SearchResultsCard>
   </v-container>
 </template>
 
 <script lang="ts" setup>
+  import { Workshop } from '@/common/Conf'
   import router, { ROUTE_SEARCH_CITY, ROUTE_SEARCH_DPT } from '@/router'
-  import { AutocompleteItem } from '@/state/State'
+  import { AutocompleteItem, State } from '@/state/State'
   import { ref, onMounted } from 'vue'
 
   const searchItem = ref<AutocompleteItem>({
@@ -29,7 +36,9 @@
     },
   })
 
-  function refresh() {
+  const filteredWorkshops = ref<Workshop[]>([])
+
+  async function refresh() {
     const route = router.currentRoute.value.name
     const params = router.currentRoute.value.params as any
     console.log('params : ', params)
@@ -65,6 +74,10 @@
       default:
         console.log('default')
     }
+    const allWorkshops = await State.current.allWorkshops()
+    filteredWorkshops.value = allWorkshops.workshopsDisponibles
+
+    console.log('workshops : ', filteredWorkshops.value)
   }
 
   onMounted(() => {
