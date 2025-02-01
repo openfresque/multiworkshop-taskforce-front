@@ -1,31 +1,36 @@
 <template>
-  <div class="lw-container d-flex flex-wrap justify-space-around mx-10">
-    <div
-      v-for="workshop in workshops"
-      :key="workshop.id"
-    >
-      <v-tooltip
-        :text="workshop.name"
-        location="bottom"
+  <v-container>
+    <v-row class="d-flex">
+      <v-col
+        class="d-flex"
+        v-for="workshop in workshops"
+        :key="workshop.id"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="4"
       >
-        <template v-slot:activator="{ props }">
-          <a
-            :href="workshop.website"
-            target="_blank"
-          >
-            <v-img
-              class="workshop-logo ma-5"
-              v-bind="props"
-              :src="workshop.logo"
-              :alt="workshop.name"
-              min-height="100px"
-              min-width="100px"
-            />
-          </a>
-        </template>
-      </v-tooltip>
-    </div>
-  </div>
+        <v-card
+          class="workshop-card ma-2 d-flex flex-column justify-center align-center"
+        >
+          <div class="card-content">
+            <a
+              :href="workshop.website"
+              target="_blank"
+            >
+              <v-img
+                class="workshop-logo"
+                :src="workshop.logo"
+                :alt="workshop.name"
+              />
+            </a>
+            <v-card-title>{{ workshop.name }}</v-card-title>
+            <v-card-text>{{ workshop.description }}</v-card-text>
+          </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>
@@ -42,11 +47,28 @@
 </script>
 
 <style scoped>
-  .workshop-logo {
+  .workshop-card {
     transition: transform 0.3s ease;
+    padding: 20px;
+    flex: 1; /* Ensure the card takes up equal space */
   }
 
-  .workshop-logo:hover {
-    transform: scale(1.5);
+  .workshop-card:hover {
+    transform: scale(1.05);
+  }
+
+  .card-content {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    word-break: keep-all;
+  }
+
+  .workshop-logo {
+    max-width: 60%;
+    max-height: 60px;
+    height: auto;
+    margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Ensure the image is displayed as a block element */
   }
 </style>
