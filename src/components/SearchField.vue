@@ -2,7 +2,6 @@
   <div>
     <router-view />
     <v-autocomplete
-      clearable
       label="Localisation"
       max-width="500px"
       variant="solo"

@@ -3,7 +3,7 @@
     <v-container max-width="1200px">
       <router-view />
       <!-- search card -->
-      <v-card class="search-card pa-10">
+      <v-card class="search-card pa-2 pa-sm-10">
         <v-card-text class="d-flex justify-center">
           <SearchField
             class="d-flex flex-grow-1 justify-center"
