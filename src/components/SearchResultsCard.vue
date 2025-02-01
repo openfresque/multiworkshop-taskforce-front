@@ -2,9 +2,12 @@
   <v-card class="workshop-card my-2">
     <v-card-text>
       <v-row>
+        <!-- logo -->
         <v-col
           class="d-flex justify-center align-center"
-          cols="2"
+          cols="12"
+          sm="3"
+          md="2"
         >
           <v-img
             :src="getWorkshopLogo(workshop)"
@@ -13,7 +16,13 @@
             max-width="120px"
           ></v-img>
         </v-col>
-        <v-col cols="6">
+
+        <!-- workshop description -->
+        <v-col
+          cols="12"
+          sm="9"
+          md="6"
+        >
           <v-card-title>
             {{ getWorkshopTitle(workshop) }}
           </v-card-title>
@@ -24,9 +33,13 @@
             {{ getWorkshopAdress(workshop) }}
           </v-card-text>
         </v-col>
+
+        <!-- resercation btn -->
         <v-col
           class="d-flex justify-center align-center"
-          cols="4"
+          cols="12"
+          sm="12"
+          md="4"
         >
           <v-btn
             color="primary"
@@ -100,17 +113,41 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: normal;
+
+    @media screen and (max-width: 960px) {
+      font-size: 1.25rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 1rem;
+    }
   }
 
   .v-card-subtitle {
     font-size: 1.25rem;
     line-height: normal;
     font-weight: bold;
+
+    @media screen and (max-width: 960px) {
+      font-size: 1.05rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 0.95rem;
+    }
   }
 
   .text-address {
     font-size: 1.05rem;
     line-height: normal;
     font-weight: 500;
+
+    @media screen and (max-width: 960px) {
+      font-size: 0.95rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 0.85rem;
+    }
   }
 </style>
