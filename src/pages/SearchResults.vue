@@ -38,7 +38,7 @@
         console.log('ROUTE_SEARCH_DPT')
         searchItem.value = {
           value: -1,
-          title: params.nomDpt,
+          title: params.nomDpt.replace(/_/g, ' '),
           props: {
             code_departement: params.codeDpt,
             code_region: 0,
@@ -51,7 +51,7 @@
         console.log('ROUTE_SEARCH_CITY')
         searchItem.value = {
           value: -1,
-          title: params.nomCommune,
+          title: params.nomCommune.replace(/_/g, ' '),
           props: {
             code: params.codeCommune,
             codeDepartement: params.codeDpt,
