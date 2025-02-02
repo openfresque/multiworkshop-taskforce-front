@@ -1,5 +1,37 @@
 <template>
   <v-container max-width="1200px">
+    <!-- Result summary -->
+    <v-card variant="flat">
+      <v-card-title
+        class="text-center pb-0"
+        style="white-space: wrap"
+      >
+        <v-icon
+          v-if="filteredWorkshops.length > 0"
+          color="green-darken-2"
+          icon="mdi-calendar-check"
+          size="large"
+        ></v-icon>
+        <v-icon
+          v-else
+          icon="mdi-calendar-remove"
+          size="large"
+        ></v-icon>
+        {{ filteredWorkshops.length }} atelier{{
+          filteredWorkshops.length > 0 ? 's' : ''
+        }}
+        recensé{{ filteredWorkshops.length > 0 ? 's' : '' }} sur notre
+        plateforme autour de <strong>{{ locationTitle }}</strong></v-card-title
+      >
+      <v-card-subtitle
+        class="text-center"
+        style="white-space: wrap"
+      >
+        Dernière mise à jour : {{ getLastUpdateRelativeDate() }}
+      </v-card-subtitle>
+    </v-card>
+
+    <!-- workshops list -->
     <v-infinite-scroll
       v-if="filteredWorkshopsToDisplay.length > 0"
       :items="filteredWorkshopsToDisplay"
@@ -51,6 +83,16 @@
       required: false,
       default: false,
     },
+    locationTitle: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    lastUpdateDate: {
+      type: String,
+      required: false,
+      default: '',
+    },
   })
 
   const filteredWorkshops = ref<Workshop[]>([])
@@ -58,6 +100,20 @@
   let infiniteScrollEvents:
     | ((value: 'ok' | 'empty' | 'error') => void)
     | undefined
+
+  function getLastUpdateRelativeDate() {
+    const lastUpdate = new Date(props.lastUpdateDate)
+    const now = new Date()
+    const diff = now.getTime() - lastUpdate.getTime()
+    const diffDays = Math.floor(diff / (1000 * 60 * 60 * 24))
+    if (diffDays === 0) {
+      return "aujourd'hui"
+    }
+    if (diffDays === 1) {
+      return 'hier'
+    }
+    return `il y a ${diffDays} jours`
+  }
 
   function displayXMoreWorkshops(nb = 10) {
     const currentLength = filteredWorkshopsToDisplay.value.length

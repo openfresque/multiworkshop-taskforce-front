@@ -30,69 +30,76 @@
           color="primary"
         ></v-slider>
       </v-container>
+
+      <v-tabs
+        class="workshop-type-btn-div d-flex justify-center"
+        v-model="tab"
+        color="primary"
+        grow
+        fixed-tabs
+      >
+        <v-tab
+          class="workshop-type-btn"
+          value="atelier"
+          variant="tonal"
+          >Participer à un atelier</v-tab
+        >
+        <v-tab
+          class="workshop-type-btn"
+          value="formation"
+          variant="tonal"
+          >devenir animateur</v-tab
+        >
+        <v-tab
+          class="workshop-type-btn"
+          value="junior"
+          variant="tonal"
+          >trouver un atelier junior</v-tab
+        >
+      </v-tabs>
+      <!-- results -->
+      <v-tabs-window v-model="tab">
+        <v-tabs-window-item value="atelier">
+          <SearchResultsList
+            :workshops="filteredWorkshops"
+            :longitude="selectedCity?.longitude"
+            :latitude="selectedCity?.latitude"
+            :search-radius="tickDistances[distance]"
+            :workshop-type="'atelier'"
+            :online="online"
+            :location-title="getLocationTitle()"
+            :last-update-date="lastUpdateDate"
+          ></SearchResultsList>
+        </v-tabs-window-item>
+
+        <v-tabs-window-item value="formation">
+          <SearchResultsList
+            :workshops="filteredWorkshops"
+            :longitude="selectedCity?.longitude"
+            :latitude="selectedCity?.latitude"
+            :search-radius="tickDistances[distance]"
+            :workshop-type="'formation'"
+            :online="online"
+            :location-title="getLocationTitle()"
+            :last-update-date="lastUpdateDate"
+          ></SearchResultsList>
+          <div class="results ma-2"></div>
+        </v-tabs-window-item>
+
+        <v-tabs-window-item value="junior">
+          <SearchResultsList
+            :workshops="filteredWorkshops"
+            :longitude="selectedCity?.longitude"
+            :latitude="selectedCity?.latitude"
+            :search-radius="tickDistances[distance]"
+            :workshop-type="'junior'"
+            :online="online"
+            :location-title="getLocationTitle()"
+            :last-update-date="lastUpdateDate"
+          ></SearchResultsList>
+        </v-tabs-window-item>
+      </v-tabs-window>
     </v-container>
-    <v-tabs
-      class="workshop-type-btn-div d-flex justify-center"
-      v-model="tab"
-      color="primary"
-      grow
-      fixed-tabs
-    >
-      <v-tab
-        class="workshop-type-btn"
-        value="atelier"
-        variant="tonal"
-        >Participer à un atelier</v-tab
-      >
-      <v-tab
-        class="workshop-type-btn"
-        value="formation"
-        variant="tonal"
-        >devenir animateur</v-tab
-      >
-      <v-tab
-        class="workshop-type-btn"
-        value="junior"
-        variant="tonal"
-        >trouver un atelier junior</v-tab
-      >
-    </v-tabs>
-    <!-- results -->
-    <v-tabs-window v-model="tab">
-      <v-tabs-window-item value="atelier">
-        <SearchResultsList
-          :workshops="filteredWorkshops"
-          :longitude="selectedCity?.longitude"
-          :latitude="selectedCity?.latitude"
-          :search-radius="tickDistances[distance]"
-          :workshop-type="'atelier'"
-          :online="online"
-        ></SearchResultsList>
-      </v-tabs-window-item>
-
-      <v-tabs-window-item value="formation">
-        <SearchResultsList
-          :workshops="filteredWorkshops"
-          :longitude="selectedCity?.longitude"
-          :latitude="selectedCity?.latitude"
-          :search-radius="tickDistances[distance]"
-          :workshop-type="'formation'"
-          :online="online"
-        ></SearchResultsList>
-        <div class="results ma-2"></div>
-      </v-tabs-window-item>
-
-      <v-tabs-window-item value="junior">
-        <SearchResultsList
-          :workshops="filteredWorkshops"
-          :longitude="selectedCity?.longitude"
-          :latitude="selectedCity?.latitude"
-          :search-radius="tickDistances[distance]"
-          :workshop-type="'junior'"
-          :online="online"
-        ></SearchResultsList>
-      </v-tabs-window-item>
-    </v-tabs-window>
   </div>
 </template>
 
@@ -126,6 +133,7 @@
   const tickDistances = [10, 25, 50, 100, 250, -1]
 
   const filteredWorkshops = ref<Workshop[]>([])
+  const lastUpdateDate = ref('')
   const selectedCity = ref<Commune | undefined>(undefined)
   const distance = ref(2)
   const online = ref(false)
@@ -152,52 +160,65 @@
     history.pushState({}, '', route)
   }
 
-  async function refresh() {
-    const route = router.currentRoute.value.name
-    const params = router.currentRoute.value.params as any
-    console.log('params : ', params)
-    switch (route) {
-      case ROUTE_SEARCH_DPT:
-        console.log('ROUTE_SEARCH_DPT')
-        searchItem.value = {
-          value: -1,
-          title: params.nomDpt.replace(/_/g, ' '),
-          props: {
-            code_departement: params.codeDpt,
-            code_region: 0,
-            nom_departement: params.nomDpt,
-            nom_region: '',
-          },
-        }
-        break
-      case ROUTE_SEARCH_CITY:
-        console.log('ROUTE_SEARCH_CITY')
-        searchItem.value = {
-          value: -1,
-          title: params.nomCommune.replace(/_/g, ' '),
-          props: {
-            code: params.codeCommune,
-            codeDepartement: params.codeDpt,
-            codePostal: params.codePostal,
-            latitude: 0,
-            longitude: 0,
-            nom: params.nomCommune,
-          },
-        }
-        selectedCity.value = await State.current.autocomplete.findCommune(
-          params.codePostal,
-          params.codeCommune
-        )
+  function isSearchByCity() {
+    return router.currentRoute.value.name === ROUTE_SEARCH_CITY
+  }
 
-        console.log('selectedCity : ', selectedCity.value)
-        break
-      default:
-        console.log('default')
+  function isSearchByDpt() {
+    return router.currentRoute.value.name === ROUTE_SEARCH_DPT
+  }
+
+  async function refresh() {
+    const params = router.currentRoute.value.params as any
+    // City search
+    if (isSearchByCity()) {
+      searchItem.value = {
+        value: -1,
+        title: params.nomCommune.replace(/_/g, ' '),
+        props: {
+          code: params.codeCommune,
+          codeDepartement: params.codeDpt,
+          codePostal: params.codePostal,
+          latitude: 0,
+          longitude: 0,
+          nom: params.nomCommune,
+        },
+      }
+      selectedCity.value = await State.current.autocomplete.findCommune(
+        params.codePostal,
+        params.codeCommune
+      )
+      // Department search
+    } else if (isSearchByDpt()) {
+      searchItem.value = {
+        value: -1,
+        title: params.nomDpt.replace(/_/g, ' '),
+        props: {
+          code_departement: params.codeDpt,
+          code_region: 0,
+          nom_departement: params.nomDpt,
+          nom_region: '',
+        },
+      }
     }
+
     online.value = params.includesOnline === 'oui'
     tab.value = params.typeRecherche
     const allWorkshops = await State.current.allWorkshops()
     filteredWorkshops.value = allWorkshops.workshopsDisponibles
+    lastUpdateDate.value = allWorkshops.derniereMiseAJour
+  }
+
+  function getLocationTitle() {
+    if (isSearchByCity()) {
+      console.log('selectedCity', selectedCity.value)
+      return (
+        selectedCity.value?.nom + ' (' + selectedCity.value?.codePostal + ')'
+      )
+    } else if (isSearchByDpt()) {
+      return searchItem.value.title
+    }
+    return ''
   }
 
   onMounted(() => {
