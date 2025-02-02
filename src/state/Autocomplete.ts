@@ -40,6 +40,17 @@ export class Autocomplete {
     )
   }
 
+  async findDepartement(
+    codeDepartement: string
+  ): Promise<Departement | undefined> {
+    const departements = await this.getMatchingDepartements(
+      this.normalize(codeDepartement)
+    )
+    return departements.find(
+      departement => departement.code_departement === codeDepartement
+    )
+  }
+
   async suggest(prefix: string): Promise<Array<Departement | Commune>> {
     const term = this.normalize(prefix)
     if (prefix.length === 0) {

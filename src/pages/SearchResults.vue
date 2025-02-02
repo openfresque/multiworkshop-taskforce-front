@@ -69,6 +69,8 @@
             :online="online"
             :location-title="getLocationTitle()"
             :last-update-date="lastUpdateDate"
+            :search-by-dpt="isSearchByDpt()"
+            :dpt-nb="getDptCode()"
             @showOnline="online = true"
           ></SearchResultsList>
         </v-tabs-window-item>
@@ -83,6 +85,8 @@
             :online="online"
             :location-title="getLocationTitle()"
             :last-update-date="lastUpdateDate"
+            :search-by-dpt="isSearchByDpt()"
+            :dpt-nb="getDptCode()"
             @showOnline="online = true"
           ></SearchResultsList>
           <div class="results ma-2"></div>
@@ -98,6 +102,8 @@
             :online="online"
             :location-title="getLocationTitle()"
             :last-update-date="lastUpdateDate"
+            :search-by-dpt="isSearchByDpt()"
+            :dpt-nb="getDptCode()"
             @showOnline="online = true"
           ></SearchResultsList>
         </v-tabs-window-item>
@@ -110,7 +116,7 @@
   import { Workshop } from '@/common/Conf'
   import router, { ROUTE_SEARCH_CITY, ROUTE_SEARCH_DPT } from '@/router'
   import { rechercheCommuneDescriptor } from '@/routing/DynamicURLs'
-  import { AutocompleteItem, Commune, State } from '@/state/State'
+  import { AutocompleteItem, Commune, Departement, State } from '@/state/State'
   import { ref, onMounted } from 'vue'
 
   const searchItem = ref<AutocompleteItem>({
@@ -138,6 +144,7 @@
   const filteredWorkshops = ref<Workshop[]>([])
   const lastUpdateDate = ref('')
   const selectedCity = ref<Commune | undefined>(undefined)
+  const selectedDpt = ref<Departement | undefined>(undefined)
   const distance = ref(2)
   const online = ref(false)
   const tab = ref('atelier')
@@ -169,6 +176,11 @@
 
   function isSearchByDpt() {
     return router.currentRoute.value.name === ROUTE_SEARCH_DPT
+  }
+
+  function getDptCode() {
+    const params = router.currentRoute.value.params as any
+    return params.codeDpt
   }
 
   async function refresh() {
@@ -203,6 +215,9 @@
           nom_region: '',
         },
       }
+      selectedDpt.value = await State.current.autocomplete.findDepartement(
+        params.codeDpt
+      )
     }
 
     online.value = params.includesOnline === 'oui'
@@ -217,6 +232,13 @@
     if (isSearchByCity()) {
       ret += selectedCity.value?.nom
       ret += ' (' + selectedCity.value?.codePostal + ')'
+      if (online.value) {
+        ret += ' ou En ligne'
+      }
+    }
+    if (isSearchByDpt()) {
+      ret += selectedDpt.value?.nom_departement
+      ret += ' (' + selectedDpt.value?.code_departement + ')'
       if (online.value) {
         ret += ' ou En ligne'
       }

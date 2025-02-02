@@ -21,7 +21,8 @@
           filteredWorkshops.length > 0 ? 's' : ''
         }}
         recensé{{ filteredWorkshops.length > 0 ? 's' : '' }} sur notre
-        plateforme autour de <strong>{{ locationTitle }}</strong></v-card-title
+        plateforme {{ searchByDpt ? 'pour' : 'autour de' }}
+        <strong>{{ locationTitle }}</strong></v-card-title
       >
       <v-card-subtitle
         class="text-center"
@@ -72,7 +73,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { SearchType, Workshop } from '@/common/Conf'
+  import { CodeDepartement, SearchType, Workshop } from '@/common/Conf'
   import distanceBetween from '@/utils/distance'
   import { ref, onMounted } from 'vue'
 
@@ -113,6 +114,16 @@
     },
     lastUpdateDate: {
       type: String,
+      required: false,
+      default: '',
+    },
+    searchByDpt: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    dptNb: {
+      type: String as () => CodeDepartement | '',
       required: false,
       default: '',
     },
@@ -177,6 +188,11 @@
       // online filter
       if (props.online && workshop.online) {
         return true
+      }
+
+      //   search by department filter
+      if (props.searchByDpt) {
+        return workshop.department === props.dptNb
       }
 
       // Distance filter
