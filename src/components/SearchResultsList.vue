@@ -1,5 +1,8 @@
 <template>
-  <v-container max-width="1200px">
+  <v-container
+    class="bg-background-2 mt-2"
+    max-width="1200px"
+  >
     <!-- Result summary -->
     <v-card variant="flat">
       <v-card-title
@@ -20,8 +23,7 @@
         {{ filteredWorkshops.length }} atelier{{
           filteredWorkshops.length > 0 ? 's' : ''
         }}
-        recensé{{ filteredWorkshops.length > 0 ? 's' : '' }} sur notre
-        plateforme {{ searchByDpt ? 'pour' : 'autour de' }}
+        {{ searchByDpt ? 'pour' : 'autour de' }}
         <strong>{{ locationTitle }}</strong></v-card-title
       >
       <v-card-subtitle
@@ -37,7 +39,7 @@
       v-if="filteredWorkshopsToDisplay.length > 0"
       :items="filteredWorkshopsToDisplay"
       @load="loadMore"
-      empty-text="Tous les ateliers correspondants aux critères ont été affichés"
+      :empty-text="'-'"
     >
       <template
         v-for="(item, index) in filteredWorkshopsToDisplay"
@@ -49,7 +51,7 @@
 
     <!-- no result card -->
     <v-card
-      class="text-center my-6"
+      class="text-center my-6 no-result-card"
       v-else-if="!online"
     >
       <v-card-title
@@ -247,3 +249,17 @@
     displayXMoreWorkshops()
   })
 </script>
+
+<style scoped>
+  .no-result-card {
+    @media screen and (max-width: 600px) {
+      &:deep(.v-card-title) {
+        font-size: 1rem;
+      }
+
+      &:deep(.v-btn__content) {
+        font-size: 0.7rem;
+      }
+    }
+  }
+</style>

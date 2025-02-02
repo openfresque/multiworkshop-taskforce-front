@@ -40,7 +40,7 @@ export default createVuetify({
           success: '#4CAF50',
           warning: '#FFC107',
           background: '#121212',
-          'background-2': '#1f1f1f',
+          'background-2': '#121212',
         },
       },
     },

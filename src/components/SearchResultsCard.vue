@@ -1,5 +1,8 @@
 <template>
-  <v-card class="workshop-card my-2">
+  <v-card
+    class="workshop-card my-4"
+    elevation="2"
+  >
     <v-card-text>
       <v-row>
         <!-- logo -->
@@ -42,12 +45,22 @@
           md="4"
         >
           <v-btn
+            class="d-none d-sm-flex"
             color="primary"
             :href="workshop.source_link"
             target="_blank"
             size="large"
           >
             Réserver une place
+          </v-btn>
+          <v-btn
+            class="d-sm-none"
+            color="primary"
+            :href="workshop.source_link"
+            target="_blank"
+            size="large"
+          >
+            Réserver
           </v-btn>
         </v-col>
       </v-row>
@@ -120,6 +133,7 @@
 
     @media screen and (max-width: 600px) {
       font-size: 1rem;
+      white-space: wrap;
     }
   }
 
@@ -134,6 +148,7 @@
 
     @media screen and (max-width: 600px) {
       font-size: 0.95rem;
+      white-space: wrap;
     }
   }
 
