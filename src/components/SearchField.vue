@@ -14,6 +14,7 @@
       @update:model-value="goToSearchResults"
       @update:focused="setFocused"
       clear-on-select
+      auto-select-first
     >
       <template #item="{ item, props }">
         <v-list-item
