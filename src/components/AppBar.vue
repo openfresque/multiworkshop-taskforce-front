@@ -49,7 +49,7 @@
           <v-list-item
             v-for="link in links"
             :key="link.id"
-            :to="link.to"
+            :href="link.to"
             @click="menu = false"
             :append-icon="link.icon"
             color="primary"
