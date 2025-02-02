@@ -2,6 +2,7 @@
   <div>
     <router-view />
     <v-autocomplete
+    class="search-field"
       label="Commune, Code postal, Département..."
       max-width="500px"
       variant="solo"
@@ -135,3 +136,13 @@
     }
   })
 </script>
+
+<style scoped>
+.search-field{
+  &:deep(.v-autocomplete__selection){
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+</style>

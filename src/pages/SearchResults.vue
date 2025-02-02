@@ -12,6 +12,7 @@
 
         <!-- online toggle -->
         <v-switch
+          class="online-switch"
           v-model="online"
           color="primary"
           label="Inclure les ateliers en ligne"
@@ -20,13 +21,36 @@
 
         <!-- search radius -->
         <div v-if="isSearchByCity()">
-          <div class="text-caption mt-2">Rayon de recherche</div>
+          <!-- desktop slider -->
+          <div class="d-none d-sm-block text-caption mt-2">
+            Rayon de recherche
+          </div>
           <v-slider
+            class="d-none d-sm-block"
             v-model="distance"
             :max="5"
             show-ticks="always"
             :step="1"
             :ticks="tickLabels"
+            tick-size="4"
+            color="primary"
+          ></v-slider>
+          <!-- mobile slider -->
+          <div class="d-sm-none text-caption mt-2">
+            Rayon de recherche :
+            {{
+              tickDistances[distance] > 0
+                ? '' + tickDistances[distance] + 'km'
+                : 'tout'
+            }}
+          </div>
+          <v-slider
+            class="d-sm-none"
+            v-model="distance"
+            :max="5"
+            show-ticks="always"
+            :step="1"
+            :ticks="mobileTickLabels"
             tick-size="4"
             color="primary"
           ></v-slider>
@@ -141,6 +165,15 @@
     2: '50 km',
     3: '100 km',
     4: '250 km',
+    5: 'Tout',
+  }
+
+  const mobileTickLabels = {
+    0: '10 km',
+    1: '',
+    2: '',
+    3: '',
+    4: '',
     5: 'Tout',
   }
 
@@ -269,18 +302,21 @@
   }
 
   .workshop-type-btn {
-    /* @media screen and (max-width: 600px) {
+    @media screen and (max-width: 600px) {
       width: 120px !important;
-    } */
+    }
     & :deep(.v-btn__content) {
       white-space: wrap !important;
       font-size: 0.7rem !important;
-      /* @media screen and (max-width: 960px) {
-        font-size: 0.6rem !important;
+    }
+  }
+
+  .online-switch {
+    @media screen and (max-width: 400px) {
+      & :deep(.v-label) {
+        font-size: 0.7rem !important;
+        font-weight: 400 !important;
       }
-      @media screen and (max-width: 600px) {
-        font-size: 0.5rem !important;
-      } */
     }
   }
 </style>
