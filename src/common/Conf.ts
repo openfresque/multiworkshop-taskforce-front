@@ -200,6 +200,15 @@ export const ATELIERS: Record<number, Atelier> = {
     promoted: true,
     website: 'https://fresqueduplastique.fr/',
   },
+  104: {
+    code: 'CyberFresque',
+    logo: '/assets/images/logo/logo_cyberFresque.png',
+    name: 'Cyber Fresque',
+    description:
+      'Démystifiez la cybersécurité et boostez votre hygiène numérique !',
+    promoted: true,
+    website: 'https://www.eventbrite.fr/o/senscyb-89802295343',
+  },
   200: {
     code: 'FresqueClimat',
     logo: '/assets/images/logo/logo_fresqueClimat.png',

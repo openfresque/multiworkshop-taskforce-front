@@ -21,12 +21,13 @@
         Agri'Alim, Fresque des Nouveaux Récits, Fresque de la Mobilité, Fresque
         de l'Alimentation, Atelier Inventons Nos Vies Bas Carbone, Atelier OGRE,
         Fresque de l'Eau, Fresque de l'Économie Circulaire, Ateliers Futurs
-        Proches, Fresque du Textile, Fresque des Déchets, Fresque des frontières
-        planétaires, Atelier Horizons Décarbonés, Ateliers 2030 Glorieuses,
+        Proches, Fresque du Textile, Fresque des Déchets, Fresque des Frontières
+        Planétaires, Atelier Horizons Décarbonés, Atelier 2030 Glorieuses,
         Fresque de la Biodiversité, Fresque du Sexisme, Fresque du Numérique,
-        Puzzle Climat, Fresque de la finance, Fresque de la RSE. La réservation
-        d'un atelier s'effectue via les plateformes de billetique associées.
-        Nous ne sommes affiliés avec aucune de ces structures.
+        Puzzle Climat, Fresque de la Finance, Fresque de la RSE, Cyber Fresque,
+        Fresque du Plastique, Fresque du Bénévolat. La réservation d'un atelier
+        s'effectue via les plateformes de billetique associées. Nous ne sommes
+        affiliés avec aucune de ces structures.
       </p>
       <v-divider></v-divider>
 
