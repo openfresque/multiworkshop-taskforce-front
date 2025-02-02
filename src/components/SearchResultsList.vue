@@ -226,6 +226,16 @@
       )
       return distance <= props.searchRadius
     })
+
+    sortWorkshops()
+  }
+
+  function sortWorkshops() {
+    filteredWorkshops.value.sort((a, b) => {
+      if (a.start_date < b.start_date) return -1
+      if (a.start_date > b.start_date) return 1
+      return 0
+    })
   }
 
   function loadMore({ done }) {
