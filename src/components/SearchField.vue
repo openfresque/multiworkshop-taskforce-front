@@ -75,7 +75,7 @@
     }
     const suggestions = await State.current.autocomplete.suggest(searchTerm)
     let uid = 0
-    autocompleteMatches.value = suggestions.map(suggestion => ({
+    autocompleteMatches.value = suggestions.map((suggestion : any) => ({
       value: uid++,
       title: suggestion.nom ?? suggestion.nom_departement,
       props: suggestion,
@@ -85,7 +85,7 @@
   async function goToSearchResults(selected: AutocompleteItem | null) {
     const autocomplete = document.querySelector('.v-autocomplete input')
     if (autocomplete) {
-      autocomplete.blur()
+      (autocomplete as any).blur()
     }
 
     if (!selected) return

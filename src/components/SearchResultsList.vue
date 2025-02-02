@@ -40,7 +40,7 @@
       :empty-text="'-'"
     >
       <template
-        v-for="(item, index) in filteredWorkshopsToDisplay"
+        v-for="item in filteredWorkshopsToDisplay"
         :key="item"
       >
         <SearchResultsCard
@@ -82,28 +82,20 @@
 
   const props = defineProps({
     workshops: {
-      type: Object as () => Workshop[],
+      type: Array as PropType<Workshop[]>,
       required: true,
     },
-    longitude: {
-      type: [Number, undefined],
-      required: false,
-      default: undefined,
-    },
-    latitude: {
-      type: [Number, undefined],
-      required: false,
-      default: undefined,
-    },
+    longitude: Number,
+    latitude: Number,
     searchRadius: {
       type: Number,
       required: false,
       default: -1,
     },
     workshopType: {
-      type: String as () => SearchType,
+      type: String as PropType<SearchType>,
       required: false,
-      default: () => 'all' as SearchType,
+      default: 'all' as SearchType,
     },
     online: {
       type: Boolean,
@@ -126,7 +118,7 @@
       default: false,
     },
     dptNb: {
-      type: String as () => CodeDepartement | '',
+      type: String as PropType<CodeDepartement | ''>,
       required: false,
       default: '',
     },
@@ -242,7 +234,11 @@
     })
   }
 
-  function loadMore({ done }) {
+  function loadMore({
+    done,
+  }: {
+    done: (status: 'ok' | 'empty' | 'error') => void
+  }) {
     infiniteScrollEvents = done
     const added = displayXMoreWorkshops()
     console.log('added', added)

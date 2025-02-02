@@ -52,9 +52,7 @@
             size="large"
           >
             {{
-              workshop.sold_out
-                ? "[Complet] - Vérifier"
-                : 'Réserver une place'
+              workshop.sold_out ? '[Complet] - Vérifier' : 'Réserver une place'
             }}
           </v-btn>
           <v-btn
@@ -77,7 +75,7 @@
 
   const props = defineProps({
     workshop: {
-      type: Object as () => Workshop,
+      type: Object as PropType<Workshop>,
       required: true,
     },
     workshopTypeTitle: {
