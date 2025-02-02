@@ -10,9 +10,7 @@
         md="4"
         lg="4"
       >
-        <v-card
-          class="workshop-card ma-2 d-flex flex-column justify-center align-center"
-        >
+        <v-card class="workshop-card ma-2 d-flex justify-center align-center">
           <div class="card-content">
             <a
               :href="workshop.website"
@@ -51,6 +49,10 @@
     transition: transform 0.3s ease;
     padding: 20px;
     flex: 1; /* Ensure the card takes up equal space */
+
+    &:deep(.v-card-title) {
+      white-space: normal;
+    }
   }
 
   .workshop-card:hover {
@@ -58,10 +60,7 @@
   }
 
   .card-content {
-    height: 100%;
-    width: 100%;
     text-align: center;
-    word-break: keep-all;
   }
 
   .workshop-logo {

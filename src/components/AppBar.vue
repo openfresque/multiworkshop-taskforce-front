@@ -16,7 +16,7 @@
 
       <!-- navigation links (for md devices and bigger) -->
       <v-tabs
-        class="d-none d-sm-flex"
+        class="d-none d-md-flex"
         v-model="activeTab"
         color="primary"
         hide-slider
@@ -38,7 +38,7 @@
       <v-menu v-model="menu">
         <template #activator="{ props }">
           <v-btn
-            class="d-flex d-sm-none"
+            class="d-flex d-md-none"
             v-bind="props"
             icon
           >
