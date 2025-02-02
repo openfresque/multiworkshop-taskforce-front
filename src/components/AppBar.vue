@@ -27,7 +27,7 @@
           :append-icon="link.icon"
           exact
           :ripple="false"
-          :to="link.to"
+          :href="link.to"
           variant="text"
         >
           {{ link.text }}
@@ -72,8 +72,9 @@
   const menu = ref(false)
 
   const links = [
-    { id: 1, to: '/carte', text: 'carte', icon: 'mdi-map' },
-    { id: 2, to: '/apropos', text: 'About', icon: 'mdi-information' },
+    { id: 1, to: 'https://www.linkedin.com/company/trouver-une-fresque', text: 'Actualités', icon: 'mdi-newspaper' },
+    { id: 2, to: '/carte', text: 'Carte des fresques', icon: 'mdi-map' },
+    { id: 3, to: '/apropos', text: 'About', icon: 'mdi-information' },
   ]
 
   const theme = useTheme()
