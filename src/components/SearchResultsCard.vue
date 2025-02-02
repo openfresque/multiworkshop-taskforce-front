@@ -46,21 +46,25 @@
         >
           <v-btn
             class="d-none d-sm-flex"
-            color="primary"
+            :color="workshop.sold_out ? 'sold-out' : 'primary'"
             :href="workshop.source_link"
             target="_blank"
             size="large"
           >
-            Réserver une place
+            {{
+              workshop.sold_out
+                ? "[Complet] - Vérifier"
+                : 'Réserver une place'
+            }}
           </v-btn>
           <v-btn
             class="d-sm-none"
-            color="primary"
+            :color="workshop.sold_out ? 'sold-out' : 'primary'"
             :href="workshop.source_link"
             target="_blank"
             size="large"
           >
-            Réserver
+            {{ workshop.sold_out ? '[COMPLET] - Vérifier' : 'Réserver' }}
           </v-btn>
         </v-col>
       </v-row>
