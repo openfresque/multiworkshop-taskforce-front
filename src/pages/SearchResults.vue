@@ -12,6 +12,7 @@
 
         <!-- online toggle -->
         <v-switch
+          v-model="online"
           color="primary"
           label="Inclure les ateliers en ligne"
           hide-details
@@ -45,7 +46,7 @@
       >
       <v-tab
         class="workshop-type-btn"
-        value="animation"
+        value="formation"
         variant="tonal"
         >devenir animateur</v-tab
       >
@@ -65,16 +66,18 @@
           :latitude="selectedCity?.latitude"
           :search-radius="tickDistances[distance]"
           :workshop-type="'atelier'"
+          :online="online"
         ></SearchResultsList>
       </v-tabs-window-item>
 
-      <v-tabs-window-item value="animation">
+      <v-tabs-window-item value="formation">
         <SearchResultsList
           :workshops="filteredWorkshops"
           :longitude="selectedCity?.longitude"
           :latitude="selectedCity?.latitude"
           :search-radius="tickDistances[distance]"
           :workshop-type="'formation'"
+          :online="online"
         ></SearchResultsList>
         <div class="results ma-2"></div>
       </v-tabs-window-item>
@@ -86,6 +89,7 @@
           :latitude="selectedCity?.latitude"
           :search-radius="tickDistances[distance]"
           :workshop-type="'junior'"
+          :online="online"
         ></SearchResultsList>
       </v-tabs-window-item>
     </v-tabs-window>
@@ -95,6 +99,7 @@
 <script lang="ts" setup>
   import { Workshop } from '@/common/Conf'
   import router, { ROUTE_SEARCH_CITY, ROUTE_SEARCH_DPT } from '@/router'
+  import { rechercheCommuneDescriptor } from '@/routing/DynamicURLs'
   import { AutocompleteItem, Commune, State } from '@/state/State'
   import { ref, onMounted } from 'vue'
 
@@ -123,8 +128,29 @@
   const filteredWorkshops = ref<Workshop[]>([])
   const selectedCity = ref<Commune | undefined>(undefined)
   const distance = ref(2)
-
+  const online = ref(false)
   const tab = ref('atelier')
+
+  watch([online, tab], () => {
+    updateRoute()
+  })
+
+  function updateRoute() {
+    const params = router.currentRoute.value.params as any
+    params.includesOnline = online.value ? 'oui' : 'non'
+    params.typeRecherche = tab.value
+    let route = rechercheCommuneDescriptor.routerUrl
+    route = route.replace(':codeDpt', params.codeDpt)
+    route = route.replace(':nomDpt', params.nomDpt)
+    route = route.replace(':codeCommune', params.codeCommune)
+    route = route.replace(':codePostal', params.codePostal)
+    route = route.replace(':nomCommune', params.nomCommune)
+    route = route.replace(':typeRecherche', params.typeRecherche)
+    route = route.replace(':codeTriCentre', params.codeTriCentre)
+    route = route.replace(':includesOnline', params.includesOnline)
+
+    history.pushState({}, '', route)
+  }
 
   async function refresh() {
     const route = router.currentRoute.value.name
@@ -168,6 +194,8 @@
       default:
         console.log('default')
     }
+    online.value = params.includesOnline === 'oui'
+    tab.value = params.typeRecherche
     const allWorkshops = await State.current.allWorkshops()
     filteredWorkshops.value = allWorkshops.workshopsDisponibles
   }

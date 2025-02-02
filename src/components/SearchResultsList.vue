@@ -46,6 +46,11 @@
       required: false,
       default: () => 'all' as SearchType,
     },
+    online: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   })
 
   const filteredWorkshops = ref<Workshop[]>([])
@@ -61,7 +66,7 @@
     if (end > filteredWorkshops.value.length) {
       end = filteredWorkshops.value.length
     }
-    console.log('was showing', currentLength, 'now showing', end)
+
     filteredWorkshopsToDisplay.value = filteredWorkshops.value.slice(0, end)
     const added = end - currentLength
     return added
@@ -70,13 +75,21 @@
   function filterWorkshops() {
     filteredWorkshops.value = props.workshops.filter((workshop: Workshop) => {
       // junior filter
-      if (props.workshopType === 'junior' && !workshop.kids) {
+      if (
+        props.workshopType === 'junior' &&
+        (!workshop.kids || workshop.training) // don't show training for kids
+      ) {
         return false
       }
 
       // training filter
       if (props.workshopType === 'formation' && !workshop.training) {
         return false
+      }
+
+      // online filter
+      if (props.online && workshop.online) {
+        return true
       }
 
       // Distance filter
@@ -115,6 +128,7 @@
       props.longitude,
       props.latitude,
       props.workshopType,
+      props.online,
     ],
     newVal => {
       filteredWorkshops.value = []
