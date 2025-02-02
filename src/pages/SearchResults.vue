@@ -20,6 +20,7 @@
         <!-- search radius -->
         <div class="text-caption mt-2">Rayon de recherche</div>
         <v-slider
+          v-model="distance"
           :max="5"
           show-ticks="always"
           :step="1"
@@ -27,10 +28,6 @@
           tick-size="4"
           color="primary"
         ></v-slider>
-
-        <!-- workshop Type -->
-        <!-- <div class="text-caption mt-2">Vous souhaitez</div> -->
-        <div></div>
       </v-container>
     </v-container>
     <v-tabs
@@ -62,7 +59,12 @@
     <!-- results -->
     <v-tabs-window v-model="tab">
       <v-tabs-window-item value="atelier">
-        <SearchResultsList :workshops="filteredWorkshops"></SearchResultsList>
+        <SearchResultsList
+          :workshops="filteredWorkshops"
+          :longitude="selectedCity?.longitude"
+          :latitude="selectedCity?.latitude"
+          :search-radius="tickDistances[distance]"
+        ></SearchResultsList>
       </v-tabs-window-item>
 
       <v-tabs-window-item value="animation">
@@ -77,7 +79,7 @@
 <script lang="ts" setup>
   import { Workshop } from '@/common/Conf'
   import router, { ROUTE_SEARCH_CITY, ROUTE_SEARCH_DPT } from '@/router'
-  import { AutocompleteItem, State } from '@/state/State'
+  import { AutocompleteItem, Commune, State } from '@/state/State'
   import { ref, onMounted } from 'vue'
 
   const searchItem = ref<AutocompleteItem>({
@@ -100,7 +102,11 @@
     5: 'Tout',
   }
 
+  const tickDistances = [10, 25, 50, 100, 250, -1]
+
   const filteredWorkshops = ref<Workshop[]>([])
+  const selectedCity = ref<Commune | undefined>(undefined)
+  const distance = ref(2)
 
   const tab = ref('atelier')
 
@@ -136,6 +142,12 @@
             nom: params.nomCommune,
           },
         }
+        selectedCity.value = await State.current.autocomplete.findCommune(
+          params.codePostal,
+          params.codeCommune
+        )
+
+        console.log('selectedCity : ', selectedCity.value)
         break
       default:
         console.log('default')
