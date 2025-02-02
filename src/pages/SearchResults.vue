@@ -115,7 +115,7 @@
 <script lang="ts" setup>
   import { Workshop } from '@/common/Conf'
   import router, { ROUTE_SEARCH_CITY, ROUTE_SEARCH_DPT } from '@/router'
-  import { rechercheCommuneDescriptor } from '@/routing/DynamicURLs'
+  import { rechercheCommuneDescriptor, rechercheDepartementDescriptor } from '@/routing/DynamicURLs'
   import { AutocompleteItem, Commune, Departement, State } from '@/state/State'
   import { ref, onMounted } from 'vue'
 
@@ -158,6 +158,9 @@
     params.includesOnline = online.value ? 'oui' : 'non'
     params.typeRecherche = tab.value
     let route = rechercheCommuneDescriptor.routerUrl
+    if (isSearchByDpt()) {
+      route = rechercheDepartementDescriptor.routerUrl
+    }
     route = route.replace(':codeDpt', params.codeDpt)
     route = route.replace(':nomDpt', params.nomDpt)
     route = route.replace(':codeCommune', params.codeCommune)
