@@ -14,6 +14,12 @@
   $border-radius-root: 12px
 );
 
+// Set default rem size
+html {
+  font-size: 16px;
+  zoom: 1.2;
+}
+
 // Add margin around headings
 h1,
 h2,

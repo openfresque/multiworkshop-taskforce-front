@@ -3,31 +3,74 @@
     <v-container max-width="1200px">
       <router-view />
       <!-- search card -->
-      <v-card class="search-card pa-2 pa-sm-10">
-        <v-card-text class="d-flex justify-center">
-          <SearchField
-            class="d-flex flex-grow-1 justify-center"
-            v-model="searchItem"
-          ></SearchField>
-        </v-card-text>
-      </v-card>
-    </v-container>
-    <!-- results -->
-    <div class="results">
-      <v-container max-width="1200px">
-        <v-infinite-scroll
-          :items="filteredWorkshopsToDisplay"
-          @load="loadMore"
-        >
-          <template
-            v-for="(item, index) in filteredWorkshopsToDisplay"
-            :key="item"
-          >
-            <SearchResultsCard :workshop="item"></SearchResultsCard>
-          </template>
-        </v-infinite-scroll>
+      <v-container max-width="500px">
+        <!-- search field -->
+        <SearchField
+          class="d-flex flex-grow-1 justify-center"
+          v-model="searchItem"
+        ></SearchField>
+
+        <!-- online toggle -->
+        <v-switch
+          color="primary"
+          label="Inclure les ateliers en ligne"
+          hide-details
+        ></v-switch>
+
+        <!-- search radius -->
+        <div class="text-caption mt-2">Rayon de recherche</div>
+        <v-slider
+          :max="5"
+          show-ticks="always"
+          :step="1"
+          :ticks="tickLabels"
+          tick-size="4"
+          color="primary"
+        ></v-slider>
+
+        <!-- workshop Type -->
+        <!-- <div class="text-caption mt-2">Vous souhaitez</div> -->
+        <div></div>
       </v-container>
-    </div>
+    </v-container>
+    <v-tabs
+      class="workshop-type-btn-div d-flex justify-center"
+      v-model="tab"
+      color="primary"
+      grow
+      fixed-tabs
+    >
+      <v-tab
+        class="workshop-type-btn"
+        value="atelier"
+        variant="tonal"
+        >Participer à un atelier</v-tab
+      >
+      <v-tab
+        class="workshop-type-btn"
+        value="animation"
+        variant="tonal"
+        >devenir animateur</v-tab
+      >
+      <v-tab
+        class="workshop-type-btn"
+        value="junior"
+        variant="tonal"
+        >trouver un atelier junior</v-tab
+      >
+    </v-tabs>
+    <!-- results -->
+    <v-tabs-window v-model="tab">
+      <v-tabs-window-item value="atelier">
+        <SearchResultsList :workshops="filteredWorkshops"></SearchResultsList>
+      </v-tabs-window-item>
+
+      <v-tabs-window-item value="animation">
+        <div class="results ma-2"></div>
+      </v-tabs-window-item>
+
+      <v-tabs-window-item value="junior"> </v-tabs-window-item>
+    </v-tabs-window>
   </div>
 </template>
 
@@ -48,8 +91,18 @@
     },
   })
 
+  const tickLabels = {
+    0: '10 km',
+    1: '25 km',
+    2: '50 km',
+    3: '100 km',
+    4: '250 km',
+    5: 'Tout',
+  }
+
   const filteredWorkshops = ref<Workshop[]>([])
-  const filteredWorkshopsToDisplay = ref<Workshop[]>([])
+
+  const tab = ref('atelier')
 
   async function refresh() {
     const route = router.currentRoute.value.name
@@ -89,25 +142,6 @@
     }
     const allWorkshops = await State.current.allWorkshops()
     filteredWorkshops.value = allWorkshops.workshopsDisponibles
-    filteredWorkshopsToDisplay.value = []
-
-    console.log('workshops : ', filteredWorkshops.value)
-    displayXMoreWorkshops()
-  }
-
-  function displayXMoreWorkshops(nb = 10) {
-    const end = filteredWorkshopsToDisplay.value.length + nb
-    filteredWorkshopsToDisplay.value = filteredWorkshops.value.slice(0, end)
-  }
-
-  function loadMore({ done }) {
-    console.log(
-      'loadMore, current length : ',
-      filteredWorkshopsToDisplay.value.length
-    )
-    displayXMoreWorkshops()
-    console.log('new length : ', filteredWorkshopsToDisplay.value.length)
-    done('ok')
   }
 
   onMounted(() => {
@@ -120,19 +154,23 @@
 </script>
 
 <style scoped>
-  .search-card {
-    background: linear-gradient(
-      45deg,
-      rgba(var(--v-theme-secondary), 0.6),
-      rgba(var(--v-theme-primary), 0.6)
-    );
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+  .results {
+    background-color: rgb(var(--v-theme-background-2));
   }
 
-  .results {
-    margin-top: 20px;
-    background-color: rgb(var(--v-theme-background-2));
+  .workshop-type-btn {
+    /* @media screen and (max-width: 600px) {
+      width: 120px !important;
+    } */
+    & :deep(.v-btn__content) {
+      white-space: wrap !important;
+      font-size: 0.7rem !important;
+      /* @media screen and (max-width: 960px) {
+        font-size: 0.6rem !important;
+      }
+      @media screen and (max-width: 600px) {
+        font-size: 0.5rem !important;
+      } */
+    }
   }
 </style>
