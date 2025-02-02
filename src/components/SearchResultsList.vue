@@ -45,6 +45,29 @@
         <SearchResultsCard :workshop="item"></SearchResultsCard>
       </template>
     </v-infinite-scroll>
+
+    <!-- no result card -->
+    <v-card
+      class="text-center my-6"
+      v-else-if="!online"
+    >
+      <v-card-title
+        class="text-center"
+        style="white-space: wrap"
+      >
+        Souhaitez vous inclure les ateliers en ligne ?
+      </v-card-title>
+      <v-card-actions class="d-flex justify-center">
+        <v-btn
+          color="primary"
+          @click="$emit('showOnline')"
+          variant="elevated"
+          ripple
+        >
+          Voir les ateliers en ligne
+        </v-btn>
+      </v-card-actions>
+    </v-card>
   </v-container>
 </template>
 

@@ -69,6 +69,7 @@
             :online="online"
             :location-title="getLocationTitle()"
             :last-update-date="lastUpdateDate"
+            @showOnline="online = true"
           ></SearchResultsList>
         </v-tabs-window-item>
 
@@ -82,6 +83,7 @@
             :online="online"
             :location-title="getLocationTitle()"
             :last-update-date="lastUpdateDate"
+            @showOnline="online = true"
           ></SearchResultsList>
           <div class="results ma-2"></div>
         </v-tabs-window-item>
@@ -96,6 +98,7 @@
             :online="online"
             :location-title="getLocationTitle()"
             :last-update-date="lastUpdateDate"
+            @showOnline="online = true"
           ></SearchResultsList>
         </v-tabs-window-item>
       </v-tabs-window>
@@ -210,15 +213,15 @@
   }
 
   function getLocationTitle() {
+    let ret = ''
     if (isSearchByCity()) {
-      console.log('selectedCity', selectedCity.value)
-      return (
-        selectedCity.value?.nom + ' (' + selectedCity.value?.codePostal + ')'
-      )
-    } else if (isSearchByDpt()) {
-      return searchItem.value.title
+      ret += selectedCity.value?.nom
+      ret += ' (' + selectedCity.value?.codePostal + ')'
+      if (online.value) {
+        ret += ' ou En ligne'
+      }
     }
-    return ''
+    return ret
   }
 
   onMounted(() => {
