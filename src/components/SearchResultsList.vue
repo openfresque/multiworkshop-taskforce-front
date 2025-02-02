@@ -1,8 +1,10 @@
 <template>
   <v-container max-width="1200px">
     <v-infinite-scroll
+      v-if="filteredWorkshopsToDisplay.length > 0"
       :items="filteredWorkshopsToDisplay"
       @load="loadMore"
+      empty-text="Tous les ateliers correspondants aux critères ont été affichés"
     >
       <template
         v-for="(item, index) in filteredWorkshopsToDisplay"
@@ -43,10 +45,20 @@
 
   const filteredWorkshops = ref<Workshop[]>([])
   const filteredWorkshopsToDisplay = ref<Workshop[]>([])
+    let infiniteScrollEvents: ((value: 'ok' | 'empty' | 'error') => void) | undefined;
+
 
   function displayXMoreWorkshops(nb = 10) {
-    const end = filteredWorkshopsToDisplay.value.length + nb
+    const currentLength = filteredWorkshopsToDisplay.value.length
+    let end = filteredWorkshopsToDisplay.value.length + nb
+
+    if (end > filteredWorkshops.value.length) {
+      end = filteredWorkshops.value.length
+    }
+    console.log('was showing', currentLength, 'now showing', end)
     filteredWorkshopsToDisplay.value = filteredWorkshops.value.slice(0, end)
+    const added = end - currentLength
+    return added
   }
 
   function filterWorkshops() {
@@ -56,7 +68,10 @@
       }
 
       if (!props.longitude || !props.latitude) {
-        console.warn('No longitude or latitude provided for workshop ', workshop)
+        console.warn(
+          'No longitude or latitude provided for workshop ',
+          workshop
+        )
         return false
       }
 
@@ -69,8 +84,11 @@
   }
 
   function loadMore({ done }) {
-    displayXMoreWorkshops()
-    done('ok')
+    infiniteScrollEvents = done
+    const added = displayXMoreWorkshops()
+    console.log('added', added)
+    if (added === 0) done('empty')
+    else done('ok')
   }
 
   watch(
@@ -80,6 +98,7 @@
       filteredWorkshopsToDisplay.value = []
       filterWorkshops()
       displayXMoreWorkshops()
+      infiniteScrollEvents?.('ok')
     }
   )
 
