@@ -64,14 +64,30 @@
           :longitude="selectedCity?.longitude"
           :latitude="selectedCity?.latitude"
           :search-radius="tickDistances[distance]"
+          :workshop-type="'atelier'"
         ></SearchResultsList>
       </v-tabs-window-item>
 
       <v-tabs-window-item value="animation">
+        <SearchResultsList
+          :workshops="filteredWorkshops"
+          :longitude="selectedCity?.longitude"
+          :latitude="selectedCity?.latitude"
+          :search-radius="tickDistances[distance]"
+          :workshop-type="'formation'"
+        ></SearchResultsList>
         <div class="results ma-2"></div>
       </v-tabs-window-item>
 
-      <v-tabs-window-item value="junior"> </v-tabs-window-item>
+      <v-tabs-window-item value="junior">
+        <SearchResultsList
+          :workshops="filteredWorkshops"
+          :longitude="selectedCity?.longitude"
+          :latitude="selectedCity?.latitude"
+          :search-radius="tickDistances[distance]"
+          :workshop-type="'junior'"
+        ></SearchResultsList>
+      </v-tabs-window-item>
     </v-tabs-window>
   </div>
 </template>

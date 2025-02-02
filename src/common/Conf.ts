@@ -244,6 +244,9 @@ export type Workshop = {
 export type Coordinates = { latitude: number; longitude: number }
 export type Location = Coordinates & { city: string; cp: string }
 
+export type SearchType = 'standard' | 'atelier' | 'formation' | 'junior' | 'all'
+export const TYPE_RECHERCHE_PAR_DEFAUT: SearchType = 'atelier'
+
 export type WorkshopsParDepartement = {
   workshopsDisponibles: Workshop[]
   codeDepartements: CodeDepartement[]

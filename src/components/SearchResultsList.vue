@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { Workshop } from '@/common/Conf'
+  import { SearchType, Workshop } from '@/common/Conf'
   import distanceBetween from '@/utils/distance'
   import { ref, onMounted } from 'vue'
 
@@ -41,12 +41,18 @@
       required: false,
       default: -1,
     },
+    workshopType: {
+      type: String as () => SearchType,
+      required: false,
+      default: () => 'all' as SearchType,
+    },
   })
 
   const filteredWorkshops = ref<Workshop[]>([])
   const filteredWorkshopsToDisplay = ref<Workshop[]>([])
-    let infiniteScrollEvents: ((value: 'ok' | 'empty' | 'error') => void) | undefined;
-
+  let infiniteScrollEvents:
+    | ((value: 'ok' | 'empty' | 'error') => void)
+    | undefined
 
   function displayXMoreWorkshops(nb = 10) {
     const currentLength = filteredWorkshopsToDisplay.value.length
@@ -63,6 +69,17 @@
 
   function filterWorkshops() {
     filteredWorkshops.value = props.workshops.filter((workshop: Workshop) => {
+      // junior filter
+      if (props.workshopType === 'junior' && !workshop.kids) {
+        return false
+      }
+
+      // training filter
+      if (props.workshopType === 'formation' && !workshop.training) {
+        return false
+      }
+
+      // Distance filter
       if (props.searchRadius === -1) {
         return true
       }
@@ -92,7 +109,13 @@
   }
 
   watch(
-    () => [props.workshops, props.searchRadius],
+    () => [
+      props.workshops,
+      props.searchRadius,
+      props.longitude,
+      props.latitude,
+      props.workshopType,
+    ],
     newVal => {
       filteredWorkshops.value = []
       filteredWorkshopsToDisplay.value = []
