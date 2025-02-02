@@ -20,9 +20,7 @@
           icon="mdi-calendar-remove"
           size="large"
         ></v-icon>
-        {{ filteredWorkshops.length }} atelier{{
-          filteredWorkshops.length > 0 ? 's' : ''
-        }}
+        {{ filteredWorkshops.length }} {{ getWorkshopType() }}
         {{ searchByDpt ? 'pour' : 'autour de' }}
         <strong>{{ locationTitle }}</strong></v-card-title
       >
@@ -149,6 +147,15 @@
       return 'hier'
     }
     return `il y a ${diffDays} jours`
+  }
+
+  function getWorkshopType() {
+    const plural = filteredWorkshops.value.length > 0? 's' : ''
+    if (props.workshopType === 'junior') {
+      return 'atelier' + plural + ' junior' + plural
+    } else if (props.workshopType === 'formation') {
+      return 'formation' + plural
+    } else return 'atelier' + plural
   }
 
   function displayXMoreWorkshops(nb = 10) {
