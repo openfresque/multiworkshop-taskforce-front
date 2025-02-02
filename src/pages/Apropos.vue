@@ -1,5 +1,7 @@
 <template>
-  <HelloWorld />
+  <v-container>
+    <QnA></QnA>
+  </v-container>
 </template>
 
 <script lang="ts" setup>
