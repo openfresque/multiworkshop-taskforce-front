@@ -202,6 +202,10 @@
         return true
       }
 
+      if (!props.online && workshop.online) {
+        return false
+      }
+
       //   search by department filter
       if (props.searchByDpt) {
         return workshop.department === props.dptNb
