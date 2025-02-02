@@ -19,16 +19,18 @@
         ></v-switch>
 
         <!-- search radius -->
-        <div class="text-caption mt-2">Rayon de recherche</div>
-        <v-slider
-          v-model="distance"
-          :max="5"
-          show-ticks="always"
-          :step="1"
-          :ticks="tickLabels"
-          tick-size="4"
-          color="primary"
-        ></v-slider>
+        <div v-if="isSearchByCity()">
+          <div class="text-caption mt-2">Rayon de recherche</div>
+          <v-slider
+            v-model="distance"
+            :max="5"
+            show-ticks="always"
+            :step="1"
+            :ticks="tickLabels"
+            tick-size="4"
+            color="primary"
+          ></v-slider>
+        </div>
       </v-container>
 
       <v-tabs
@@ -115,7 +117,10 @@
 <script lang="ts" setup>
   import { Workshop } from '@/common/Conf'
   import router, { ROUTE_SEARCH_CITY, ROUTE_SEARCH_DPT } from '@/router'
-  import { rechercheCommuneDescriptor, rechercheDepartementDescriptor } from '@/routing/DynamicURLs'
+  import {
+    rechercheCommuneDescriptor,
+    rechercheDepartementDescriptor,
+  } from '@/routing/DynamicURLs'
   import { AutocompleteItem, Commune, Departement, State } from '@/state/State'
   import { ref, onMounted } from 'vue'
 
