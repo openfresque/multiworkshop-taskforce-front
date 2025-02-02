@@ -2,7 +2,7 @@
   <div>
     <router-view />
     <v-autocomplete
-      label="Localisation"
+      label="Commune, Code postal, Département..."
       max-width="500px"
       variant="solo"
       no-data-text="Aucun résultat"
