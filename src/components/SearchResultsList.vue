@@ -166,6 +166,14 @@
         return false
       }
 
+      // workshop filter
+      if (
+        props.workshopType === 'atelier' &&
+        (workshop.training || workshop.kids)
+      ) {
+        return false
+      }
+
       // online filter
       if (props.online && workshop.online) {
         return true
