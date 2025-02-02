@@ -43,7 +43,10 @@
         v-for="(item, index) in filteredWorkshopsToDisplay"
         :key="item"
       >
-        <SearchResultsCard :workshop="item"></SearchResultsCard>
+        <SearchResultsCard
+          :workshop="item"
+          :workshop-type-title="getWorkshopType(false)"
+        ></SearchResultsCard>
       </template>
     </v-infinite-scroll>
 
@@ -149,8 +152,8 @@
     return `il y a ${diffDays} jours`
   }
 
-  function getWorkshopType() {
-    const plural = filteredWorkshops.value.length > 0? 's' : ''
+  function getWorkshopType(usePlural = true) {
+    const plural = usePlural && filteredWorkshops.value.length > 0 ? 's' : ''
     if (props.workshopType === 'junior') {
       return 'atelier' + plural + ' junior' + plural
     } else if (props.workshopType === 'formation') {

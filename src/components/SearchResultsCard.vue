@@ -71,15 +71,25 @@
 <script setup lang="ts">
   import { ATELIERS, Workshop } from '@/common/Conf'
 
-  defineProps({
+  const props = defineProps({
     workshop: {
       type: Object as () => Workshop,
       required: true,
     },
+    workshopTypeTitle: {
+      type: String,
+      required: false,
+      default: 'Atelier',
+    },
   })
 
   function getWorkshopTitle(workshop: Workshop): string {
-    return 'Atelier ' + ATELIERS[workshop.workshop_type].name
+    return (
+      props.workshopTypeTitle.toUpperCase()[0] +
+      props.workshopTypeTitle.slice(1).toLowerCase() +
+      ' ' +
+      ATELIERS[workshop.workshop_type].name
+    )
   }
 
   function getWorkshopDate(workshop: Workshop): string {
