@@ -3,7 +3,7 @@ import { Router } from 'vue-router'
 
 function matomoOptions(router: Router) {
   return {
-    host: 'https://analytics.climatefresk.org/',
+    host: 'https://analytics.climatefresk.org',
     siteId: 12,
     trackerFileName: 'matomo',
     router: router,
