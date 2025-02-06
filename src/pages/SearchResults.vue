@@ -84,7 +84,19 @@
         >
       </v-tabs>
       <!-- results -->
-      <v-tabs-window v-model="tab">
+      <div
+        class="d-flex justify-center ma-4"
+        v-if="isLoading"
+      >
+        <v-progress-circular
+          indeterminate
+          color="primary"
+        ></v-progress-circular>
+      </div>
+      <v-tabs-window
+        v-else
+        v-model="tab"
+      >
         <v-tabs-window-item value="atelier">
           <SearchResultsList
             :workshops="filteredWorkshops"
@@ -186,6 +198,7 @@
   const distance = ref(2)
   const online = ref(false)
   const tab = ref('atelier')
+  const isLoading = ref(false)
 
   watch([online, tab], () => {
     updateRoute()
@@ -225,6 +238,7 @@
   }
 
   async function refresh() {
+    isLoading.value = true
     const params = router.currentRoute.value.params as any
     // City search
     if (isSearchByCity()) {
@@ -266,6 +280,7 @@
     const allWorkshops = await State.current.allWorkshops()
     filteredWorkshops.value = allWorkshops.workshopsDisponibles
     lastUpdateDate.value = allWorkshops.derniereMiseAJour
+    isLoading.value = false
   }
 
   function getLocationTitle() {
