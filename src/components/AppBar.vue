@@ -73,7 +73,7 @@
 
   const links = [
     { id: 1, to: 'https://www.linkedin.com/company/trouver-une-fresque', text: 'Actualités', icon: 'mdi-newspaper' },
-    { id: 3, to: '/apropos', text: 'About', icon: 'mdi-information' },
+    { id: 3, to: '/apropos', text: 'A propos', icon: 'mdi-information' },
   ]
   // { id: 2, to: '/carte', text: 'Carte des fresques', icon: 'mdi-map' },
 
