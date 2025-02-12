@@ -1,3 +1,4 @@
+// @ts-ignore
 import VueMatomo from 'vue-matomo'
 import { Router } from 'vue-router'
 
