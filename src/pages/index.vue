@@ -1,5 +1,11 @@
 <template>
   <v-container max-width="1200px">
+    <!-- Banner -->
+    <v-banner class="greeting-banner">
+      <v-icon icon="mdi-information" color="primary"></v-icon>
+      <span>Trouver une Fresque va bientôt s'internationaliser ! En attendant, rendez-vous sur la <a href="https://www.findafresk.org">page du projet</a>, et suivez-nous sur <a href="https://www.linkedin.com/company/trouver-une-fresque">LinkedIn</a> !</span>
+    </v-banner>
+
     <router-view />
     <!-- search card -->
     <v-card class="search-card pa-2 pa-sm-10">
@@ -33,5 +39,14 @@
       rgba(var(--v-theme-secondary), 0.6),
       rgba(var(--v-theme-primary), 0.6)
     );
+  }
+  .greeting-banner {
+    background-color: rgba(var(--v-theme-primary), 0.1);
+    color: var(--v-theme-primary);
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
   }
 </style>
