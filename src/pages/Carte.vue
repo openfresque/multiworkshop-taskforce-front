@@ -83,7 +83,7 @@
 
       const newMarker = marker([lieu.latitude, lieu.longitude] as LatLngTuple, {
         icon: new Icon.Default({
-          iconUrl: `assets/images/png/marker-icon-2x.png`,
+          iconUrl: `/assets/images/png/marker-icon-2x.png`,
         }),
       }).bindPopup(string_popup)
       newMarker.on('click', function () {
