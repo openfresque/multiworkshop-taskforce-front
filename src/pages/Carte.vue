@@ -19,6 +19,7 @@
   import { map, tileLayer, marker, Marker, Icon, LatLngTuple } from 'leaflet'
   import 'leaflet/dist/leaflet.css'
   import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
+  // @ts-ignore
   import { MarkerClusterGroup } from 'leaflet.markercluster'
   import { State, Workshop } from '@/state/State'
 
