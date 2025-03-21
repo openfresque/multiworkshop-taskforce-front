@@ -34,13 +34,13 @@
 
   onMounted(async () => {
     mymap.value = map('mapid', {
-      // Add any map options here
+      markerZoomAnimation: false,
     }).setView([46.505, 3], 6)
 
     const allWorkshops = await State.current.allWorkshops()
     const workshopsCarte = allWorkshops.workshopsDisponibles
       .filter((workshop: Workshop) => workshop.online === false) // Exclude online workshops
-      .filter(workshop => !!workshop.longitude && workshop.latitude) // Exclude workshops without coordinates
+      .filter(workshop => !!workshop.longitude && !!workshop.latitude) // Exclude workshops without coordinates
       .filter(
         workshop =>
           workshop.latitude >= -90 &&
@@ -90,15 +90,11 @@
       <br>
       <b>Réservation :</b> ${reservation_str || '-'}
     `
-      const customIcon = new Icon({
-        iconUrl: `assets/images/png/marker-icon-2x.png`, // Path to your custom PNG icon
-        iconSize: [25, 41], // Size of the icon
-        iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
-        popupAnchor: [0 - 34], // Point from which the popup should open relative to the iconAnchor
-      })
 
       const newMarker = marker([lieu.latitude, lieu.longitude] as LatLngTuple, {
-        icon: customIcon,
+        icon: new Icon.Default({
+          iconUrl: `assets/images/png/marker-icon-2x.png`,
+        }),
       }).bindPopup(string_popup)
       newMarker.on('click', function () {
         // @ts-ignore
