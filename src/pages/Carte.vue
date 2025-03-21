@@ -1,16 +1,5 @@
 <template>
-  <v-container max-width="1200px">
-    <div
-      id="mapid"
-      style="
-        height: 80vh;
-        width: 90vw;
-        max-width: 100%;
-        max-height: 600px;
-        margin-bottom: 40px;
-        margin: auto;
-      "
-    ></div>
+  <v-container id="mapid" class="h-100" max-width="1800px">
   </v-container>
 </template>
 
