@@ -96,6 +96,6 @@
   .toolbar-content
     max-width: 1200px
     width: 100%
-    height: 100%
+    height: 80%
     margin: 0 auto
 </style>

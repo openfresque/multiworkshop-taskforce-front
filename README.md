@@ -1,6 +1,6 @@
-# Trouver Une Fresque - front
+# Trouver une Fresque - frontend
 
-This is the official repository of the frontend of (Trouver Une Fresque)[https://trouverunefresque.org].
+This is the official repository of the frontend of [Trouver une Fresque](https://trouverunefresque.org).
 
 ## 💿 Install
 
@@ -31,7 +31,3 @@ The app is automatically built for production using github actions. The built fi
 ## 📑 License
 
 [AGPL-3.0](LICENSE)
-
-## Credits
-
-(Terre icônes créées par Freepik - Flaticon)[https://www.flaticon.com/fr/icones-gratuites/terre]
