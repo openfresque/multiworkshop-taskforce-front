@@ -1,5 +1,9 @@
 <template>
-  <v-container id="mapid" class="h-100" max-width="1800px">
+  <v-container
+    class="h-100"
+    id="mapid"
+    max-width="1800px"
+  >
   </v-container>
 </template>
 
@@ -85,6 +89,8 @@
         icon: new Icon.Default({
           imagePath: `/assets/images/png/`,
           iconUrl: `marker-icon-2x.png`,
+          iconSize: [32, 31],
+          iconAnchor: [8, 31],
         }),
       }).bindPopup(string_popup)
       newMarker.on('click', function () {
