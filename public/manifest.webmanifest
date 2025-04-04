@@ -14,9 +14,9 @@
     }
   ],
   "start_url": "/",
-  "background_color": "#5561d9",
+  "background_color": "#ffffff",
   "display": "minimal-ui",
-  "theme_color": "#5561d9",
+  "theme_color": "#ffffff",
   "shortcuts": [],
   "description": "Trouver une Fresque répertorie la majorité des fresques en France et vous permet de trouver un atelier proche de chez vous.",
   "screenshots": [

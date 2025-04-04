@@ -87,8 +87,8 @@
 
   const currentLogo = computed(() => {
     return theme.global.current.value.dark
-      ? '/assets/images/svg/tuf-logo-landscape-white-font.webp'
-      : '/assets/images/svg/tuf-logo-landscape.webp'
+      ? '/assets/images/svg/tuf-logo-landscape-fr.webp'
+      : '/assets/images/svg/tuf-logo-landscape-fr.webp'
   })
 </script>
 
