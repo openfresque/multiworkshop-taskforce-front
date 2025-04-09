@@ -1,0 +1,59 @@
+{
+  "welcome": "Trouvez une Fresque près de chez vous",
+  "searchField": "Commune, Code postal, Département...",
+  "banner": "Trouver une Fresque va bientôt s'internationaliser ! En attendant, rendez-vous sur la <a href=\"https://www.findafresk.org\">page du projet</a>, et suivez-nous sur <a href=\"https://www.linkedin.com/company/trouver-une-fresque\">LinkedIn</a> !",
+  "footer": "Trouver une Fresque n'est pas un outil officiel, n'est PAS exhaustif et ne remplace pas une recherche manuelle notamment dans le cas où aucun atelier disponible n'est proposé sur notre site.",
+  "navigation": {
+    "news": "Actualités",
+    "map": "Carte des fresques",
+    "about": "À propos"
+  },
+  "buttons": {
+    "license": "Trouver une Fresque - AGPL-3.0",
+    "legal": "Mentions légales",
+    "contact": "Contact"
+  },
+  "qa": {
+    "title": "Qu'est-ce que Trouver une Fresque ?",
+    "description": "Trouver une Fresque est un moteur de recherche recensant les ateliers de type Fresque en France.",
+    "sections": {
+      "interest": {
+        "title": "Quel est l'intérêt de Trouver une Fresque ?",
+        "description": "Trouver une Fresque est une plateforme qui permet de trouver un atelier de type Fresque dans son département. Sont actuellement recensés les ateliers suivants : Fresque du Climat, Atelier 2tonnes, Fresque de la Diversité, Fresque Océane, Fresque de la Construction, Fresque Agri'Alim, Fresque des Nouveaux Récits, Fresque de la Mobilité, Fresque de l'Alimentation, Atelier Inventons Nos Vies Bas Carbone, Atelier OGRE, Fresque de l'Eau, Fresque de l'Économie Circulaire, Ateliers Futurs Proches, Fresque du Textile, Fresque des Déchets, Fresque des Frontières Planétaires, Atelier Horizons Décarbonés, Atelier 2030 Glorieuses, Fresque de la Biodiversité, Fresque du Sexisme, Fresque du Numérique, Puzzle Climat, Fresque de la Finance, Fresque de la RSE, Cyber Fresque, Fresque du Plastique, Fresque du Bénévolat. La réservation d'un atelier s'effectue via les plateformes de billetique associées. Nous ne sommes affiliés avec aucune de ces structures."
+      },
+      "functionality": {
+        "title": "Comment fonctionne Trouver une Fresque ?",
+        "description": "Les algorithmes de Trouver une Fresque analysent les différentes plateformes de réservation d'ateliers Fresque (Billetweb.fr, Eventbrite.fr, Fresqueduclimat.org, Lafresquedeleconomiecirculaire.com) afin de les agréger, et rendre leur recherche plus accessible. La liste des ateliers recensés sur notre plateforme n'est PAS exhaustive."
+      },
+      "non_profit": {
+        "title": "Trouver une Fresque est-il à but non lucratif ?",
+        "description": "Oui, Trouver une Fresque est à but non lucratif. La plateforme est gratuite, sans pub et il n'est pas nécessaire de s'inscrire pour l'utiliser. Nous sommes conformes au RGPD en ne stockant aucune donnée personnelle, et conformes à la directive européenne sur les cookies en ne stockant pas de cookies. Les <a href='https://github.com/trouver-une-fresque/trouver-une-fresque-scraper'>sources sont disponibles librement</a>."
+      },
+      "support": {
+        "title": "Comment puis-je soutenir le développement de la plateforme ?",
+        "description": "Construire des logiciels libres prend du temps et coûte de l'argent, non seulement pour effectuer le travail initial, mais aussi pour les maintenir dans le temps. Si vous souhaitez soutenir le développement de cette plateforme, vous pouvez <a href='https://fr.liberapay.com/trouver-une-fresque/'>contribuer financièrement via Liberapay</a> (le paiement se fait via PayPal). Vous pouvez aussi parler de notre plateforme sur les réseaux sociaux. Merci !"
+      },
+      "help": {
+        "title": "Au secours, j'ai publié un évènement Fresque, qui n'apparaît pas sur Trouver une Fresque !",
+        "description": "Votre évènement ne rassemble pas toutes les conditions pour être récupéré de manière automatique. Merci de le modifier sur la plateforme originale après avoir lu notre <a href='https://github.com/trouver-une-fresque/trouver-une-fresque/blob/main/TUTORIAL.md'>guide à l'attention des organisateurs de fresques</a>."
+      }
+    }
+  },
+  "legal_mentions": {
+    "title": "Mentions légales",
+    "sections": {
+      "edition": {
+        "title": "Édition",
+        "content": "Le présent site est édité par <a href='https://github.com/thomas-bouvier'>Thomas Bouvier</a> et <a href='https://github.com/TimotF'>Timothé Frignac</a> et hébergé par la société Hostinger, dont le siège social est situé HOSTINGER INTERNATIONAL LTD, 61 Lordou Vironos Street, 6023 Larnaca, Chypre, joignable par le moyen suivant : <a href='https://www.hostinger.fr/contact'>https://www.hostinger.fr/contact</a>."
+      },
+      "personal_data": {
+        "title": "Données personnelles",
+        "content": "Votre adresse IP et la référence de la page visitée font partie des informations personnelles enregistrées sur le serveur qui héberge ce site. Ces données peuvent éventuellement servir à diagnostiquer un problème, mais elles ne seront jamais transmises à des tiers et elles sont supprimées automatiquement. Pour toute question concernant vos données personnelles, vous pouvez nous contacter à l'adresse suivante : <a href='mailto:contact@trouverunefresque.org'>contact@trouverunefresque.org</a>."
+      },
+      "license": {
+        "title": "Licence",
+        "content": "<a href='https://github.com/trouver-une-fresque/multiworkshop-taskforce-front/blob/main/LICENSE'>AGPL-3.0</a>"
+      }
+    }
+  }
+}

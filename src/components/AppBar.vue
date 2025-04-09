@@ -65,7 +65,9 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue'
   import { useTheme } from 'vuetify'
-  // import { useRoute } from 'vue-router'
+  import { useI18n } from 'vue-i18n'
+
+  const { t } = useI18n()
 
   const activeTab = ref(0)
   // const route = useRoute()
@@ -75,13 +77,17 @@
     {
       id: 1,
       to: 'https://www.linkedin.com/company/trouver-une-fresque',
-      text: 'Actualités',
+      text: t('navigation.news'),
       icon: 'mdi-newspaper',
     },
-    { id: 2, to: '/carte', text: 'Carte des fresques', icon: 'mdi-map' },
-    { id: 3, to: '/apropos', text: 'A propos', icon: 'mdi-information' },
+    { id: 2, to: '/carte', text: t('navigation.map'), icon: 'mdi-map' },
+    {
+      id: 3,
+      to: '/apropos',
+      text: t('navigation.about'),
+      icon: 'mdi-information',
+    },
   ]
-  // { id: 2, to: '/carte', text: 'Carte des fresques', icon: 'mdi-map' },
 
   const theme = useTheme()
 
