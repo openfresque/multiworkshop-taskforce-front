@@ -13,6 +13,33 @@
     "legal": "Mentions légales",
     "contact": "Contact"
   },
+  "search": {
+    "includeOnline": "Inclure les ateliers en ligne",
+    "attendWorkshop": "Participer à un atelier",
+    "attendTrainingWorkshop": "Devenir animateur",
+    "attendJuniorWorkshop": "Trouver un atelier junior",
+    "area": "Rayon de recherche",
+    "all": "Tout"
+  },
+  "results": {
+    "workshop": "atelier",
+    "training": "formation",
+    "junior": "junior",
+    "orOnline": "ou En ligne",
+    "doYouWantOnline": "Souhaitez vous inclure les ateliers en ligne ?",
+    "includeOnline": "Voir les ateliers en ligne",
+    "lastUpdate": "Dernière mise à jour :",
+    "for": "pour",
+    "around": "autour de",
+    "today": "aujourd'hui",
+    "yesterday": "hier"
+  },
+  "resultsListing": {
+    "online": "En ligne",
+    "book": "Réserver une place",
+    "bookShort": "Réserver",
+    "soldOut": "[COMPLET] - Vérifier"
+  },
   "qa": {
     "title": "Qu'est-ce que Trouver une Fresque ?",
     "description": "Trouver une Fresque est un moteur de recherche recensant les ateliers de type Fresque en France.",

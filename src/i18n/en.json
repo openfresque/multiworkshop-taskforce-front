@@ -13,6 +13,33 @@
     "legal": "Legal Notices",
     "contact": "Contact"
   },
+  "search": {
+    "includeOnline": "Include online workshops",
+    "attendWorkshop": "Participate in a workshop",
+    "attendTrainingWorkshop": "Become a facilitator",
+    "attendJuniorWorkshop": "Find a junior workshop",
+    "area": "Search area",
+    "all": "all"
+  },
+  "results": {
+    "workshop": "workshop",
+    "training": "training",
+    "junior": "junior",
+    "orOnline": "or Online",
+    "doYouWantOnline": "Do you want to include online workshops?",
+    "includeOnline": "View online workshops",
+    "lastUpdate": "Last update:",
+    "for": "for",
+    "around": "around",
+    "today": "today",
+    "yesterday": "yesterday"
+  },
+  "resultsListing": {
+    "online": "Online",
+    "book": "Book a ticket",
+    "bookShort": "Book",
+    "soldOut": "[SOLD OUT] - Check"
+  },
   "qa": {
     "title": "What is Find a Fresk?",
     "description": "Find a Fresk is a search engine that lists Fresk-type workshops in France.",
