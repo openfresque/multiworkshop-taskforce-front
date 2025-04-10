@@ -55,5 +55,143 @@
         "content": "<a href='https://github.com/trouver-une-fresque/multiworkshop-taskforce-front/blob/main/LICENSE'>AGPL-3.0</a>"
       }
     }
+  },
+  "workshops": {
+    "FresqueNouveauxRecits": {
+      "name": "Fresk of New Narratives",
+      "description": "Promote a different society through a collaborative and engaging workshop"
+    },
+    "FresqueOceane": {
+      "name": "Ocean Fresk",
+      "description": "Discover the challenges related to the ocean and how we can all act to preserve it"
+    },
+    "FresqueBiodiversite": {
+      "name": "Biodiversity Fresk",
+      "description": "Discover the systemic aspect of biodiversity erosion: what it is, what it allows, and what degrades it"
+    },
+    "FresqueAgriAlim": {
+      "name": "Agri'Food Fresk",
+      "description": "Understand the challenges of our agricultural and food model"
+    },
+    "FresqueNumerique": {
+      "name": "Digital Fresk",
+      "description": "A workshop to understand as a team and in a fun way the environmental issues of digital technology"
+    },
+    "FresqueMobilite": {
+      "name": "Mobility Fresk",
+      "description": "Discover how to adopt a more sustainable mobility individually and collectively"
+    },
+    "FresqueAlimentation": {
+      "name": "Food Fresk",
+      "description": "Discover the environmental, health, and social issues related to your diet"
+    },
+    "OGRE": {
+      "name": "OGRE",
+      "description": "Understand the challenges of the energy transition"
+    },
+    "FresqueConstruction": {
+      "name": "Construction Fresk",
+      "description": "Raise awareness of the impacts of construction as a team to act effectively"
+    },
+    "FresqueSexisme": {
+      "name": "Sexism Fresk",
+      "description": "Dismantle sexist mechanisms and project yourself into an egalitarian society"
+    },
+    "AtelierInventonsNosViesBasCarbone": {
+      "name": "Invent Our Low-Carbon Lives",
+      "description": "Imagine together necessary, possible, and desirable actions for the climate"
+    },
+    "FresqueDeLeau": {
+      "name": "Water Fresk",
+      "description": "Understand the keys to understanding water, its origin, its use, and the evolution of this resource"
+    },
+    "FutursProches": {
+      "name": "Near Futures",
+      "description": "Imagine together desirable, plural, alternative, and sustainable futures"
+    },
+    "FresqueDiversite": {
+      "name": "Diversity Fresk",
+      "description": "41 cards to foster more inclusive awareness"
+    },
+    "FresqueDuTextile": {
+      "name": "Textile Fresk",
+      "description": "Discover the ins and outs of the textile industry, its impacts, and alternatives for sustainable fashion"
+    },
+    "FresqueDesDechets": {
+      "name": "Waste Fresk",
+      "description": "Discover the complexity of waste treatment, what happens to it, and its impact on the environment"
+    },
+    "PuzzleClimat": {
+      "name": "Climate Puzzle",
+      "description": "A workshop to halve your carbon footprint in 5 years without going back to the oil lamp!"
+    },
+    "FresqueFinance": {
+      "name": "Finance Fresk",
+      "description": "Raise awareness of the role of finance in the socio-ecological transition and encourage citizens to think about levers of action"
+    },
+    "FresqueRSE": {
+      "name": "CSR Fresk",
+      "description": "Contribute to a positive, ethical, and sustainable company and become an actor of change yourself"
+    },
+    "2tonnes": {
+      "name": "2tonnes Workshop",
+      "description": "Explore the future as a team and try to limit climate change"
+    },
+    "AtelierCompteGouttes": {
+      "name": "Drip Workshop",
+      "description": "Explore the impact of climate change on water"
+    },
+    "FresqueBenevolat": {
+      "name": "Volunteering Fresk",
+      "description": "Put your energy at the service of great causes and discover volunteering in all its forms"
+    },
+    "FresquePlastique": {
+      "name": "Plastic Fresk",
+      "description": "Take a look at the entire life cycle of plastics"
+    },
+    "CyberFresque": {
+      "name": "Cyber Fresk",
+      "description": "Demystify cybersecurity and boost your digital hygiene!"
+    },
+    "FresqueClimat": {
+      "name": "Climate Fresk",
+      "description": "Do you want to act for the climate but don't have the time to become a climatologist?"
+    },
+    "FresqueEcoCirculaire": {
+      "name": "Circular Economy Fresk",
+      "description": "Understand the challenges of transforming our production-consumption system"
+    },
+    "FresqueFrontieresPlanetaires": {
+      "name": "Planetary Boundaries Fresk",
+      "description": "Discover the set of processes compromising the habitability of our planet"
+    },
+    "HorizonsDecarbones": {
+      "name": "Decarbonized Horizons Workshop",
+      "description": "Project yourself into a carbon-neutral French society and discover what tomorrow's future looks like!"
+    },
+    "2030Glorieuses": {
+      "name": "2030 Glorious Workshop",
+      "description": "Set off to discover this fabulous era in which a more just, sustainable, and happy society has emerged!"
+    },
+    "FresqueRenovation": {
+      "name": "Renovation Fresk",
+      "description": "Understand the challenges, steps, and benefits of energy renovation"
+    },
+    "FresqueEnergie": {
+      "name": "Energy Fresk",
+      "description": "Address the fundamentals of the contemporary energy system in a fun and self-learning way"
+    },
+    "FresqueDesPossibles": {
+      "name": "Possibilities Fresk",
+      "description": "Identify and share concrete solutions to participate in the transition on your territory"
+    },
+    "FresqueCommunication": {
+      "name": "Communication Fresk",
+      "description": "Address the best practices of responsible communication"
+    },
+    "ZooFresque": {
+      "name": "Zoo Fresk",
+      "description": "Understand our relationship with animals"
+    }
   }
 }

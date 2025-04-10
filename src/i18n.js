@@ -9,7 +9,7 @@ const messages = {
 
 const i18n = createI18n({
   legacy: false, // Use Composition API
-  locale: 'fr', // Set the default locale
+  locale: 'en', // Set the default locale
   messages,
 })
 
