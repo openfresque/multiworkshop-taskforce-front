@@ -32,6 +32,9 @@
         >
           {{ link.text }}
         </v-tab>
+        <button @click="toggleLanguage" color="primary" class="ml-4">
+          {{ currentLanguage === 'en' ? 'Switch to French' : 'Switch to English' }}
+        </button>
       </v-tabs>
 
       <!-- navigation links (for small devices) -->
@@ -67,13 +70,14 @@
   import { useTheme } from 'vuetify'
   import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
+  const currentLanguage = ref(locale.value);
 
   const activeTab = ref(0)
   // const route = useRoute()
   const menu = ref(false)
 
-  const links = [
+  const links = computed(() => [
     {
       id: 1,
       to: 'https://www.linkedin.com/company/trouver-une-fresque',
@@ -87,7 +91,7 @@
       text: t('navigation.about'),
       icon: 'mdi-information',
     },
-  ]
+  ]);
 
   const theme = useTheme()
 
@@ -96,6 +100,12 @@
       ? '/assets/images/svg/tuf-logo-landscape-fr.webp'
       : '/assets/images/svg/tuf-logo-landscape-fr.webp'
   })
+
+  const toggleLanguage = () => {
+    const newLocale = currentLanguage.value === 'en' ? 'fr' : 'en';
+    locale.value = newLocale;
+    currentLanguage.value = newLocale;
+  };
 </script>
 
 <style scoped lang="sass">
