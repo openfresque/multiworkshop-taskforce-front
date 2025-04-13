@@ -231,7 +231,7 @@
   }
 
   function isSearchByDpt() {
-    return router.currentRoute.value.name === ROUTE_SEARCH_DPT
+    return (router.currentRoute.value.name as string) === ROUTE_SEARCH_DPT
   }
 
   function getDptCode() {
