@@ -115,7 +115,9 @@
 
     let ret = ''
     if (workshop.location_name) {
-      ret += workshop.location_name + ', '
+      if (workshop.location_name !== workshop.address) {
+        ret += workshop.location_name + ', '
+      }
     }
     if (workshop.address) {
       ret += workshop.address + ', '
