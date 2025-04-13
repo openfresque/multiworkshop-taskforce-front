@@ -89,11 +89,11 @@
   },
   "workshops": {
     "FresqueNouveauxRecits": {
-      "name": "Fresk of New Narratives",
+      "name": "New Narratives Collage",
       "description": "Promote a different society through a collaborative and engaging workshop"
     },
     "FresqueOceane": {
-      "name": "Ocean Fresk",
+      "name": "Ocean Collage",
       "description": "Discover the challenges related to the ocean and how we can all act to preserve it"
     },
     "FresqueBiodiversite": {
@@ -105,7 +105,7 @@
       "description": "Understand the challenges of our agricultural and food model"
     },
     "FresqueNumerique": {
-      "name": "Digital Fresk",
+      "name": "Digital Collage",
       "description": "A workshop to understand as a team and in a fun way the environmental issues of digital technology"
     },
     "FresqueMobilite": {
