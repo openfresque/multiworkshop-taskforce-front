@@ -40,7 +40,8 @@
     "for": "pour",
     "around": "autour de",
     "today": "aujourd'hui",
-    "yesterday": "hier"
+    "yesterday": "hier",
+    "missingWorkshop": "Votre atelier n'apparaît pas ? Rdv sur le guide dont le lien est en page d'accueil !"
   },
   "resultsListing": {
     "online": "En ligne",

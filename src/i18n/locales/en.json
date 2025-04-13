@@ -40,7 +40,8 @@
     "for": "for",
     "around": "around",
     "today": "today",
-    "yesterday": "yesterday"
+    "yesterday": "yesterday",
+    "missingWorkshop": "Your workshop doesn't appear? Check the guide on the homepage!"
   },
   "resultsListing": {
     "online": "Online",

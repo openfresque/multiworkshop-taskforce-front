@@ -42,7 +42,7 @@
       v-if="filteredWorkshopsToDisplay.length > 0"
       :items="filteredWorkshopsToDisplay"
       @load="loadMore"
-      :empty-text="'-'"
+      :empty-text="t('results.missingWorkshop')"
     >
       <template
         v-for="item in filteredWorkshopsToDisplay"
@@ -155,6 +155,7 @@
   function getWorkshopType(usePlural = true) {
     const plural = usePlural && filteredWorkshops.value.length > 0 ? 's' : ''
     if (props.workshopType === 'junior') {
+      // TODO @tbouvier: should use i18n plural
       return t('results.workshop') + plural + ' ' + t('results.junior') + plural
     } else if (props.workshopType === 'formation') {
       return t('results.training') + plural
