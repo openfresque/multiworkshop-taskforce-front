@@ -1,4 +1,8 @@
 {
+  "locale": {
+    "en": "English",
+    "fr": "French"
+  },
   "welcome": "Find a Fresk near you",
   "searchField": "City, Postal Code, Department...",
   "banner": "Find a Fresk will soon be internationalized! In the meantime, visit the <a href=\"https://www.findafresk.org\">project page</a>, and follow us on <a href=\"https://www.linkedin.com/company/trouver-une-fresque\">LinkedIn</a>!",

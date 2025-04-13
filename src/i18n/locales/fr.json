@@ -1,4 +1,8 @@
 {
+  "locale": {
+    "en": "Anglais",
+    "fr": "Français"
+  },
   "welcome": "Trouvez une Fresque près de chez vous",
   "searchField": "Commune, Code postal, Département...",
   "banner": "Trouver une Fresque va bientôt s'internationaliser ! En attendant, rendez-vous sur la <a href=\"https://www.findafresk.org\">page du projet</a>, et suivez-nous sur <a href=\"https://www.linkedin.com/company/trouver-une-fresque\">LinkedIn</a> !",

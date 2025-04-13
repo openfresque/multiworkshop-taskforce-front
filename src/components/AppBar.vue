@@ -32,9 +32,8 @@
         >
           {{ link.text }}
         </v-tab>
-        <button @click="toggleLanguage" color="primary" class="ml-4">
-          {{ currentLanguage === 'en' ? 'Switch to French' : 'Switch to English' }}
-        </button>
+
+        <LanguageSwitcher></LanguageSwitcher>
       </v-tabs>
 
       <!-- navigation links (for small devices) -->
@@ -69,9 +68,10 @@
   import { ref, computed } from 'vue'
   import { useTheme } from 'vuetify'
   import { useI18n } from 'vue-i18n'
+  import LanguageSwitcher from './LanguageSwitcher.vue'
 
   const { t, locale } = useI18n()
-  const currentLanguage = ref(locale.value);
+  const currentLanguage = ref(locale.value)
 
   const activeTab = ref(0)
   // const route = useRoute()
@@ -91,7 +91,7 @@
       text: t('navigation.about'),
       icon: 'mdi-information',
     },
-  ]);
+  ])
 
   const theme = useTheme()
 
@@ -100,12 +100,6 @@
       ? '/assets/images/svg/tuf-logo-landscape-fr.webp'
       : '/assets/images/svg/tuf-logo-landscape-fr.webp'
   })
-
-  const toggleLanguage = () => {
-    const newLocale = currentLanguage.value === 'en' ? 'fr' : 'en';
-    locale.value = newLocale;
-    currentLanguage.value = newLocale;
-  };
 </script>
 
 <style scoped lang="sass">
