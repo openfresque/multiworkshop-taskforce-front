@@ -12,6 +12,10 @@
     "map": "Carte des fresques",
     "about": "À propos"
   },
+  "map": {
+    "address": "Adresse",
+    "booking": "Réservation"
+  },
   "buttons": {
     "license": "Trouver une Fresque - AGPL-3.0",
     "legal": "Mentions légales",

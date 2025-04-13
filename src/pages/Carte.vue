@@ -10,6 +10,7 @@
 <script lang="ts" setup>
   import { onMounted, onUnmounted, ref } from 'vue'
   import { map, tileLayer, marker, Marker, Icon, LatLngTuple } from 'leaflet'
+  import { useI18n } from 'vue-i18n'
   import 'leaflet/dist/leaflet.css'
   import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
   // @ts-ignore
@@ -25,6 +26,7 @@
   }
 
   const mymap = ref<any>(null)
+  const { t } = useI18n()
 
   onMounted(async () => {
     mymap.value = map('mapid', {
@@ -47,7 +49,9 @@
         longitude: workshop.longitude,
         latitude: workshop.latitude,
         reservation: workshop.source_link,
-        adresse: workshop.full_location,
+        location_name: workshop.location_name,
+        address: workshop.address,
+        city: workshop.city,
       }))
 
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -80,9 +84,9 @@
       const string_popup = `
       <span style='font-size: 150%;'>${lieu.nom}</span>
       <br>
-      <b>Adresse :</b> ${lieu.adresse || '-'}
+      <b>${t('map.address')} :</b> ${lieu.location_name ? `${lieu.location_name}, ` : ''}${lieu.address}, ${lieu.city}
       <br>
-      <b>Réservation :</b> ${reservation_str || '-'}
+      <b>${t('map.booking')} :</b> ${reservation_str || '-'}
     `
 
       const newMarker = marker([lieu.latitude, lieu.longitude] as LatLngTuple, {

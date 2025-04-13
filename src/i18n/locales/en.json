@@ -12,6 +12,10 @@
     "map": "Fresk Map",
     "about": "About"
   },
+  "map": {
+    "address": "Address",
+    "booking": "Booking"
+  },
   "buttons": {
     "license": "Find a Fresk - AGPL-3.0",
     "legal": "Legal Notices",
