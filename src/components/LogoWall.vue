@@ -22,8 +22,8 @@
                 :alt="workshop.name"
               />
             </a>
-            <v-card-title>{{ workshop.name }}</v-card-title>
-            <v-card-text>{{ workshop.description }}</v-card-text>
+            <v-card-title>{{ t(`workshops.${workshop.code}.name`) }}</v-card-title>
+            <v-card-text>{{ t(`workshops.${workshop.code}.description`) }}</v-card-text>
           </div>
         </v-card>
       </v-col>
@@ -34,7 +34,9 @@
 <script setup>
   import { ATELIERS } from '@/common/Conf'
   import { onMounted, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
 
+  const { t } = useI18n()
   const workshops = ref([])
 
   onMounted(() => {
