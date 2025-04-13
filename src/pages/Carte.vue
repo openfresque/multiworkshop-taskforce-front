@@ -111,6 +111,14 @@
   }
 </script>
 
+<route>
+{
+  name: 'map',
+  //path: '/:locale?/carte'
+  path: '/carte'
+}
+</route>
+
 <style scoped>
   #mapid {
     height: 180px;

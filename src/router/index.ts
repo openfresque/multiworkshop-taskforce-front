@@ -5,13 +5,13 @@
  */
 
 // Composables
-import { setupLayouts } from 'virtual:generated-layouts'
-import { createRouter, createWebHistory } from 'vue-router/auto'
-import { routes as autoRoutes } from 'vue-router/auto-routes'
+import Translation from '@/i18n/translation'
+import { createRouter, createWebHistory } from 'vue-router'
 
 // Import your components
 import Apropos from '@/pages/Apropos.vue'
 import Carte from '@/pages/Carte.vue'
+import Index from '@/pages/index.vue'
 import Mentions from '@/pages/Mentions.vue'
 import SearchResults from '@/pages/SearchResults.vue'
 import {
@@ -19,47 +19,60 @@ import {
   rechercheDepartementDescriptor,
 } from '@/routing/DynamicURLs'
 
-export const ROUTE_MAP = 'map' as string
-export const ROUTE_ABOUT = 'about' as string
-export const ROUTE_LEGAL = 'legal' as string
-export const ROUTE_SEARCH_DPT = 'searchDpt' as string
-export const ROUTE_SEARCH_CITY = 'searchCom' as string
-
-// Define additional routes
-const additionalRoutes = [
-  {
-    name: ROUTE_MAP,
-    path: '/carte',
-    component: Carte,
-  },
-  {
-    name: ROUTE_ABOUT,
-    path: '/apropos',
-    component: Apropos,
-  },
-  {
-    name: ROUTE_LEGAL,
-    path: '/mentions-legales',
-    component: Mentions,
-  },
-  {
-    name: ROUTE_SEARCH_DPT,
-    path: rechercheDepartementDescriptor.routerUrl,
-    component: SearchResults,
-  },
-  {
-    name: ROUTE_SEARCH_CITY,
-    path: rechercheCommuneDescriptor.routerUrl,
-    component: SearchResults,
-  },
-]
+// Route constants
+export const ROUTE_MAP = 'map' as const
+export const ROUTE_ABOUT = 'about' as const
+export const ROUTE_LEGAL = 'legal' as const
+export const ROUTE_SEARCH_DPT = 'searchDpt' as const
+export const ROUTE_SEARCH_CITY = 'searchCom' as const
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: setupLayouts([...autoRoutes, ...additionalRoutes]),
+  routes: [
+    {
+      //path: '/:locale?',
+      path: '/',
+      component: () => import('@/layouts/default.vue'),
+      beforeEnter: Translation.routeMiddleware,
+      children: [
+        {
+          path: '',
+          name: 'home',
+          component: Index,
+        },
+        {
+          path: 'carte',
+          name: ROUTE_MAP,
+          component: Carte,
+        },
+        {
+          path: 'apropos',
+          name: ROUTE_ABOUT,
+          component: Apropos,
+        },
+        {
+          path: 'mentions-legales',
+          name: ROUTE_LEGAL,
+          component: Mentions,
+        },
+        {
+          path: rechercheDepartementDescriptor.routerUrl,
+          name: ROUTE_SEARCH_DPT,
+          component: SearchResults,
+          props: true,
+        },
+        {
+          path: rechercheCommuneDescriptor.routerUrl,
+          name: ROUTE_SEARCH_CITY,
+          component: SearchResults,
+          props: true,
+        },
+      ],
+    },
+  ],
 })
 
-// Workaround for https://github.com/vitejs/vite/issues/11804
+// Error handling for dynamic imports
 router.onError((err, to) => {
   if (err?.message?.includes?.('Failed to fetch dynamically imported module')) {
     if (!localStorage.getItem('vuetify:dynamic-reload')) {

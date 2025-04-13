@@ -3,7 +3,7 @@ import { Strings } from '../utils/Strings'
 
 export const rechercheDepartementDescriptor = {
   routerUrl:
-    '/dpt:codeDpt-:nomDpt/recherche-:typeRecherche/online-:includesOnline',
+    'dpt:codeDpt-:nomDpt/recherche-:typeRecherche/online-:includesOnline',
   urlGenerator: ({
     codeDepartement,
     nomDepartement,
@@ -19,7 +19,7 @@ export const rechercheDepartementDescriptor = {
 
 export const rechercheCommuneDescriptor = {
   routerUrl:
-    '/dpt:codeDpt-:nomDpt/commune:codeCommune-:codePostal-:nomCommune/recherche-:typeRecherche/en-triant-par-:codeTriCentre/online-:includesOnline',
+    'dpt:codeDpt-:nomDpt/commune:codeCommune-:codePostal-:nomCommune/recherche-:typeRecherche/en-triant-par-:codeTriCentre/online-:includesOnline',
   urlGenerator: ({
     codeDepartement,
     nomDepartement,

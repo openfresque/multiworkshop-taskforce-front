@@ -20,3 +20,11 @@
 
   const sections = ['edition', 'personal_data', 'license']
 </script>
+
+<route>
+{
+  name: 'legal',
+  //path: '/:locale?/mentions-legales'
+  path: '/mentions-legales'
+}
+</route>

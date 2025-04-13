@@ -9,7 +9,6 @@
       <span v-html="t('banner')"></span>
     </v-banner>
 
-    <router-view />
     <!-- search card -->
     <v-card class="search-card pa-2 pa-sm-10">
       <v-card-title
@@ -35,6 +34,9 @@
 
 <script lang="ts" setup>
   import { useI18n } from 'vue-i18n'
+  import SearchField from '@/components/SearchField.vue'
+  import LogoWall from '@/components/LogoWall.vue'
+  import QnA from '@/components/QnA.vue'
 
   const { t } = useI18n()
 </script>

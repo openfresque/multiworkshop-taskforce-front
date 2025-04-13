@@ -15,9 +15,9 @@ RouteRecordInfo
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
-    '/Apropos': RouteRecordInfo<'/Apropos', '/Apropos', Record<never, never>, Record<never, never>>,
-    '/Carte': RouteRecordInfo<'/Carte', '/Carte', Record<never, never>, Record<never, never>>,
-    '/Mentions': RouteRecordInfo<'/Mentions', '/Mentions', Record<never, never>, Record<never, never>>,
-    '/SearchResults': RouteRecordInfo<'/SearchResults', '/SearchResults', Record<never, never>, Record<never, never>>,
+    'about': RouteRecordInfo<'about', '/apropos', Record<never, never>, Record<never, never>>,
+    'map': RouteRecordInfo<'map', '/carte', Record<never, never>, Record<never, never>>,
+    'legal': RouteRecordInfo<'legal', '/mentions-legales', Record<never, never>, Record<never, never>>,
+    'searchCom': RouteRecordInfo<'searchCom', '/recherche/commune/:codeCommune/:codePostal/:nomCommune/:typeRecherche/:codeTriCentre/:includesOnline', Record<never, never>, Record<never, never>>,
   }
 }

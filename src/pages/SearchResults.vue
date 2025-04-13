@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-container max-width="1200px">
-      <router-view />
       <!-- search card -->
       <v-container max-width="500px">
         <!-- search field -->
@@ -313,6 +312,24 @@
     refresh()
   })
 </script>
+
+<route>
+{
+  name: 'searchCom',
+  //path: '/:locale?/recherche/commune/:codeCommune/:codePostal/:nomCommune/:typeRecherche/:codeTriCentre/:includesOnline',
+  path: '/recherche/commune/:codeCommune/:codePostal/:nomCommune/:typeRecherche/:codeTriCentre/:includesOnline',
+  props: true
+}
+</route>
+
+<route>
+{
+  name: 'searchDpt',
+  //path: '/:locale?/recherche/departement/:codeDpt/:nomDpt/:typeRecherche/:codeTriCentre/:includesOnline',
+  path: '/recherche/departement/:codeDpt/:nomDpt/:typeRecherche/:codeTriCentre/:includesOnline',
+  props: true
+}
+</route>
 
 <style scoped>
   .results {

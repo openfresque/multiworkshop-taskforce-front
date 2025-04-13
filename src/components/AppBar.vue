@@ -23,11 +23,11 @@
       >
         <v-tab
           v-for="link in links"
+          v-bind="link.external ? { href: link.to } : { to: link.to }"
           :key="link.id"
           :append-icon="link.icon"
           exact
           :ripple="false"
-          :href="link.to"
           variant="text"
         >
           {{ link.text }}
@@ -50,8 +50,8 @@
         <v-list>
           <v-list-item
             v-for="link in links"
+            v-bind="link.external ? { href: link.to } : { to: link.to }"
             :key="link.id"
-            :href="link.to"
             @click="menu = false"
             :append-icon="link.icon"
             color="primary"
@@ -70,8 +70,7 @@
   import { useI18n } from 'vue-i18n'
   import LanguageSwitcher from './LanguageSwitcher.vue'
 
-  const { t, locale } = useI18n()
-  const currentLanguage = ref(locale.value)
+  const { t } = useI18n()
 
   const activeTab = ref(0)
   // const route = useRoute()
@@ -83,6 +82,7 @@
       to: 'https://www.linkedin.com/company/trouver-une-fresque',
       text: t('navigation.news'),
       icon: 'mdi-newspaper',
+      external: true,
     },
     { id: 2, to: '/carte', text: t('navigation.map'), icon: 'mdi-map' },
     {
