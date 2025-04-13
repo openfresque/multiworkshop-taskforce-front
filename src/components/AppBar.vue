@@ -1,47 +1,39 @@
 <template>
-  <v-toolbar class="d-flex justify-center align-center">
-    <div class="toolbar-content d-flex flex-row align-center">
+  <v-app-bar flat>
+    <div class="d-flex align-center justify-space-between w-100 px-4">
       <!-- main logo -->
-      <router-link
-        class="h-100"
-        to="/"
-      >
+      <router-link to="/">
         <v-img
           alt="TUF logo"
           :src="currentLogo"
-          width="200"
+          width="180"
+          max-height="40"
+          contain
         />
       </router-link>
-      <v-spacer />
 
       <!-- navigation links (for md devices and bigger) -->
-      <v-tabs
-        class="d-none d-md-flex"
-        v-model="activeTab"
-        color="primary"
-        hide-slider
-      >
-        <v-tab
+      <div class="d-none d-md-flex align-center">
+        <v-btn
           v-for="link in links"
-          v-bind="link.external ? { href: link.to } : { to: link.to }"
           :key="link.id"
-          :append-icon="link.icon"
-          exact
-          :ripple="false"
+          v-bind="link.external ? { href: link.to } : { to: link.to }"
           variant="text"
+          class="mx-1"
         >
           {{ link.text }}
-        </v-tab>
+          <v-icon class="ml-1">{{ link.icon }}</v-icon>
+        </v-btn>
 
-        <LanguageSwitcher></LanguageSwitcher>
-      </v-tabs>
+        <LanguageSwitcher class="ml-2" />
+      </div>
 
       <!-- navigation links (for small devices) -->
       <v-menu v-model="menu">
         <template #activator="{ props }">
           <v-btn
-            class="d-flex d-md-none"
             v-bind="props"
+            class="d-flex d-md-none"
             icon
           >
             <v-icon>mdi-menu</v-icon>
@@ -58,10 +50,18 @@
             :title="link.text"
           >
           </v-list-item>
+          
+          <v-divider class="my-2" />
+          
+          <v-list-item @click.stop>
+            <div class="px-3 py-2 w-100">
+              <LanguageSwitcher />
+            </div>
+          </v-list-item>
         </v-list>
       </v-menu>
     </div>
-  </v-toolbar>
+  </v-app-bar>
 </template>
 
 <script setup lang="ts">
@@ -72,8 +72,6 @@
 
   const { t } = useI18n()
 
-  const activeTab = ref(0)
-  // const route = useRoute()
   const menu = ref(false)
 
   const links = computed(() => [
@@ -106,6 +104,15 @@
   .toolbar-content
     max-width: 1200px
     width: 100%
-    height: 80%
+    height: 100%
     margin: 0 auto
+    position: relative
+    
+  .navigation-container
+    display: inline-block
+    
+  .language-container
+    margin-left: 16px
+    height: 100%
+    align-items: center
 </style>

@@ -1,14 +1,19 @@
 <template>
-  <select @change="switchLanguage">
-    <option
-      v-for="sLocale in supportedLocales"
-      :key="`locale-${sLocale}`"
-      :value="sLocale"
-      :selected="locale === sLocale"
+  <div class="language-switcher">
+    <select
+      class="language-select"
+      @change="switchLanguage"
     >
-      {{ t(`locale.${sLocale}`) }}
-    </option>
-  </select>
+      <option
+        v-for="sLocale in supportedLocales"
+        :key="`locale-${sLocale}`"
+        :value="sLocale"
+        :selected="locale === sLocale"
+      >
+        {{ t(`locale.${sLocale}`) }}
+      </option>
+    </select>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -32,3 +37,29 @@
     }
   }
 </script>
+
+<style scoped>
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .language-select {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(var(--v-theme-on-surface), 0.12);
+    background-color: transparent;
+    color: rgb(var(--v-theme-on-surface));
+    font-size: 0.875rem;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+    min-height: 36px;
+    width: 100%;
+  }
+
+  .language-select:hover {
+    border-color: rgb(var(--v-theme-primary));
+  }
+</style>
