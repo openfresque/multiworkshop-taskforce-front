@@ -8,9 +8,10 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, onUnmounted, ref } from 'vue'
+  import { onMounted, onUnmounted, ref, computed, watch } from 'vue'
   import { map, tileLayer, marker, Marker, Icon, LatLngTuple } from 'leaflet'
   import { useI18n } from 'vue-i18n'
+  import { useTheme } from 'vuetify'
   import 'leaflet/dist/leaflet.css'
   import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
   // @ts-ignore
@@ -29,6 +30,9 @@
 
   const mymap = ref<any>(null)
   const { t } = useI18n()
+  const theme = useTheme()
+  const isDark = computed(() => theme.global.current.value.dark)
+  const mapLayer = ref<any>(null)
 
   onMounted(async () => {
     mymap.value = map('mapid', {
@@ -56,14 +60,39 @@
         city: workshop.city,
       }))
 
-    tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(mymap.value)
+    // Apply initial map layer based on theme
+    setMapLayer()
 
     const markers = creerPins(workshopsCarte)
     mymap.value.addLayer(markers)
+  })
+
+  // Set the map layer based on current theme
+  function setMapLayer() {
+    if (mapLayer.value) {
+      mymap.value.removeLayer(mapLayer.value)
+    }
+
+    if (isDark.value) {
+      mapLayer.value = tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+      })
+    } else {
+      mapLayer.value = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      })
+    }
+    
+    mapLayer.value.addTo(mymap.value)
+  }
+
+  // Watch for theme changes and update map layer
+  watch(isDark, () => {
+    if (mymap.value) {
+      setMapLayer()
+    }
   })
 
   onUnmounted(() => {
