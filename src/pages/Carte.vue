@@ -22,7 +22,9 @@
     longitude: number
     latitude: number
     reservation: string
-    adresse: string | undefined
+    location_name: string | undefined
+    address: string | undefined
+    city: string | undefined
   }
 
   const mymap = ref<any>(null)
