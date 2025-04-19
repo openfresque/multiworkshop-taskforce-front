@@ -19,5 +19,6 @@ RouteRecordInfo
     'map': RouteRecordInfo<'map', '/carte', Record<never, never>, Record<never, never>>,
     'legal': RouteRecordInfo<'legal', '/mentions-legales', Record<never, never>, Record<never, never>>,
     'searchCom': RouteRecordInfo<'searchCom', '/recherche/commune/:codeCommune/:codePostal/:nomCommune/:typeRecherche/:codeTriCentre/:includesOnline', Record<never, never>, Record<never, never>>,
+    '/TalkAboutIt': RouteRecordInfo<'/TalkAboutIt', '/TalkAboutIt', Record<never, never>, Record<never, never>>,
   }
 }

@@ -14,6 +14,7 @@ import Carte from '@/pages/Carte.vue'
 import Index from '@/pages/index.vue'
 import Mentions from '@/pages/Mentions.vue'
 import SearchResults from '@/pages/SearchResults.vue'
+import TalkAboutIt from '@/pages/TalkAboutIt.vue'
 import {
   rechercheCommuneDescriptor,
   rechercheDepartementDescriptor,
@@ -25,6 +26,7 @@ export const ROUTE_ABOUT = 'about' as const
 export const ROUTE_LEGAL = 'legal' as const
 export const ROUTE_SEARCH_DPT = 'searchDpt' as const
 export const ROUTE_SEARCH_CITY = 'searchCom' as const
+export const ROUTE_TALK_ABOUT_IT = 'talkAboutIt' as const
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,6 +51,11 @@ const router = createRouter({
           path: 'apropos',
           name: ROUTE_ABOUT,
           component: Apropos,
+        },
+        {
+          path: 'lets-talk-about-it',
+          name: ROUTE_TALK_ABOUT_IT,
+          component: TalkAboutIt,
         },
         {
           path: 'mentions-legales',

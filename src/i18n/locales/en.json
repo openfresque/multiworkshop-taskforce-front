@@ -10,7 +10,8 @@
   "navigation": {
     "news": "News",
     "map": "Fresk Map",
-    "about": "About"
+    "about": "About",
+    "talkAboutIt": "Let's Talk About It"
   },
   "map": {
     "address": "Address",
@@ -198,7 +199,7 @@
       "description": "Understand the challenges of transforming our production-consumption system"
     },
     "FresqueFrontieresPlanetaires": {
-      "name": "Planetary Boundaries Fresk",
+      "name": "Planetary Boundaries Fresco",
       "description": "Discover the set of processes compromising the habitability of our planet"
     },
     "HorizonsDecarbones": {
@@ -229,5 +230,24 @@
       "name": "Zoo Fresk",
       "description": "Understand our relationship with animals"
     }
+  },
+  "talkAboutIt": {
+    "title": "Let's Talk About It (May 2025)",
+    "campaign": "In May 2025, let's facilitate around the globe! We are pleased to host (here on findafresk.org) the global campaign Let's Talk About It.",
+    "whatFor": "What is this campaign for?",
+    "throughoutMay": "Throughout May 2025, let's unite under the 'Let's Talk About It!' campaign by organizing as many workshops as possible across the globe.",
+    "aimOfOperation": "The aim of this joint operation is to put a spotlight on the international facilitators community and to help you recruit participants for your workshops through:",
+    "jointCommunication": "Joint and harmonised communication between associations over a short period of time",
+    "commonMap": "A common map highlighting the workshops of this campaign (soon here!) and local communities.",
+    "ticketingTools": "Ticketing tools and prices adapted to your context, so as not to be an obstacle to recruiting participants",
+    "allWorkshops": "All participating workshops will be visible on a single map, accessible on the website created by the international community.",
+    "yourRole": "What is your role as facilitator or community lead?",
+    "planWorkshops": "It is easy: Plan one or more workshops in May 2025, all over the world!",
+    "createSessions": "You must create the sessions before April 13th, through the normal processes of the associations in charge of each workshop 🙂",
+    "kitEnglish": "Communication kit in English",
+    "kitFrench": "Kit de communication en Français",
+    "kitSpanish": "Kit de comunicación en español",
+    "theMap": "The map! (coming soon)",
+    "mapDescription": "We will soon add here the workshops of the Let's Talk About It campaign: (don't worry if you have filled the form and don't see them appearing yet, it's cooking!)"
   }
 }

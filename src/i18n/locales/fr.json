@@ -9,8 +9,9 @@
   "footer": "Trouver une Fresque n'est pas un outil officiel, n'est PAS exhaustif et ne remplace pas une recherche manuelle notamment dans le cas où aucun atelier disponible n'est proposé sur notre site.",
   "navigation": {
     "news": "Actualités",
-    "map": "Carte des fresques",
-    "about": "À propos"
+    "map": "Carte des Fresques",
+    "about": "À propos",
+    "talkAboutIt": "Let's talk about it"
   },
   "map": {
     "address": "Adresse",
@@ -229,5 +230,24 @@
       "name": "ZooFresque",
       "description": "Comprendre nos relations aux animaux"
     }
+  },
+  "talkAboutIt": {
+    "title": "Let's Talk About It (mai 2025)",
+    "campaign": "En mai 2025, facilitons partout dans le monde ! Nous sommes heureux d'héberger la campagne mondiale \"Let's Talk About It!\"",
+    "whatFor": "Quel est l'objectif de cette campagne?",
+    "throughoutMay": "Tout au long du mois de mai 2025, unissons-nous sous la campagne \"Let's talk about it!\" en organisant autant d'ateliers que possible à travers le monde.",
+    "aimOfOperation": "L'objectif de cette opération conjointe est de mettre en lumière la communauté internationale des facilitateurs et de vous aider à recruter des participants pour vos ateliers grâce à:",
+    "jointCommunication": "Une communication commune et harmonisée entre les associations sur une courte période",
+    "commonMap": "Une carte commune mettant en évidence les ateliers internationaux de cette campagne (bientôt ici !).",
+    "ticketingTools": "Des outils de billetterie et des prix adaptés à votre contexte, afin de ne pas être un obstacle au recrutement des participants",
+    "allWorkshops": "Tous les ateliers participants seront visibles sur une seule carte, accessible sur le site web créé par la communauté internationale.",
+    "yourRole": "Quel est votre rôle en tant que facilitateur ou responsable de communauté ?",
+    "planWorkshops": "C'est facile: Planifiez un ou plusieurs ateliers en mai 2025, partout dans le monde!",
+    "createSessions": "Vous devez créer les sessions avant le 13 avril, en passant par les processus normaux des associations en charge de chaque atelier 🙂",
+    "kitEnglish": "Kit de communication en anglais",
+    "kitFrench": "Kit de communication en français",
+    "kitSpanish": "Kit de communication en espagnol",
+    "theMap": "La carte",
+    "mapDescription": "Nous ajouterons bientôt ici les ateliers internationaux de la campagne Let's Talk About It. Ne vous inquiétez pas si vous avez rempli le formulaire et que vous ne les voyez pas encore apparaître, c'est en cours !"
   }
 }
