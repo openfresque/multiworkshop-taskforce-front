@@ -229,6 +229,18 @@
     "ZooFresque": {
       "name": "ZooFresque",
       "description": "Comprendre nos relations aux animaux"
+    },
+    "PlanetC": {
+      "name": "Planet C Play Again",
+      "description": "Questionnez vos croyances et devenez architecte du changement"
+    },
+    "FresqueDuSol": {
+      "name": "Fresque du Sol",
+      "description": "Comprendre la complexité des enjeux sol pour les protéger"
+    },
+    "FresqueDesDechets": {
+      "name": "Fresque des Déchets",
+      "description": "3h pour construire une vision globale du secteur des déchets"
     }
   },
   "talkAboutIt": {

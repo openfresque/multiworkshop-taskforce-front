@@ -285,6 +285,30 @@ export const ATELIERS: Record<number, Atelier> = {
     promoted: true,
     website: 'https://zoofresque.wordpress.com/',
   },
+  800: {
+    code: 'PlanetC',
+    logo: '/assets/images/logo/logo_PlanetC.jpg',
+    name: i18n.global.t('workshops.PlanetC.name'),
+    description: i18n.global.t('workshops.PlanetC.description'),
+    promoted: false,
+    website: 'https://planetc.org/',
+  },
+  801: {
+    code: 'Fresque du Sol',
+    logo: '/assets/images/logo/logo_FresqueDuSol.png',
+    name: i18n.global.t('workshops.FresqueDuSol.name'),
+    description: i18n.global.t('workshops.FresqueDuSol.description'),
+    promoted: false,
+    website: 'https://fresquedusol.com/',
+  },
+  802: {
+    code: 'FresqueDesDechets',
+    logo: '/assets/images/logo/logo_FresqueDesDechets.png',
+    name: i18n.global.t('workshops.FresqueDesDechets.name'),
+    description: i18n.global.t('workshops.FresqueDesDechets.description'),
+    promoted: false,
+    website: 'https://greendonut.org/dechets/',
+  },
 }
 
 export type CodeDepartement = string
