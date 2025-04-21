@@ -8,14 +8,20 @@
   "banner": "Trouver une Fresque va bientôt s'internationaliser ! En attendant, rendez-vous sur la <a href=\"https://www.findafresk.org\">page du projet</a>, et suivez-nous sur <a href=\"https://www.linkedin.com/company/trouver-une-fresque\">LinkedIn</a> !",
   "footer": "Trouver une Fresque n'est pas un outil officiel, n'est PAS exhaustif et ne remplace pas une recherche manuelle notamment dans le cas où aucun atelier disponible n'est proposé sur notre site.",
   "navigation": {
+    "home": "Accueil",
     "news": "Actualités",
-    "map": "Carte des Fresques",
-    "about": "À propos",
-    "talkAboutIt": "Let's talk about it"
+    "findWorkshop": "L'annuaire",
+    "map": "La carte",
+    "talkAboutIt": "Let's talk about it",
+    "community": "La communauté",
+    "taskforce": "Le groupe de travail",
+    "localGroups": "Groupes locaux",
+    "about": "À propos"
   },
   "map": {
     "address": "Adresse",
-    "booking": "Réservation"
+    "booking": "Réservation",
+    "contact": "Contact"
   },
   "buttons": {
     "license": "Trouver une Fresque - AGPL-3.0",
@@ -249,5 +255,102 @@
     "kitSpanish": "Kit de communication en espagnol",
     "theMap": "La carte",
     "mapDescription": "Nous ajouterons bientôt ici les ateliers internationaux de la campagne Let's Talk About It. Ne vous inquiétez pas si vous avez rempli le formulaire et que vous ne les voyez pas encore apparaître, c'est en cours !"
+  },
+  "homepage": {
+    "hero": {
+      "title": "Nous avons pour objectif de développer la coopération entre les communautés locales et leur écosystème afin d'accélérer la diffusion des ateliers d'intelligence collective à l'international.",
+      "subtitle": "Bienvenue sur Trouver une Fresque, une plateforme pour la communauté, sans but lucratif.",
+      "description": "Nous sommes un mouvement mondial enthousiaste de facilitateurs d'ateliers basés sur la science. Nous utilisons des outils tels que la Fresque du Climat pour engager les gens dans une action significative à travers la sensibilisation, la pensée systémique et l'intelligence collective."
+    },
+    "movement": {
+      "title": "Un mouvement mondial d'apprentissage par l'expérience",
+      "button": "Trouver une Fresque"
+    },
+    "collaboration": {
+      "title": "Aucun de nous ne peut le faire seul !",
+      "description": "Nous avons lancé un appel pour parler des différentes façons dont les gens pratiquent les multi-ateliers à l'international. Nous avons réalisé que nous avons des points de friction en commun, et donc des leçons à partager.",
+      "button": "Rejoindre notre groupe de travail"
+    },
+    "mapping": {
+      "title": "Cartographier les groupes à travers le monde !",
+      "description": "Nous essayons de compiler une liste de tous les groupes multi-ateliers à travers le monde. Nous visons à donner de la visibilité à ces groupes dans le monde entier.",
+      "button": "Découvrir les groupes locaux"
+    }
+  },
+  "taskforce": {
+    "title": "Le groupe de travail multi-ateliers",
+    "intro": "Cette page web est maintenue par le 'Groupe de travail multi-ateliers'. Ce groupe a été créé par des communautés locales d'animateurs du monde entier, et se réunit régulièrement pour identifier les besoins partagés et développer des solutions.",
+    "goal": {
+      "title": "Notre objectif",
+      "text": "Développer la coopération entre les communautés locales multi-ateliers et leur écosystème pour accélérer la diffusion mondiale des ateliers de sensibilisation à l'environnement."
+    },
+    "structure": {
+      "title": "Nous sommes structurés selon les trois axes suivants pour atteindre cet objectif.",
+      "ecosystem": {
+        "title": "Écosystème multi-ateliers",
+        "point1": "Recueillir des retours d'expérience, cartographier les parties prenantes et identifier les lacunes du mouvement multi-ateliers grâce à un groupe de travail structuré avec des représentants des groupes locaux existants et à venir.",
+        "point2": "Proposer des stratégies pour une gouvernance saine et des flux financiers pour répondre à des questions comme: \"Quelles structures légales fonctionnent bien ?\", \"Comment équilibrer les besoins des bénévoles et des professionnels ?\".",
+        "point3": "Accroître la visibilité du mouvement par le biais de l'image de marque et de la collaboration avec des initiatives telles que la Fresque du Climat et d'autres ateliers de type fresque."
+      },
+      "tools": {
+        "title": "Outils et Plateformes Numériques Mondiaux",
+        "point1": "Identifier les points faibles numériques pour les acteurs, animateurs et associations qui ralentissent le déploiement mondial d'outils pédagogiquement innovants.",
+        "point3": "Travailler au développement d'outils numériques internationaux, afin d'appuyer ces parties prenantes tout en privilégiant l'open source et l'open data."
+      },
+      "local": {
+        "title": "Communautés Locales",
+        "point1": "Aider les nouvelles communautés locales à structurer leurs activités multi-ateliers.",
+        "point2": "Recommander des modèles de financement locaux avec des synergies pro/bénévoles.",
+        "point3": "Recueillir l'expérience des groupes existants. Ces connaissances aboutiront à l'écriture d'un manuel pour les structures locales multi-ateliers.",
+        "point4": "Connecter ces groupes locaux avec la communauté mondiale et ses outils. Cela sera utile pour éviter de répéter les erreurs des autres."
+      }
+    },
+    "thinkGlobal": "Penser Global...",
+    "actLocal": "...pour Agir Local !",
+    "progress": {
+      "title": "Qu'avons-nous fait jusqu'à présent ?",
+      "team": {
+        "title": "Nous avons constitué une équipe !",
+        "text1": "Nous avons réuni des représentants de plus de 30 groupes locaux, collectifs et ONG partageant la même intérêt pour les ateliers d'intelligence collective."
+      },
+      "consulting": {
+        "question": "Êtes-vous responsable d'un atelier ou d'un groupe local ?",
+        "understand": "Nous avons lancé un appel pour parler des différentes manières dont les structures multi-ateliers se mettent en place à l'international. Nous avons réalisé que nous avions des points faibles communs et encore plus de leçons à partager. Nous voulons comprendre…",
+        "point1": "Votre \"stack technologique\"",
+        "point2": "Vos points faibles.",
+        "point3": "Les besoins de vos animateurs.",
+        "support": "… dans la manière dont vous soutenez votre communauté d'animateurs pour organiser des ateliers."
+      },
+      "mapping": {
+        "title": "Cartographie des groupes dans le monde !",
+        "question": "Faites-vous partie d'un groupe qui propose des ateliers ?",
+        "compile": "Nous essayons de compiler une liste de tous les groupes multi-ateliers dans le monde afin de leur donner de la visibilité."
+      }
+    },
+    "interviewUs": "Laissez-nous vous interviewer",
+    "addGroup": "Ajoutez votre groupe ou entité",
+    "button": {
+      "joinTeam": "Rejoindre l'équipe",
+      "discoverLocalGroups": "Découvrir les groupes locaux"
+    }
+  },
+  "localGroups": {
+    "title": "Groupes locaux",
+    "globalCommunity": {
+      "heading": "Une communauté mondiale multi-ateliers",
+      "paragraph": "Notre communauté mondiale multi-ateliers est souvent née du déploiement de l'association La Fresque du Climat. D'autres ONG ont depuis créé de nombreux autres ateliers et outils, basés sur les mêmes principes d'intelligence collective, toujours ancrés dans la science publiée. Après avoir participé à un atelier, les individus sont formés comme animateurs et sont habilités à rejoindre la communauté et à commencer à sensibiliser leur entourage."
+    },
+    "builtByLocal": {
+      "heading": "Une communauté construite par des groupes locaux",
+      "paragraph1": "Les communautés locales structurent maintenant leurs activités pour déployer au mieux ces multiples outils dans des régions spécifiques. Nous avons répertorié plus de 40 de ces groupes qui diffusent nos ateliers préférés. Partout dans le monde !",
+      "paragraph2": "Un point sur cette carte ne représente pas la diversité de culture, d'objectif et de maturité de ces groupes. Mais qui sait, peut-être cela vous aidera-t-il à entrer en contact avec eux ?"
+    },
+    "missing": {
+      "paragraph": "Si votre groupe local n'apparait pas, veuillez cliquer sur le bouton pour remplir le formulaire.",
+      "button": "Ajouter un groupe local à la carte"
+    },
+    "unique": {
+      "paragraph": "Chaque communauté locale est unique ! Dans les prochaines étapes, nous visons à rendre les nuances plus visibles : lesquels de ces groupes se concentrent sur l'autonomisation des communautés ?"
+    }
   }
 }
