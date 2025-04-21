@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-    <div>
-      <h2 class="text-primary">{{ t('legal_mentions.title') }}</h2>
+  <v-container max-width="1200px">
+    <div class="px-5">
+      <h2 class="text-h2 text-primary mb-6">{{ t('legal_mentions.title') }}</h2>
       <div
         v-for="key in sections"
         :key="key"

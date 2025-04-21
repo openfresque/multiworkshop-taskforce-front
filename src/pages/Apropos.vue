@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container max-width="1200px">
     <QnA></QnA>
   </v-container>
 </template>

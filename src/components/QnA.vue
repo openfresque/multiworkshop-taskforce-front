@@ -2,9 +2,8 @@
   <div class="qa-container">
     <!-- title -->
     <div class="qa-title">
-      <h2 class="text-primary">{{ t('qa.title') }}</h2>
+      <h2 class="text-h2 text-primary mb-6">{{ t('qa.title') }}</h2>
       <p>{{ t('qa.description') }}</p>
-      <v-divider></v-divider>
     </div>
 
     <!-- items -->

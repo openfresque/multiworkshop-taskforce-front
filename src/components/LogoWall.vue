@@ -1,34 +1,36 @@
 <template>
-  <v-container>
-    <v-row class="d-flex">
-      <v-col
-        class="d-flex"
-        v-for="workshop in workshops"
-        :key="workshop.id"
-        cols="12"
-        sm="6"
-        md="4"
-        lg="4"
-      >
-        <v-card class="workshop-card ma-2 d-flex justify-center align-center">
-          <div class="card-content">
-            <a
-              :href="workshop.website"
-              target="_blank"
-            >
-              <v-img
-                class="workshop-logo"
-                :src="workshop.logo"
-                :alt="workshop.name"
-              />
-            </a>
-            <v-card-title>{{ t(`workshops.${workshop.code}.name`) }}</v-card-title>
-            <v-card-text>{{ t(`workshops.${workshop.code}.description`) }}</v-card-text>
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div>
+    <div class="px-4">
+      <v-row class="d-flex">
+        <v-col
+          class="d-flex"
+          v-for="workshop in workshops"
+          :key="workshop.id"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="4"
+        >
+          <v-card class="workshop-card ma-2 d-flex justify-center align-center">
+            <div class="card-content">
+              <a
+                :href="workshop.website"
+                target="_blank"
+              >
+                <v-img
+                  class="workshop-logo"
+                  :src="workshop.logo"
+                  :alt="workshop.name"
+                />
+              </a>
+              <v-card-title>{{ t(`workshops.${workshop.code}.name`) }}</v-card-title>
+              <v-card-text>{{ t(`workshops.${workshop.code}.description`) }}</v-card-text>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </div>
+  </div>
 </template>
 
 <script setup>

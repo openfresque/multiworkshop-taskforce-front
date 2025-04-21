@@ -1,89 +1,91 @@
 <template>
-  <v-container>
-    <h1 class="text-primary mb-6">{{ $t('talkAboutIt.title') }}</h1>
+  <v-container max-width="1200px">
+    <div class="px-5">
+      <h2 class="text-h2 text-primary mb-6">{{ $t('talkAboutIt.title') }}</h2>
 
-    <p class="mb-6">
-      {{ $t('talkAboutIt.campaign') }}
-    </p>
+      <p class="mb-6">
+        {{ $t('talkAboutIt.campaign') }}
+      </p>
 
-    <h3 class="mb-3">{{ $t('talkAboutIt.whatFor') }}</h3>
-    <p class="mb-4">
-      {{ $t('talkAboutIt.throughoutMay') }}
-    </p>
+      <h3 class="text-h5 mb-3">{{ $t('talkAboutIt.whatFor') }}</h3>
+      <p class="mb-4">
+        {{ $t('talkAboutIt.throughoutMay') }}
+      </p>
 
-    <!-- Campaign logo -->
-    <div class="d-flex justify-center mb-6">
-      <v-img
-        class="mt-2"
-        src="/assets/images/campaign/lets-talk-about-it.png"
-        alt="Let's Talk About It Campaign"
-        max-width="300"
-        contain
-      />
-    </div>
+      <!-- Campaign logo -->
+      <div class="d-flex justify-center mb-6">
+        <v-img
+          class="mt-2"
+          src="/assets/images/campaign/lets-talk-about-it.png"
+          alt="Let's Talk About It Campaign"
+          max-width="300"
+          contain
+        />
+      </div>
 
-    <p class="mb-4">
-      {{ $t('talkAboutIt.aimOfOperation') }}
-    </p>
-    <ul class="mb-6">
-      <li class="mb-2">{{ $t('talkAboutIt.jointCommunication') }}</li>
-      <li class="mb-2">{{ $t('talkAboutIt.commonMap') }}</li>
-      <li class="mb-2">{{ $t('talkAboutIt.ticketingTools') }}</li>
-    </ul>
+      <p class="mb-4">
+        {{ $t('talkAboutIt.aimOfOperation') }}
+      </p>
+      <ul class="mb-6">
+        <li class="mb-2">{{ $t('talkAboutIt.jointCommunication') }}</li>
+        <li class="mb-2">{{ $t('talkAboutIt.commonMap') }}</li>
+        <li class="mb-2">{{ $t('talkAboutIt.ticketingTools') }}</li>
+      </ul>
 
-    <p class="mb-6">
-      {{ $t('talkAboutIt.allWorkshops') }}
-    </p>
+      <p class="mb-6">
+        {{ $t('talkAboutIt.allWorkshops') }}
+      </p>
 
-    <h3 class="mb-3">{{ $t('talkAboutIt.yourRole') }}</h3>
-    <p class="mb-3">
-      {{ $t('talkAboutIt.planWorkshops') }}
-    </p>
-    <p class="mb-6">
-      {{ $t('talkAboutIt.createSessions') }}
-    </p>
+      <h3 class="text-h5 mb-3">{{ $t('talkAboutIt.yourRole') }}</h3>
+      <p class="mb-3">
+        {{ $t('talkAboutIt.planWorkshops') }}
+      </p>
+      <p class="mb-6">
+        {{ $t('talkAboutIt.createSessions') }}
+      </p>
 
-    <div class="d-flex flex-wrap gap-6 my-8 justify-center">
-      <v-btn
-        class="px-6 py-2 mr-4 mb-4"
-        color="primary"
-        href="https://docs.google.com/document/d/1ehh2JCkDod6mlIDUpnS70P6uNK4FCJ2Q4P7_kOWYcE0/edit?tab=t.60j2jenwg7pi"
-        target="_blank"
-        size="large"
-      >
-        {{ $t('talkAboutIt.kitEnglish') }}
-      </v-btn>
-      <v-btn
-        class="px-6 py-2 mr-4 mb-4"
-        color="primary"
-        href="https://ab6pg.r.sp1-brevo.net/mk/cl/f/sh/SMK1E8tHeGLdZlc9f7mw6xwizWQH/aGfBHlu4EXpj"
-        target="_blank"
-        size="large"
-      >
-        {{ $t('talkAboutIt.kitFrench') }}
-      </v-btn>
-      <v-btn
-        class="px-6 py-2 mb-4"
-        color="primary"
-        href="https://ab6pg.r.sp1-brevo.net/mk/cl/f/sh/SMK1E8tHeGZMU3G41S5uIcYCw7an/MSP3UQY_sLPg"
-        target="_blank"
-        size="large"
-      >
-        {{ $t('talkAboutIt.kitSpanish') }}
-      </v-btn>
-    </div>
+      <div class="d-flex flex-wrap gap-6 my-8 justify-center">
+        <v-btn
+          class="px-6 py-2 mr-4 mb-4"
+          color="primary"
+          href="https://docs.google.com/document/d/1ehh2JCkDod6mlIDUpnS70P6uNK4FCJ2Q4P7_kOWYcE0/edit?tab=t.60j2jenwg7pi"
+          target="_blank"
+          size="large"
+        >
+          {{ $t('talkAboutIt.kitEnglish') }}
+        </v-btn>
+        <v-btn
+          class="px-6 py-2 mr-4 mb-4"
+          color="primary"
+          href="https://ab6pg.r.sp1-brevo.net/mk/cl/f/sh/SMK1E8tHeGLdZlc9f7mw6xwizWQH/aGfBHlu4EXpj"
+          target="_blank"
+          size="large"
+        >
+          {{ $t('talkAboutIt.kitFrench') }}
+        </v-btn>
+        <v-btn
+          class="px-6 py-2 mb-4"
+          color="primary"
+          href="https://ab6pg.r.sp1-brevo.net/mk/cl/f/sh/SMK1E8tHeGZMU3G41S5uIcYCw7an/MSP3UQY_sLPg"
+          target="_blank"
+          size="large"
+        >
+          {{ $t('talkAboutIt.kitSpanish') }}
+        </v-btn>
+      </div>
 
-    <h2 class="text-h4 mb-4">{{ $t('talkAboutIt.theMap') }}</h2>
-    <p class="mb-4">
-      {{ $t('talkAboutIt.mapDescription') }}
-    </p>
+      <h2 class="text-h4 mb-4">{{ $t('talkAboutIt.theMap') }}</h2>
+      <p class="mb-4">
+        {{ $t('talkAboutIt.mapDescription') }}
+      </p>
 
-    <!-- Map placeholder -->
-    <div class="map-container mb-6">
-      <div
-        class="map-height"
-        id="talkAboutItMap"
-      ></div>
+      <!-- Map placeholder -->
+      <div class="map-container mb-6">
+        <div
+          class="map-height"
+          id="talkAboutItMap"
+        ></div>
+      </div>
     </div>
   </v-container>
 </template>
