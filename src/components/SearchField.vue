@@ -2,6 +2,7 @@
   <div>
     <router-view />
     <v-autocomplete
+      ref="autocompleteRef"
       class="search-field"
       :label="t('searchField')"
       max-width="500px"
@@ -60,11 +61,16 @@
       required: false,
       default: null,
     },
+    autofocus: {
+      type: Boolean,
+      default: false,
+    },
   })
 
   const autocompleteMatches = ref<AutocompleteItem[]>([])
   const searchValue = ref<string | null>(null)
   const focused = ref(false)
+  const autocompleteRef = ref<any>(null)
 
   function setFocused(isFocused: boolean) {
     focused.value = isFocused
@@ -136,6 +142,11 @@
       search('')
     } else {
       search(props.modelValue.title)
+    }
+
+    // Focus the input element on mount if autofocus prop is true
+    if (props.autofocus) {
+      autocompleteRef.value?.focus()
     }
   })
 </script>
