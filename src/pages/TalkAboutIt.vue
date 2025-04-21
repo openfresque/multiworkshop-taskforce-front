@@ -32,10 +32,6 @@
         <li class="mb-2">{{ $t('talkAboutIt.ticketingTools') }}</li>
       </ul>
 
-      <p class="mb-6">
-        {{ $t('talkAboutIt.allWorkshops') }}
-      </p>
-
       <h3 class="text-h5 mb-3">{{ $t('talkAboutIt.yourRole') }}</h3>
       <p class="mb-3">
         {{ $t('talkAboutIt.planWorkshops') }}
@@ -46,7 +42,7 @@
 
       <div class="d-flex flex-wrap gap-6 my-8 justify-center">
         <v-btn
-          class="px-6 py-2 mr-4 mb-4"
+          class="card-action-button"
           color="primary"
           href="https://docs.google.com/document/d/1ehh2JCkDod6mlIDUpnS70P6uNK4FCJ2Q4P7_kOWYcE0/edit?tab=t.60j2jenwg7pi"
           target="_blank"
@@ -55,7 +51,7 @@
           {{ $t('talkAboutIt.kitEnglish') }}
         </v-btn>
         <v-btn
-          class="px-6 py-2 mr-4 mb-4"
+          class="card-action-button"
           color="primary"
           href="https://ab6pg.r.sp1-brevo.net/mk/cl/f/sh/SMK1E8tHeGLdZlc9f7mw6xwizWQH/aGfBHlu4EXpj"
           target="_blank"
@@ -64,7 +60,7 @@
           {{ $t('talkAboutIt.kitFrench') }}
         </v-btn>
         <v-btn
-          class="px-6 py-2 mb-4"
+          class="card-action-button"
           color="primary"
           href="https://ab6pg.r.sp1-brevo.net/mk/cl/f/sh/SMK1E8tHeGZMU3G41S5uIcYCw7an/MSP3UQY_sLPg"
           target="_blank"
@@ -248,5 +244,24 @@
   .map-height {
     height: 500px;
     width: 100%;
+  }
+</style>
+
+<style scoped lang="scss">
+  .card-action-button {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: 1.2;
+    min-height: 44px;
+  }
+
+  .card-action-button :deep(.v-btn__content) {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 </style>

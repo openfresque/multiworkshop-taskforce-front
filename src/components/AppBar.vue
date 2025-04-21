@@ -1,6 +1,6 @@
 <template>
   <v-app-bar flat>
-    <div class="d-flex align-center justify-space-between w-100 px-4">
+    <div :class="['inner-app-bar d-flex align-center justify-space-between w-100', smAndDown ? 'px-2' : 'px-4']">
       <!-- main logo -->
       <router-link to="/">
         <v-img
@@ -111,7 +111,7 @@
 
 <script setup lang="ts">
   import { ref, computed } from 'vue'
-  import { useTheme } from 'vuetify'
+  import { useTheme, useDisplay } from 'vuetify'
   import { useI18n } from 'vue-i18n'
   import LanguageSwitcher from './LanguageSwitcher.vue'
   import { RouteLocationRaw } from 'vue-router'
@@ -179,6 +179,7 @@
     }
   ])
 
+  const { smAndDown } = useDisplay()
   const theme = useTheme()
 
   const currentLogo = computed(() => {

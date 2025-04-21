@@ -42,8 +42,8 @@
             {{ t('homepage.movement.title') }}
           </div>
           <v-divider></v-divider>
-          <v-card-text class="flex-grow-1 pa-4">
-            <p class="text-body-1 mb-4 card-description">
+          <v-card-text class="text-body-1 flex-grow-1 pa-4">
+            <p class="mb-4 card-description">
               {{ t('homepage.hero.description') }}
             </p>
           </v-card-text>
@@ -76,8 +76,8 @@
             {{ t('homepage.mapping.title') }}
           </div>
           <v-divider></v-divider>
-          <v-card-text class="flex-grow-1 pa-4">
-            <p class="text-body-1 mb-4 card-description">
+          <v-card-text class="text-body-1 flex-grow-1 pa-4">
+            <p class="mb-4 card-description">
               {{ t('homepage.mapping.description') }}
             </p>
           </v-card-text>
@@ -110,8 +110,8 @@
             {{ t('homepage.collaboration.title') }}
           </div>
           <v-divider></v-divider>
-          <v-card-text class="flex-grow-1 pa-4">
-            <p class="text-body-1 mb-4 card-description">
+          <v-card-text class="text-body-1 flex-grow-1 pa-4">
+            <p class="description">
               {{ t('homepage.collaboration.description') }}
             </p>
           </v-card-text>
@@ -242,22 +242,5 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-  }
-
-  .card-action-button {
-    // Adjust height automatically based on content
-    height: auto;
-    // Add some vertical padding for wrapped text
-    padding-top: 8px;
-    padding-bottom: 8px;
-    // Ensure line breaks are respected
-    line-height: 1.2;
-    // Needed to override Vuetify's default button min-height
-    min-height: 44px; // Corresponds to size='large'
-  }
-
-  .card-action-button :deep(.v-btn__content) {
-    // Allow text wrapping inside the button's content span
-    white-space: normal;
   }
 </style>

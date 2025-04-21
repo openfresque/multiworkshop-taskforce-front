@@ -42,14 +42,22 @@
     z-index: 10; // Ensure it covers header/footer visually
     flex-grow: 0; // Override flex-grow when map is active
   }
-  
+
   // Hide footer specifically on map page
-  .is-map-page + footer { 
-    display: none; 
+  .is-map-page + footer {
+    display: none;
   }
 
   /* Ensure footer doesn't grow */
   footer {
     flex-shrink: 0;
+  }
+
+  // Mobile: reduce edge padding on main content
+  @media (max-width: 576px) {
+    .main-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 </style>

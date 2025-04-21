@@ -6,6 +6,8 @@
 
 // Plugins
 import { registerPlugins } from '@/plugins'
+// Import global styles for card-action-button
+import '@/styles/card-action-button.scss'
 
 // Components
 import App from './App.vue'
