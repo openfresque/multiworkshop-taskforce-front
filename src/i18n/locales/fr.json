@@ -10,7 +10,7 @@
   "navigation": {
     "home": "Accueil",
     "news": "Actualités",
-    "findWorkshop": "L'annuaire",
+    "findAFresk": "Trouver une Fresque",
     "map": "La carte",
     "talkAboutIt": "Let's talk about it",
     "community": "La communauté",
@@ -20,8 +20,7 @@
   },
   "map": {
     "address": "Adresse",
-    "booking": "Réservation",
-    "contact": "Contact"
+    "booking": "Réservation"
   },
   "buttons": {
     "license": "Trouver une Fresque - AGPL-3.0",
@@ -322,7 +321,8 @@
       "mapping": {
         "title": "Cartographie des groupes dans le monde !",
         "question": "Faites-vous partie d'un groupe qui propose des ateliers ?",
-        "compile": "Nous essayons de compiler une liste de tous les groupes multi-ateliers dans le monde afin de leur donner de la visibilité."      }
+        "compile": "Nous essayons de compiler une liste de tous les groupes multi-ateliers dans le monde afin de leur donner de la visibilité."
+      }
     },
     "interviewUs": "Laissez-nous vous interviewer",
     "addGroup": "Ajoutez votre groupe ou entité",
