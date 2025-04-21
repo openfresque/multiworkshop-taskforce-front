@@ -3,12 +3,12 @@ name: Déploiement
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
@@ -18,12 +18,12 @@ jobs:
       - run: yarn install
       - run: yarn run build
         env:
-          BASE_URL: 'https://trouverunefresque.org/'
+          BASE_URL: 'https://dev.trouverunefresque.org/'
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
-          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
-          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          server: ${{ secrets.HOSTINGER_FTP_SERVER_DEV }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME_DEV }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD_DEV }}
           local-dir: ./dist/
           server-dir: /
