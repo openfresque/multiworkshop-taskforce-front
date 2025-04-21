@@ -294,7 +294,7 @@
       },
       "tools": {
         "title": "Outils et Plateformes Numériques Mondiaux",
-        "point1": "Identifier les points faibles numériques pour les acteurs, animateurs et associations qui ralentissent le déploiement mondial d'outils pédagogiquement innovants.",
+        "point1": "Identifier les points de friction induits par les outils numériques pour les acteurs, animateurs et associations qui ralentissent le déploiement mondial d'outils pédagogiquement innovants.",
         "point3": "Travailler au développement d'outils numériques internationaux, afin d'appuyer ces parties prenantes tout en privilégiant l'open source et l'open data."
       },
       "local": {
@@ -305,8 +305,6 @@
         "point4": "Connecter ces groupes locaux avec la communauté mondiale et ses outils. Cela sera utile pour éviter de répéter les erreurs des autres."
       }
     },
-    "thinkGlobal": "Penser Global...",
-    "actLocal": "...pour Agir Local !",
     "progress": {
       "title": "Qu'avons-nous fait jusqu'à présent ?",
       "team": {
@@ -315,17 +313,16 @@
       },
       "consulting": {
         "question": "Êtes-vous responsable d'un atelier ou d'un groupe local ?",
-        "understand": "Nous avons lancé un appel pour parler des différentes manières dont les structures multi-ateliers se mettent en place à l'international. Nous avons réalisé que nous avions des points faibles communs et encore plus de leçons à partager. Nous voulons comprendre…",
+        "understand": "Nous avons lancé un appel pour parler des différentes manières dont les structures multi-ateliers se mettent en place à l'international. Nous avons réalisé que nous avions des points de friction communs et encore plus de leçons à partager. Nous voulons comprendre…",
         "point1": "Votre \"stack technologique\"",
-        "point2": "Vos points faibles.",
+        "point2": "Vos points de friction.",
         "point3": "Les besoins de vos animateurs.",
         "support": "… dans la manière dont vous soutenez votre communauté d'animateurs pour organiser des ateliers."
       },
       "mapping": {
         "title": "Cartographie des groupes dans le monde !",
         "question": "Faites-vous partie d'un groupe qui propose des ateliers ?",
-        "compile": "Nous essayons de compiler une liste de tous les groupes multi-ateliers dans le monde afin de leur donner de la visibilité."
-      }
+        "compile": "Nous essayons de compiler une liste de tous les groupes multi-ateliers dans le monde afin de leur donner de la visibilité."      }
     },
     "interviewUs": "Laissez-nous vous interviewer",
     "addGroup": "Ajoutez votre groupe ou entité",
