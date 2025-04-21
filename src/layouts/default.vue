@@ -32,6 +32,22 @@
     padding-right: 16px;
   }
 
+  .is-map-page {
+    padding: 0 !important;
+    height: 100vh;
+    width: 100vw;
+    position: fixed; // Keep fixed for fullscreen map
+    top: 0;
+    left: 0;
+    z-index: 10; // Ensure it covers header/footer visually
+    flex-grow: 0; // Override flex-grow when map is active
+  }
+  
+  // Hide footer specifically on map page
+  .is-map-page + footer { 
+    display: none; 
+  }
+
   /* Ensure footer doesn't grow */
   footer {
     flex-shrink: 0;

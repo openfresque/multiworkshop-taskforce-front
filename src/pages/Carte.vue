@@ -1,8 +1,8 @@
 <template>
   <v-container
-    class="h-100"
+    class="map-container pa-0"
     id="mapid"
-    max-width="1800px"
+    fluid
   >
   </v-container>
 </template>
@@ -74,17 +74,25 @@
     }
 
     if (isDark.value) {
-      mapLayer.value = tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-      })
+      mapLayer.value = tileLayer(
+        'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+        {
+          maxZoom: 19,
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        }
+      )
     } else {
-      mapLayer.value = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      })
+      mapLayer.value = tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+          maxZoom: 19,
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }
+      )
     }
-    
+
     mapLayer.value.addTo(mymap.value)
   }
 
@@ -155,7 +163,16 @@
 </route>
 
 <style scoped>
-  #mapid {
-    height: 180px;
+  .map-container {
+    /* Fill the parent container */
+    width: 100%;
+    height: 100%;
+    /* Remove default container padding */
+    padding: 0 !important;
+  }
+  /* Ensure the Leaflet map itself also fills the container */
+  :deep(.leaflet-container) {
+    width: 100%;
+    height: 100%;
   }
 </style>
