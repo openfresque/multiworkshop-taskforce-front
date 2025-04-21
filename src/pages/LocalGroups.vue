@@ -55,16 +55,13 @@
   import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
   // @ts-ignore
   import { MarkerClusterGroup } from 'leaflet.markercluster'
-  import { State, Workshop } from '@/state/State'
 
-  type WorkshopCarte = {
-    nom: string
-    longitude: number
-    latitude: number
-    reservation: string
-    location_name: string | undefined
-    address: string | undefined
-    city: string | undefined
+  type LocalGroup = {
+    title: string
+    latitude: string
+    longitude: string
+    link: string
+    country_code: string
   }
 
   const mymap = ref<any>(null)
@@ -76,34 +73,32 @@
   onMounted(async () => {
     mymap.value = map('talkAboutItMap', {
       markerZoomAnimation: false,
-    }).setView([46.505, 3], 6)
+      maxZoom: 19,
+    }).setView([46.505, 3], 2)
 
-    const allWorkshops = await State.current.allWorkshops()
-    const workshopsCarte = allWorkshops.workshopsDisponibles
-      .filter((workshop: Workshop) => workshop.online === false) // Exclude online workshops
-      .filter(workshop => !!workshop.longitude && !!workshop.latitude) // Exclude workshops without coordinates
-      .filter(
-        workshop =>
-          workshop.latitude >= -90 &&
-          workshop.latitude <= 90 &&
-          workshop.longitude >= -180 &&
-          workshop.longitude <= 180
-      ) // Exclude workshops with invalid coordinates
-      .map<WorkshopCarte>(workshop => ({
-        nom: workshop.title,
-        longitude: workshop.longitude,
-        latitude: workshop.latitude,
-        reservation: workshop.source_link,
-        location_name: workshop.location_name,
-        address: workshop.address,
-        city: workshop.city,
+    // Fetch the remote local_groups.json data
+    const response = await fetch('https://raw.githubusercontent.com/trouver-une-fresque/trouver-une-fresque-data/main/local_groups.json')
+    const localGroups: LocalGroup[] = await response.json()
+    // Filter and normalize to numeric coordinates
+    const validGroups = localGroups
+      .filter(group => !!group.latitude && !!group.longitude)
+      .filter(group => {
+        const lat = parseFloat(group.latitude)
+        const lng = parseFloat(group.longitude)
+        return lat >= -90 && lat <= 90 && lng >= -180 && lng <= 180
+      })
+      .map(group => ({
+        title: group.title,
+        latitude: parseFloat(group.latitude),
+        longitude: parseFloat(group.longitude),
+        link: group.link,
       }))
+    // Create and add markers for local groups
+    const markers = creerLocalGroupPins(validGroups)
+    mymap.value.addLayer(markers)
 
     // Apply initial map layer based on theme
     setMapLayer()
-
-    const markers = creerPins(workshopsCarte)
-    mymap.value.addLayer(markers)
   })
 
   // Set the map layer based on current theme
@@ -148,25 +143,13 @@
     }
   })
 
-  function creerPins(lieux: WorkshopCarte[]) {
-    const markers = lieux.reduce((markers, lieu) => {
-      let reservation_str = ''
-      if (typeof lieu.reservation !== 'undefined') {
-        if (lieu.reservation.indexOf('http') === 0) {
-          reservation_str = `<a href="${lieu.reservation}">${lieu.reservation.slice(0, 35) + '...'}</a>`
-        }
-      } else {
-        reservation_str = lieu.reservation
-      }
-
-      const string_popup = `
-      <span style='font-size: 150%;'>${lieu.nom}</span>
-      <br>
-      <b>${t('map.address')} :</b> ${lieu.location_name ? `${lieu.location_name}, ` : ''}${lieu.address}, ${lieu.city}
-      <br>
-      <b>${t('map.booking')} :</b> ${reservation_str || '-'}
-    `
-
+  function creerLocalGroupPins(lieux: { title: string; latitude: number; longitude: number; link: string }[]) {
+    const markers = lieux.reduce((acc, lieu) => {
+      const popupContent = `
+        <span style='font-size: 150%;'>${lieu.title}</span>
+        <br>
+        <a href="${lieu.link}" target="_blank">${lieu.link}</a>
+      `
       const newMarker = marker([lieu.latitude, lieu.longitude] as LatLngTuple, {
         icon: new Icon.Default({
           imagePath: `/assets/images/png/`,
@@ -174,14 +157,13 @@
           iconSize: [32, 31],
           iconAnchor: [8, 31],
         }),
-      }).bindPopup(string_popup)
+      }).bindPopup(popupContent)
       newMarker.on('click', function () {
         // @ts-ignore
         this.openPopup()
       })
-
-      markers.push(newMarker)
-      return markers
+      acc.push(newMarker)
+      return acc
     }, [] as Marker[])
 
     const markersGroup = new MarkerClusterGroup({
