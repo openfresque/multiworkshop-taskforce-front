@@ -14,43 +14,88 @@
 
       <!-- navigation links (for md devices and bigger) -->
       <div class="d-none d-md-flex align-center">
-        <v-btn
-          v-for="link in links"
-          :key="link.id"
-          v-bind="link.external ? { href: link.to } : { to: link.to }"
-          variant="text"
-          class="mx-1"
-        >
-          {{ link.text }}
-          <v-icon class="ml-1">{{ link.icon }}</v-icon>
-        </v-btn>
+        <template v-for="link in links" :key="link.id">
+          <!-- Regular Button -->
+          <v-btn
+            v-if="!link.children"
+            v-bind="link.external ? { href: link.href } : { to: link.to }"
+            :target="link.external ? '_blank' : undefined"
+            variant="text"
+            class="mx-1"
+            :append-icon="link.icon"
+          >
+            {{ t(link.textKey) }}
+          </v-btn>
 
+          <!-- Dropdown Menu -->
+          <v-menu v-else open-on-hover>
+            <template #activator="{ props }">
+              <v-btn
+                v-bind="props"
+                variant="text"
+                class="mx-1"
+                :append-icon="link.icon || 'mdi-chevron-down'"
+              >
+                {{ t(link.textKey) }}
+              </v-btn>
+            </template>
+            <v-list density="compact">
+              <v-list-item
+                v-for="child in link.children"
+                :key="child.id"
+                :to="child.to"
+                :prepend-icon="child.icon"
+                :title="t(child.textKey)"
+              >
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </template>
+        
         <LanguageSwitcher class="ml-2" />
       </div>
 
       <!-- navigation links (for small devices) -->
-      <v-menu v-model="menu">
+      <v-menu v-model="menu" location="bottom end">
         <template #activator="{ props }">
           <v-btn
             v-bind="props"
             class="d-flex d-md-none"
-            icon
+            icon="mdi-menu"
           >
-            <v-icon>mdi-menu</v-icon>
           </v-btn>
         </template>
         <v-list>
-          <v-list-item
-            v-for="link in links"
-            v-bind="link.external ? { href: link.to } : { to: link.to }"
-            :key="link.id"
-            @click="menu = false"
-            :append-icon="link.icon"
-            color="primary"
-            :title="link.text"
-          >
-          </v-list-item>
-          
+          <template v-for="link in links" :key="link.id + '-mobile'">
+            <!-- Regular Mobile Item -->
+            <v-list-item
+              v-if="!link.children"
+              v-bind="link.external ? { href: link.href } : { to: link.to }"
+              :target="link.external ? '_blank' : undefined"
+              @click="menu = false"
+              :append-icon="link.icon"
+              color="primary"
+              :title="t(link.textKey)"
+            >
+            </v-list-item>
+            <!-- Mobile Sub-items (flattened) -->
+            <template v-else>
+               <!-- Optional: Add a non-clickable header for the group -->
+               <v-list-subheader>{{ t(link.textKey) }}</v-list-subheader> 
+               <v-list-item
+                 v-for="child in link.children"
+                 :key="child.id"
+                 :to="child.to"
+                 @click="menu = false"
+                 :append-icon="child.icon"
+                 color="primary"
+                 :title="t(child.textKey)"
+                 class="ml-4" 
+               >
+               </v-list-item>
+            </template>
+          </template>
+
           <v-divider class="my-2" />
           
           <v-list-item @click.stop>
@@ -69,26 +114,69 @@
   import { useTheme } from 'vuetify'
   import { useI18n } from 'vue-i18n'
   import LanguageSwitcher from './LanguageSwitcher.vue'
+  import { RouteLocationRaw } from 'vue-router'
+
+  // Define the interface for navigation links
+  interface NavLink {
+    id: number;
+    to?: RouteLocationRaw;
+    href?: string; // Add href for external URLs
+    textKey: string;
+    icon?: string;
+    external?: boolean;
+    children?: NavLink[];
+  }
 
   const { t } = useI18n()
 
   const menu = ref(false)
 
-  const links = computed(() => [
+  const links = computed<NavLink[]>(() => [
+    /* Home link commented out
     {
       id: 1,
-      to: 'https://www.linkedin.com/company/trouver-une-fresque',
-      text: t('navigation.news'),
-      icon: 'mdi-newspaper',
-      external: true,
+      to: '/',
+      textKey: 'navigation.home',
+      icon: 'mdi-home',
     },
-    { id: 2, to: '/carte', text: t('navigation.map'), icon: 'mdi-map' },
+    */
+    {
+      id: 2,
+      to: '/find-a-fresk',
+      textKey: 'navigation.findAFresk',
+      icon: 'mdi-magnify',
+    },
     {
       id: 3,
-      to: '/apropos',
-      text: t('navigation.about'),
-      icon: 'mdi-information',
+      to: '/carte',
+      textKey: 'navigation.map',
+      icon: 'mdi-map'
     },
+    {
+      id: 4,
+      to: '/lets-talk-about-it',
+      textKey: 'navigation.talkAboutIt',
+      icon: 'mdi-chat',
+    },
+    {
+      id: 5,
+      textKey: 'navigation.community',
+      icon: 'mdi-account-group',
+      children: [
+        {
+          id: 51,
+          to: '/local-groups',
+          textKey: 'navigation.localGroups',
+          icon: 'mdi-map-marker-radius'
+        },
+        {
+          id: 52,
+          to: '/taskforce',
+          textKey: 'navigation.taskforce',
+          icon: 'mdi-information-outline'
+        },
+      ]
+    }
   ])
 
   const theme = useTheme()

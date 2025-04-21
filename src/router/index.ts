@@ -11,22 +11,28 @@ import { createRouter, createWebHistory } from 'vue-router'
 // Import your components
 import Apropos from '@/pages/Apropos.vue'
 import Carte from '@/pages/Carte.vue'
+import FindAFresk from '@/pages/FindAFresk.vue'
 import Index from '@/pages/index.vue'
+import LocalGroups from '@/pages/LocalGroups.vue'
 import Mentions from '@/pages/Mentions.vue'
 import SearchResults from '@/pages/SearchResults.vue'
 import TalkAboutIt from '@/pages/TalkAboutIt.vue'
+import Taskforce from '@/pages/Taskforce.vue'
 import {
   rechercheCommuneDescriptor,
   rechercheDepartementDescriptor,
 } from '@/routing/DynamicURLs'
 
 // Route constants
+export const ROUTE_FIND_A_FRESK = 'findAFresk' as const
 export const ROUTE_MAP = 'map' as const
 export const ROUTE_ABOUT = 'about' as const
 export const ROUTE_LEGAL = 'legal' as const
 export const ROUTE_SEARCH_DPT = 'searchDpt' as const
 export const ROUTE_SEARCH_CITY = 'searchCom' as const
 export const ROUTE_TALK_ABOUT_IT = 'talkAboutIt' as const
+export const ROUTE_TASKFORCE = 'taskforce' as const
+export const ROUTE_LOCAL_GROUPS = 'localGroups' as const
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,19 +49,34 @@ const router = createRouter({
           component: Index,
         },
         {
+          path: 'find-a-fresk',
+          name: ROUTE_FIND_A_FRESK,
+          component: FindAFresk,
+        },
+        {
           path: 'carte',
           name: ROUTE_MAP,
           component: Carte,
         },
         {
-          path: 'apropos',
-          name: ROUTE_ABOUT,
-          component: Apropos,
-        },
-        {
           path: 'lets-talk-about-it',
           name: ROUTE_TALK_ABOUT_IT,
           component: TalkAboutIt,
+        },
+        {
+          path: 'taskforce',
+          name: ROUTE_TASKFORCE,
+          component: Taskforce,
+        },
+        {
+          path: 'local-groups',
+          name: ROUTE_LOCAL_GROUPS,
+          component: LocalGroups,
+        },
+        {
+          path: 'a-propos',
+          name: ROUTE_ABOUT,
+          component: Apropos,
         },
         {
           path: 'mentions-legales',

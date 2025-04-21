@@ -17,8 +17,11 @@ RouteRecordInfo
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     'about': RouteRecordInfo<'about', '/apropos', Record<never, never>, Record<never, never>>,
     'map': RouteRecordInfo<'map', '/carte', Record<never, never>, Record<never, never>>,
+    '/FindAFresk': RouteRecordInfo<'/FindAFresk', '/FindAFresk', Record<never, never>, Record<never, never>>,
+    'local-groups': RouteRecordInfo<'local-groups', '/local-groups', Record<never, never>, Record<never, never>>,
     'legal': RouteRecordInfo<'legal', '/mentions-legales', Record<never, never>, Record<never, never>>,
     'searchCom': RouteRecordInfo<'searchCom', '/recherche/commune/:codeCommune/:codePostal/:nomCommune/:typeRecherche/:codeTriCentre/:includesOnline', Record<never, never>, Record<never, never>>,
     '/TalkAboutIt': RouteRecordInfo<'/TalkAboutIt', '/TalkAboutIt', Record<never, never>, Record<never, never>>,
+    'taskforce': RouteRecordInfo<'taskforce', '/taskforce', Record<never, never>, Record<never, never>>,
   }
 }
