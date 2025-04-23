@@ -52,6 +52,7 @@ const router = createRouter({
           path: 'find-a-fresk',
           name: ROUTE_FIND_A_FRESK,
           component: FindAFresk,
+          alias: 'find-a-workshop'
         },
         {
           path: 'carte',
