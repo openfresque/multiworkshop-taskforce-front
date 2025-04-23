@@ -43,9 +43,9 @@
               <v-list-item
                 v-for="child in link.children"
                 :key="child.id"
-                :to="child.to"
                 :prepend-icon="child.icon"
                 :title="t(child.textKey)"
+                v-bind="child.external ? { href: child.href, target: '_blank' } : { to: child.to }"
               >
               </v-list-item>
             </v-list>
@@ -85,12 +85,12 @@
                <v-list-item
                  v-for="child in link.children"
                  :key="child.id"
-                 :to="child.to"
                  @click="menu = false"
                  :append-icon="child.icon"
                  color="primary"
                  :title="t(child.textKey)"
-                 class="ml-4" 
+                 class="ml-4"
+                 v-bind="child.external ? { href: child.href, target: '_blank' } : { to: child.to }"
                >
                </v-list-item>
             </template>
@@ -174,6 +174,13 @@
           to: '/taskforce',
           textKey: 'navigation.taskforce',
           icon: 'mdi-information-outline'
+        },
+        {
+          id: 53,
+          href: 'https://www.linkedin.com/company/trouver-une-fresque',
+          textKey: 'navigation.communityNews',
+          icon: 'mdi-newspaper-variant-outline',
+          external: true
         },
       ]
     }

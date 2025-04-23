@@ -13,9 +13,10 @@
     "findAFresk": "Find a Fresk",
     "map": "Fresk Map",
     "talkAboutIt": "Let's Talk About It",
-    "community": "The Community",
-    "taskforce": "The Taskforce",
-    "localGroups": "Local groups",
+    "community": "Community",
+    "taskforce": "Taskforce",
+    "localGroups": "Local Groups",
+    "communityNews": "News",
     "about": "About"
   },
   "map": {
