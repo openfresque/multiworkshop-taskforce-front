@@ -71,9 +71,9 @@
       </div>
 
       <h2 class="text-h4 mb-4">{{ $t('talkAboutIt.theMap') }}</h2>
-      <p class="mb-4">
+      <!-- <p class="mb-4">
         {{ $t('talkAboutIt.mapDescription') }}
-      </p>
+      </p> -->
 
       <!-- Map placeholder -->
       <div class="map-container mb-6">
@@ -95,13 +95,23 @@
   import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
   // @ts-ignore
   import { MarkerClusterGroup } from 'leaflet.markercluster'
-  import { State, Workshop } from '@/state/State'
+
+  type RawWorkshopData = {
+    title: string
+    longitude: string | undefined
+    latitude: string | undefined
+    tickets_link: string | undefined
+    location_name: string | undefined
+    address: string | undefined
+    city: string | undefined
+    online: boolean
+  }
 
   type WorkshopCarte = {
     nom: string
     longitude: number
     latitude: number
-    reservation: string
+    reservation: string | undefined
     location_name: string | undefined
     address: string | undefined
     city: string | undefined
@@ -116,34 +126,56 @@
   onMounted(async () => {
     mymap.value = map('talkAboutItMap', {
       markerZoomAnimation: false,
-    }).setView([46.505, 3], 6)
+    }).setView([46.505, 3], 2)
 
-    const allWorkshops = await State.current.allWorkshops()
-    const workshopsCarte = allWorkshops.workshopsDisponibles
-      .filter((workshop: Workshop) => workshop.online === false) // Exclude online workshops
-      .filter(workshop => !!workshop.longitude && !!workshop.latitude) // Exclude workshops without coordinates
-      .filter(
-        workshop =>
-          workshop.latitude >= -90 &&
-          workshop.latitude <= 90 &&
-          workshop.longitude >= -180 &&
-          workshop.longitude <= 180
-      ) // Exclude workshops with invalid coordinates
-      .map<WorkshopCarte>(workshop => ({
-        nom: workshop.title,
-        longitude: workshop.longitude,
-        latitude: workshop.latitude,
-        reservation: workshop.source_link,
-        location_name: workshop.location_name,
-        address: workshop.address,
-        city: workshop.city,
-      }))
+    try {
+      const response = await fetch(
+        'https://raw.githubusercontent.com/trouver-une-fresque/trouver-une-fresque-data/main/campaigns/lets-talk-about-it/lets_talk_about_it_processed.json'
+      )
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      const rawWorkshopsData: RawWorkshopData[] = await response.json()
 
-    // Apply initial map layer based on theme
-    setMapLayer()
+      const workshopsCarte = rawWorkshopsData
+        .filter((workshop: RawWorkshopData) => workshop.online === false)
+        .filter((workshop: RawWorkshopData) => {
+          const latStr = workshop.latitude ?? ''
+          const lonStr = workshop.longitude ?? ''
+          const lat = parseFloat(latStr)
+          const lon = parseFloat(lonStr)
+          const isValid =
+            !isNaN(lat) &&
+            !isNaN(lon) &&
+            lat >= -90 &&
+            lat <= 90 &&
+            lon >= -180 &&
+            lon <= 180
+          return isValid
+        }) // Exclude workshops with invalid or missing coordinates
+        .map<WorkshopCarte>((workshop: RawWorkshopData) => ({
+          nom: workshop.title,
+          longitude: parseFloat(workshop.longitude!), // Safe due to filter above
+          latitude: parseFloat(workshop.latitude!), // Safe due to filter above
+          reservation: workshop.tickets_link,
+          location_name: workshop.location_name || undefined,
+          address: workshop.address || undefined,
+          city: workshop.city || undefined,
+        }))
 
-    const markers = creerPins(workshopsCarte)
-    mymap.value.addLayer(markers)
+      // Apply initial map layer based on theme
+      setMapLayer()
+
+      if (workshopsCarte.length === 0) {
+        // console.warn('No valid workshops found to display on the map.')
+      } else {
+        const markers = creerPins(workshopsCarte)
+        mymap.value.addLayer(markers)
+        // console.log('Markers added to map.')
+      }
+    } catch (error) {
+      console.error('Error loading or processing workshop data:', error)
+    }
   })
 
   // Set the map layer based on current theme
@@ -193,10 +225,10 @@
       let reservation_str = ''
       if (typeof lieu.reservation !== 'undefined') {
         if (lieu.reservation.indexOf('http') === 0) {
-          reservation_str = `<a href="${lieu.reservation}">${lieu.reservation.slice(0, 35) + '...'}</a>`
+          reservation_str = `<a href="${lieu.reservation}" target="_blank" rel="noopener noreferrer">${lieu.reservation.slice(0, 35) + '...'}</a>`
         }
       } else {
-        reservation_str = lieu.reservation
+        reservation_str = '-' // Default value if reservation is undefined
       }
 
       const string_popup = `
