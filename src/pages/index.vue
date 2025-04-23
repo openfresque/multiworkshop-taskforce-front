@@ -14,7 +14,7 @@
           </h2>
         </v-card-title>
         <v-card-text class="d-flex justify-center">
-          <SearchField class="d-flex flex-grow-1 justify-center"></SearchField>
+          <SearchBoxes />
         </v-card-text>
       </v-card>
     </section>
@@ -163,7 +163,7 @@
 
 <script lang="ts" setup>
   import { useI18n } from 'vue-i18n'
-  import SearchField from '@/components/SearchField.vue'
+  import SearchBoxes from '@/components/SearchBoxes.vue'
   import { ref } from 'vue'
 
   const { t } = useI18n()

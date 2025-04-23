@@ -14,6 +14,7 @@ declare module 'vue' {
     QnA: typeof import('./components/QnA.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SearchBoxes: typeof import('./components/SearchBoxes.vue')['default']
     SearchField: typeof import('./components/SearchField.vue')['default']
     SearchResultsCard: typeof import('./components/SearchResultsCard.vue')['default']
     SearchResultsList: typeof import('./components/SearchResultsList.vue')['default']
