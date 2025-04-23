@@ -105,6 +105,8 @@
     address: string | undefined
     city: string | undefined
     online: boolean
+    language_code: string | undefined
+    country_code: string | undefined
   }
 
   type WorkshopCarte = {
@@ -115,6 +117,8 @@
     location_name: string | undefined
     address: string | undefined
     city: string | undefined
+    language_code: string | undefined
+    country_code: string | undefined
   }
 
   const mymap = ref<any>(null)
@@ -161,6 +165,8 @@
           location_name: workshop.location_name || undefined,
           address: workshop.address || undefined,
           city: workshop.city || undefined,
+          language_code: workshop.language_code,
+          country_code: workshop.country_code,
         }))
 
       // Apply initial map layer based on theme
@@ -220,6 +226,41 @@
     }
   })
 
+  // Helper function to generate flag emoji from country or language code
+  function getFlagEmoji(code: string | undefined, type: 'country' | 'language'): string {
+    let targetCountryCode = code?.toUpperCase()
+
+    if (type === 'language') {
+      // Map common language codes to representative country codes for flags
+      const langMap: { [key: string]: string } = {
+        EN: 'GB', // English -> UK flag
+        FR: 'FR', // French -> France flag
+        DE: 'DE', // German -> Germany flag
+        ES: 'ES', // Spanish -> Spain flag
+        IT: 'IT', // Italian -> Italy flag
+        PT: 'PT', // Portuguese -> Portugal flag
+        NL: 'NL', // Dutch -> Netherlands flag
+        // Add more mappings as needed
+      }
+      targetCountryCode = langMap[targetCountryCode || ''] || targetCountryCode // Use mapped code if available
+    }
+
+    if (targetCountryCode && targetCountryCode.length === 2) {
+      try {
+        const codePoints = targetCountryCode
+          .split('')
+          .map(char => 127397 + char.charCodeAt(0))
+        return String.fromCodePoint(...codePoints)
+      } catch (e) {
+        console.error(`Could not generate flag emoji for ${type} code: ${code}`, e)
+        return '🏳️' // Fallback flag
+      }
+    } else if (code) {
+      console.warn(`Invalid ${type} code for flag emoji: ${code}`)
+    }
+    return '' // Return empty string if no valid code
+  }
+
   function creerPins(lieux: WorkshopCarte[]) {
     const markers = lieux.reduce((markers, lieu) => {
       let reservation_str = ''
@@ -231,10 +272,18 @@
         reservation_str = '-' // Default value if reservation is undefined
       }
 
+      // --- Flag Emoji Logic --- START
+      const country_flag_emoji = getFlagEmoji(lieu.country_code, 'country')
+      const language_flag_emoji = getFlagEmoji(lieu.language_code, 'language')
+      const language_display = lieu.language_code?.toUpperCase() || '-'
+      // --- Flag Emoji Logic --- END
+
       const string_popup = `
-      <span style='font-size: 150%;'>${lieu.nom}</span>
+      <span style='font-size: 150%;'>${lieu.nom} ${country_flag_emoji}</span>
       <br>
       <b>${t('map.address')} :</b> ${lieu.location_name ? `${lieu.location_name}, ` : ''}${lieu.address}, ${lieu.city}
+      <br>
+      <b>${t('map.language', 'Language')} :</b> ${language_display} ${language_flag_emoji}
       <br>
       <b>${t('map.booking')} :</b> ${reservation_str || '-'}
     `
