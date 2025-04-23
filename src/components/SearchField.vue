@@ -17,6 +17,8 @@
       @update:focused="setFocused"
       clear-on-select
       auto-select-first
+      hide-details
+      density="comfortable"
     >
       <template #item="{ item, props }">
         <v-list-item
