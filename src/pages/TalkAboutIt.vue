@@ -94,7 +94,7 @@
         :international="true"
       ></SearchResultsList>
 
-      <p v-if="isLoading">{{ $t('common.loading', 'Loading...') }}</p>
+      <p v-if="isLoading">{{ $t('common.loading') }}</p>
       <p v-if="!isLoading && workshopsForList.length === 0">
         {{
           $t(

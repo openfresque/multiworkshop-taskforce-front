@@ -28,6 +28,9 @@
     "legal": "Legal Notices",
     "contact": "Contact"
   },
+  "common": {
+    "loading": "Loading..."
+  },
   "search": {
     "includeOnline": "Include online workshops",
     "attendWorkshop": "Participate in a workshop",

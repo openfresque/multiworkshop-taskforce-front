@@ -28,6 +28,9 @@
     "legal": "Mentions légales",
     "contact": "Contact"
   },
+  "common": {
+    "loading": "Chargement..."
+  },
   "search": {
     "includeOnline": "Inclure les ateliers en ligne",
     "attendWorkshop": "Participer à un atelier",
