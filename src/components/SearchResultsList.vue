@@ -199,12 +199,10 @@
       }
 
       // online filter
-      if (props.online && workshop.online) {
-        return true
-      }
-
-      if (!props.online && workshop.online) {
-        return false
+      if (typeof props.online === 'boolean') {
+        if (props.online !== workshop.online) {
+          return false
+        }
       }
 
       //   search by department filter

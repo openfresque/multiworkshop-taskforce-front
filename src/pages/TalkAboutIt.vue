@@ -82,6 +82,26 @@
           id="talkAboutItMap"
         ></div>
       </div>
+
+      <!-- Workshop List -->
+      <SearchResultsList
+        v-if="workshopsForList.length > 0"
+        :workshops="workshopsForList"
+        :online="undefined"
+        :location-title="
+          $t('talkAboutIt.campaignTitle', 'Let\'s Talk About It Campaign')
+        "
+      ></SearchResultsList>
+
+      <p v-if="isLoading">{{ $t('common.loading', 'Loading...') }}</p>
+      <p v-if="!isLoading && workshopsForList.length === 0">
+        {{
+          $t(
+            'talkAboutIt.noWorkshops',
+            'No workshops found for this campaign yet.'
+          )
+        }}
+      </p>
     </div>
   </v-container>
 </template>
@@ -95,6 +115,8 @@
   import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
   // @ts-ignore
   import { MarkerClusterGroup } from 'leaflet.markercluster'
+  import SearchResultsList from '@/components/SearchResultsList.vue'
+  import { Workshop } from '@/state/State'
 
   type RawWorkshopData = {
     title: string
@@ -107,6 +129,10 @@
     online: boolean
     language_code: string | undefined
     country_code: string | undefined
+    start_date?: string
+    end_date?: string
+    full_location?: string
+    workshop_type?: number | string
   }
 
   type WorkshopCarte = {
@@ -122,6 +148,8 @@
   }
 
   const mymap = ref<any>(null)
+  const workshopsForList = ref<Workshop[]>([])
+  const isLoading = ref(true)
   const { t } = useI18n()
   const theme = useTheme()
   const isDark = computed(() => theme.global.current.value.dark)
@@ -133,54 +161,90 @@
     }).setView([46.505, 3], 2)
 
     try {
-      const response = await fetch(
-        'https://raw.githubusercontent.com/trouver-une-fresque/trouver-une-fresque-data/main/campaigns/lets-talk-about-it/lets_talk_about_it_processed.json'
-      )
+      const url = `https://raw.githubusercontent.com/trouver-une-fresque/trouver-une-fresque-data/main/campaigns/lets-talk-about-it/lets_talk_about_it_processed.json`
+      const response = await fetch(url)
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
       const rawWorkshopsData: RawWorkshopData[] = await response.json()
 
-      const workshopsCarte = rawWorkshopsData
+      // Map ALL raw workshops to Workshop[] type for the list
+      workshopsForList.value = rawWorkshopsData.map(
+        (raw): Workshop => ({
+          title: raw.title,
+          longitude: parseFloat(raw.longitude || '0'),
+          latitude: parseFloat(raw.latitude || '0'),
+          tickets_link: raw.tickets_link || '',
+          location_name: raw.location_name || '',
+          address: raw.address || '',
+          city: raw.city || '',
+          online: raw.online,
+          start_date: raw.start_date || '',
+          end_date: raw.end_date || '',
+          full_location: raw.full_location || '',
+          department: '',
+          description: '',
+          kids: false,
+          scrape_date: new Date().toISOString(),
+          source_link: raw.tickets_link || '',
+          zip_code: '',
+          workshop_type:
+            raw.workshop_type !== undefined
+              ? parseInt(String(raw.workshop_type), 10)
+              : 0,
+          sold_out: false,
+          training: false,
+        })
+      )
+
+      // Filter raw data specifically for the map (offline + valid coords)
+      const workshopsFilteredForMap = rawWorkshopsData
         .filter((workshop: RawWorkshopData) => workshop.online === false)
         .filter((workshop: RawWorkshopData) => {
           const latStr = workshop.latitude ?? ''
           const lonStr = workshop.longitude ?? ''
           const lat = parseFloat(latStr)
           const lon = parseFloat(lonStr)
-          const isValid =
+          return (
             !isNaN(lat) &&
             !isNaN(lon) &&
             lat >= -90 &&
             lat <= 90 &&
             lon >= -180 &&
             lon <= 180
-          return isValid
-        }) // Exclude workshops with invalid or missing coordinates
-        .map<WorkshopCarte>((workshop: RawWorkshopData) => ({
+          )
+        })
+
+      // Map the *filtered data* for the map pins (uses WorkshopCarte)
+      const workshopsCarte = workshopsFilteredForMap.map<WorkshopCarte>(
+        (workshop: RawWorkshopData) => ({
           nom: workshop.title,
-          longitude: parseFloat(workshop.longitude!), // Safe due to filter above
-          latitude: parseFloat(workshop.latitude!), // Safe due to filter above
+          longitude: parseFloat(workshop.longitude!),
+          latitude: parseFloat(workshop.latitude!),
           reservation: workshop.tickets_link,
           location_name: workshop.location_name || undefined,
           address: workshop.address || undefined,
           city: workshop.city || undefined,
           language_code: workshop.language_code,
           country_code: workshop.country_code,
-        }))
+        })
+      )
 
       // Apply initial map layer based on theme
       setMapLayer()
 
-      if (workshopsCarte.length === 0) {
-        // console.warn('No valid workshops found to display on the map.')
-      } else {
+      // Create and add markers to the map using the filtered/mapped map data
+      if (workshopsCarte.length > 0) {
         const markers = creerPins(workshopsCarte)
         mymap.value.addLayer(markers)
-        // console.log('Markers added to map.')
+      } else {
+        // console.warn('No valid workshops found to display on the map.')
       }
     } catch (error) {
       console.error('Error loading or processing workshop data:', error)
+      workshopsForList.value = []
+    } finally {
+      isLoading.value = false
     }
   })
 
@@ -227,7 +291,10 @@
   })
 
   // Helper function to generate flag emoji from country or language code
-  function getFlagEmoji(code: string | undefined, type: 'country' | 'language'): string {
+  function getFlagEmoji(
+    code: string | undefined,
+    type: 'country' | 'language'
+  ): string {
     let targetCountryCode = code?.toUpperCase()
 
     if (type === 'language') {
@@ -252,7 +319,10 @@
           .map(char => 127397 + char.charCodeAt(0))
         return String.fromCodePoint(...codePoints)
       } catch (e) {
-        console.error(`Could not generate flag emoji for ${type} code: ${code}`, e)
+        console.error(
+          `Could not generate flag emoji for ${type} code: ${code}`,
+          e
+        )
         return '🏳️' // Fallback flag
       }
     } else if (code) {
