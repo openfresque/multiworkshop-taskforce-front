@@ -51,6 +51,10 @@
         <SearchResultsCard
           :workshop="item"
           :workshop-type-title="getWorkshopType(false)"
+          :title="item.title"
+          :international="international"
+          :language-code="item.language_code"
+          :country-code="item.country_code"
         ></SearchResultsCard>
       </template>
     </v-infinite-scroll>
@@ -81,16 +85,26 @@
 </template>
 
 <script lang="ts" setup>
-  import { CodeDepartement, SearchType, Workshop } from '@/common/Conf'
+  import {
+    CodeDepartement,
+    SearchType,
+    Workshop as BaseWorkshop,
+  } from '@/common/Conf'
   import distanceBetween from '@/utils/distance'
   import { ref, onMounted } from 'vue'
   import { useI18n } from 'vue-i18n'
 
   const { t } = useI18n()
 
+  // Extend Workshop to carry optional language and country codes for international mode
+  type WorkshopWithLang = BaseWorkshop & {
+    language_code?: string
+    country_code?: string
+  }
+
   const props = defineProps({
     workshops: {
-      type: Array as PropType<Workshop[]>,
+      type: Array as PropType<WorkshopWithLang[]>,
       required: true,
     },
     longitude: Number,
@@ -130,10 +144,15 @@
       required: false,
       default: '',
     },
+    international: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   })
 
-  const filteredWorkshops = ref<Workshop[]>([])
-  const filteredWorkshopsToDisplay = ref<Workshop[]>([])
+  const filteredWorkshops = ref<WorkshopWithLang[]>([])
+  const filteredWorkshopsToDisplay = ref<WorkshopWithLang[]>([])
   let infiniteScrollEvents:
     | ((value: 'ok' | 'empty' | 'error') => void)
     | undefined
@@ -176,59 +195,61 @@
   }
 
   function filterWorkshops() {
-    filteredWorkshops.value = props.workshops.filter((workshop: Workshop) => {
-      // junior filter
-      if (
-        props.workshopType === 'junior' &&
-        (!workshop.kids || workshop.training) // don't show training for kids
-      ) {
-        return false
-      }
-
-      // training filter
-      if (props.workshopType === 'formation' && !workshop.training) {
-        return false
-      }
-
-      // workshop filter
-      if (
-        props.workshopType === 'atelier' &&
-        (workshop.training || workshop.kids)
-      ) {
-        return false
-      }
-
-      // online filter
-      if (typeof props.online === 'boolean') {
-        if (props.online !== workshop.online) {
+    filteredWorkshops.value = props.workshops.filter(
+      (workshop: WorkshopWithLang) => {
+        // junior filter
+        if (
+          props.workshopType === 'junior' &&
+          (!workshop.kids || workshop.training) // don't show training for kids
+        ) {
           return false
         }
-      }
 
-      //   search by department filter
-      if (props.searchByDpt) {
-        return workshop.department === props.dptNb
-      }
+        // training filter
+        if (props.workshopType === 'formation' && !workshop.training) {
+          return false
+        }
 
-      // Distance filter
-      if (props.searchRadius === -1) {
-        return true
-      }
+        // workshop filter
+        if (
+          props.workshopType === 'atelier' &&
+          (workshop.training || workshop.kids)
+        ) {
+          return false
+        }
 
-      if (!props.longitude || !props.latitude) {
-        console.warn(
-          'No longitude or latitude provided for workshop ',
-          workshop
+        // online filter
+        if (typeof props.online === 'boolean') {
+          if (props.online !== workshop.online) {
+            return false
+          }
+        }
+
+        //   search by department filter
+        if (props.searchByDpt) {
+          return workshop.department === props.dptNb
+        }
+
+        // Distance filter
+        if (props.searchRadius === -1) {
+          return true
+        }
+
+        if (!props.longitude || !props.latitude) {
+          console.warn(
+            'No longitude or latitude provided for workshop ',
+            workshop
+          )
+          return false
+        }
+
+        const distance = distanceBetween(
+          { latitude: workshop.latitude, longitude: workshop.longitude },
+          { latitude: props.latitude, longitude: props.longitude }
         )
-        return false
+        return distance <= props.searchRadius
       }
-
-      const distance = distanceBetween(
-        { latitude: workshop.latitude, longitude: workshop.longitude },
-        { latitude: props.latitude, longitude: props.longitude }
-      )
-      return distance <= props.searchRadius
-    })
+    )
 
     sortWorkshops()
   }

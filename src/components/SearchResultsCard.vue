@@ -27,13 +27,16 @@
           md="6"
         >
           <v-card-title>
-            {{ getWorkshopTitle(workshop) }}
+            {{ props.title || getWorkshopTitle(workshop) }}
           </v-card-title>
           <v-card-subtitle>
             {{ getWorkshopDate(workshop) }}
           </v-card-subtitle>
           <v-card-text class="text-address">
-            {{ getWorkshopAdress(workshop) }}
+            {{ getWorkshopAdress(workshop) }}<span v-if="props.international"> {{ getFlagEmoji(props.countryCode, 'country') }}</span>
+          </v-card-text>
+          <v-card-text class="text-language" v-if="props.international">
+            Language: {{ getFlagEmoji(props.languageCode, 'language') }}
           </v-card-text>
         </v-col>
 
@@ -73,6 +76,7 @@
 <script setup lang="ts">
   import { ATELIERS, Workshop } from '@/common/Conf'
   import { useI18n } from 'vue-i18n'
+  import { getFlagEmoji } from '@/utils/flagEmoji'
 
   const { t } = useI18n()
 
@@ -85,6 +89,26 @@
       type: String,
       required: false,
       default: 'Atelier',
+    },
+    title: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    international: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    languageCode: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    countryCode: {
+      type: String,
+      required: false,
+      default: '',
     },
   })
 

@@ -91,6 +91,7 @@
         :location-title="
           $t('talkAboutIt.campaignTitle', 'Let\'s Talk About It Campaign')
         "
+        :international="true"
       ></SearchResultsList>
 
       <p v-if="isLoading">{{ $t('common.loading', 'Loading...') }}</p>
@@ -116,7 +117,13 @@
   // @ts-ignore
   import { MarkerClusterGroup } from 'leaflet.markercluster'
   import SearchResultsList from '@/components/SearchResultsList.vue'
-  import { Workshop } from '@/state/State'
+  import { getFlagEmoji } from '@/utils/flagEmoji'
+  import { Workshop as BaseWorkshop } from '@/common/Conf'
+  // Extend the Conf.Workshop type to carry optional language and country codes
+  type WorkshopWithLang = BaseWorkshop & {
+    language_code?: string
+    country_code?: string
+  }
 
   type RawWorkshopData = {
     title: string
@@ -148,7 +155,7 @@
   }
 
   const mymap = ref<any>(null)
-  const workshopsForList = ref<Workshop[]>([])
+  const workshopsForList = ref<WorkshopWithLang[]>([])
   const isLoading = ref(true)
   const { t } = useI18n()
   const theme = useTheme()
@@ -170,8 +177,10 @@
 
       // Map ALL raw workshops to Workshop[] type for the list
       workshopsForList.value = rawWorkshopsData.map(
-        (raw): Workshop => ({
+        (raw): WorkshopWithLang => ({
           title: raw.title,
+          language_code: raw.language_code || '',
+          country_code: raw.country_code || '',
           longitude: parseFloat(raw.longitude || '0'),
           latitude: parseFloat(raw.latitude || '0'),
           tickets_link: raw.tickets_link || '',
@@ -238,7 +247,7 @@
         const markers = creerPins(workshopsCarte)
         mymap.value.addLayer(markers)
       } else {
-        // console.warn('No valid workshops found to display on the map.')
+        console.warn('No valid workshops found to display on the map.')
       }
     } catch (error) {
       console.error('Error loading or processing workshop data:', error)
@@ -290,47 +299,6 @@
     }
   })
 
-  // Helper function to generate flag emoji from country or language code
-  function getFlagEmoji(
-    code: string | undefined,
-    type: 'country' | 'language'
-  ): string {
-    let targetCountryCode = code?.toUpperCase()
-
-    if (type === 'language') {
-      // Map common language codes to representative country codes for flags
-      const langMap: { [key: string]: string } = {
-        EN: 'GB', // English -> UK flag
-        FR: 'FR', // French -> France flag
-        DE: 'DE', // German -> Germany flag
-        ES: 'ES', // Spanish -> Spain flag
-        IT: 'IT', // Italian -> Italy flag
-        PT: 'PT', // Portuguese -> Portugal flag
-        NL: 'NL', // Dutch -> Netherlands flag
-        // Add more mappings as needed
-      }
-      targetCountryCode = langMap[targetCountryCode || ''] || targetCountryCode // Use mapped code if available
-    }
-
-    if (targetCountryCode && targetCountryCode.length === 2) {
-      try {
-        const codePoints = targetCountryCode
-          .split('')
-          .map(char => 127397 + char.charCodeAt(0))
-        return String.fromCodePoint(...codePoints)
-      } catch (e) {
-        console.error(
-          `Could not generate flag emoji for ${type} code: ${code}`,
-          e
-        )
-        return '🏳️' // Fallback flag
-      }
-    } else if (code) {
-      console.warn(`Invalid ${type} code for flag emoji: ${code}`)
-    }
-    return '' // Return empty string if no valid code
-  }
-
   function creerPins(lieux: WorkshopCarte[]) {
     const markers = lieux.reduce((markers, lieu) => {
       let reservation_str = ''
@@ -342,12 +310,12 @@
         reservation_str = '-' // Default value if reservation is undefined
       }
 
-      // --- Flag Emoji Logic --- START
+      // Flag Emoji Logic
       const country_flag_emoji = getFlagEmoji(lieu.country_code, 'country')
       const language_flag_emoji = getFlagEmoji(lieu.language_code, 'language')
       const language_display = lieu.language_code?.toUpperCase() || '-'
-      // --- Flag Emoji Logic --- END
 
+      // Popup content
       const string_popup = `
       <span style='font-size: 150%;'>${lieu.nom} ${country_flag_emoji}</span>
       <br>
