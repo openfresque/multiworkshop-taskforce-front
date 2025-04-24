@@ -218,11 +218,13 @@
           return false
         }
 
-        // online filter
-        if (typeof props.online === 'boolean') {
-          if (props.online !== workshop.online) {
-            return false
-          }
+        // online toggle: exclude online-only events when not including online (and not in international mode)
+        if (!props.international && !props.online && workshop.online) {
+          return false
+        }
+        // include online workshops when the online toggle is on (bypass distance filter)
+        if (!props.international && props.online && workshop.online) {
+          return true
         }
 
         //   search by department filter

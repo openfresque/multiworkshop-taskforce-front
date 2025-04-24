@@ -33,7 +33,7 @@
             {{ getWorkshopDate(workshop) }}
           </v-card-subtitle>
           <v-card-text class="text-address">
-            {{ getWorkshopAdress(workshop) }}<span v-if="props.international"> {{ getFlagEmoji(props.countryCode, 'country') }}</span>
+            {{ getWorkshopAdress(workshop) }}<span v-if="props.international && !workshop.online"> {{ getFlagEmoji(props.countryCode, 'country') }}</span>
           </v-card-text>
           <v-card-text class="text-language" v-if="props.international">
             Language: {{ getFlagEmoji(props.languageCode, 'language') }}
