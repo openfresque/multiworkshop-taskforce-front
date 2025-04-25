@@ -301,14 +301,6 @@ export const ATELIERS: Record<number, Atelier> = {
     promoted: false,
     website: 'https://fresquedusol.com/',
   },
-  802: {
-    code: 'FresqueDesDechets',
-    logo: '/assets/images/logo/logo_FresqueDesDechets.png',
-    name: i18n.global.t('workshops.FresqueDesDechets.name'),
-    description: i18n.global.t('workshops.FresqueDesDechets.description'),
-    promoted: false,
-    website: 'https://greendonut.org/dechets/',
-  },
 }
 
 export type CodeDepartement = string
