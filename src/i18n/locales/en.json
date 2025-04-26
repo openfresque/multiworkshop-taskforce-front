@@ -238,6 +238,18 @@
     "ZooFresque": {
       "name": "Zoo Fresk",
       "description": "Understand our relationship with animals"
+    },
+    "PlanetC": {
+      "name": "Planet C Play Again",
+      "description": "Rethink your beliefs and be empowered as an architect of change"
+    },
+    "FresqueDuSol": {
+      "name": "Fresque du Sol",
+      "description": "Understand the complexity of soil impacts to better protect it"
+    },
+    "FresqueDesDechets": {
+      "name": "Fresque des Déchets",
+      "description": "3h to build a systemic vision of the waste sector"
     }
   },
   "talkAboutIt": {
