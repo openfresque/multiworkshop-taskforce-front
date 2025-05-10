@@ -1,0 +1,25 @@
+name: Tolgee Sync
+
+on:
+  push:
+    branches:
+      - staging
+      - devops-implement-tolgee-ci
+
+jobs:
+  push-keys:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '21.5'
+      - run: yarn install
+        working-directory: ./.tolgee
+      - run: yarn push
+        env:
+          TOLGEE_URL: ${{ secrets.TOLGEE_URL }}
+          TOLGEE_TOKEN: ${{ secrets.TOLGEE_TOKEN }}
+          TOLGEE_PROJECT_ID: ${{ secrets.TOLGEE_PROJECT_ID }}

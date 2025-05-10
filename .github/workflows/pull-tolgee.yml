@@ -1,0 +1,26 @@
+name: Tolgee Sync
+
+on:
+  schedule:
+    - cron: "0 */8 * * *"   # <=== Change this value
+
+jobs:
+  pull-keys:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '21.5'
+      - run: yarn install
+        working-directory: ./.tolgee
+      - run: yarn pull
+        env:
+          TOLGEE_URL: ${{ secrets.TOLGEE_URL }}
+          TOLGEE_TOKEN: ${{ secrets.TOLGEE_TOKEN }}
+          TOLGEE_PROJECT_ID: ${{ secrets.TOLGEE_PROJECT_ID }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        title: '[Tolgee] New Translations'
