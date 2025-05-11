@@ -23,4 +23,5 @@ jobs:
           TOLGEE_PROJECT_ID: ${{ secrets.TOLGEE_PROJECT_ID }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
-        title: '[Tolgee] New Translations'
+        with:
+            title: '[Tolgee] New Translations'
