@@ -1,4 +1,4 @@
-name: Tolgee Sync
+name: "chore(tolgee): sync (pull) translations"
 
 on:
   schedule:
@@ -17,6 +17,7 @@ jobs:
       - run: yarn install
         working-directory: ./.tolgee
       - run: yarn pull
+        working-directory: ./.tolgee
         env:
           TOLGEE_URL: ${{ secrets.TOLGEE_URL }}
           TOLGEE_TOKEN: ${{ secrets.TOLGEE_TOKEN }}

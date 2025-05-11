@@ -1,4 +1,4 @@
-name: Tolgee Sync
+name: "chore(tolgee): sync (push) translations"
 
 on:
   push:
