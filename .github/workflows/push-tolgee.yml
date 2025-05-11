@@ -19,6 +19,7 @@ jobs:
       - run: yarn install
         working-directory: ./.tolgee
       - run: yarn push
+        working-directory: ./.tolgee
         env:
           TOLGEE_URL: ${{ secrets.TOLGEE_URL }}
           TOLGEE_TOKEN: ${{ secrets.TOLGEE_TOKEN }}
