@@ -168,12 +168,27 @@
     }).setView([46.505, 3], 2)
 
     try {
-      const url = `https://raw.githubusercontent.com/trouver-une-fresque/trouver-une-fresque-data/main/campaigns/lets-talk-about-it/lets_talk_about_it_processed.json`
-      const response = await fetch(url)
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+      const url1 = `https://raw.githubusercontent.com/trouver-une-fresque/trouver-une-fresque-data/main/campaigns/lets-talk-about-it/lets_talk_about_it_processed.json`
+      const url2 = `https://raw.githubusercontent.com/trouver-une-fresque/trouver-une-fresque-data/main/campaigns/lets-talk-about-it/lets_talk_about_it_2_processed.json`
+      
+      // Fetch both data sources
+      const [response1, response2] = await Promise.all([
+        fetch(url1),
+        fetch(url2)
+      ]);
+
+      if (!response1.ok || !response2.ok) {
+        throw new Error(`HTTP error! status: ${response1.status} or ${response2.status}`)
       }
-      const rawWorkshopsData: RawWorkshopData[] = await response.json()
+
+      // Parse both JSON responses
+      const [data1, data2] = await Promise.all([
+        response1.json(),
+        response2.json()
+      ]);
+
+      // Merge the data from both sources
+      const rawWorkshopsData: RawWorkshopData[] = [...data1, ...data2];
 
       // Map ALL raw workshops to Workshop[] type for the list
       workshopsForList.value = rawWorkshopsData.map(
