@@ -188,7 +188,8 @@
       ]);
 
       // Merge the data from both sources
-      const rawWorkshopsData: RawWorkshopData[] = [...data1, ...data2];
+      const rawWorkshopsData: RawWorkshopData[] = [...data1, ...data2]
+        .filter(workshop => workshop.workshop_type !== -1);
 
       // Map ALL raw workshops to Workshop[] type for the list
       workshopsForList.value = rawWorkshopsData.map(
