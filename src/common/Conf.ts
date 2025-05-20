@@ -294,7 +294,7 @@ export const ATELIERS: Record<number, Atelier> = {
     website: 'https://planetc.org/',
   },
   801: {
-    code: 'Fresque du Sol',
+    code: 'FresqueDuSol',
     logo: '/assets/images/logo/logo_FresqueDuSol.png',
     name: i18n.global.t('workshops.FresqueDuSol.name'),
     description: i18n.global.t('workshops.FresqueDuSol.description'),

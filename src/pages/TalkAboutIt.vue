@@ -71,9 +71,6 @@
       </div>
 
       <h2 class="text-h4 mb-4">{{ $t('talkAboutIt.theMap') }}</h2>
-      <!-- <p class="mb-4">
-        {{ $t('talkAboutIt.mapDescription') }}
-      </p> -->
 
       <!-- Map placeholder -->
       <div class="map-container mb-6">
@@ -170,26 +167,29 @@
     try {
       const url1 = `https://raw.githubusercontent.com/trouver-une-fresque/trouver-une-fresque-data/main/campaigns/lets-talk-about-it/lets_talk_about_it_processed.json`
       const url2 = `https://raw.githubusercontent.com/trouver-une-fresque/trouver-une-fresque-data/main/campaigns/lets-talk-about-it/lets_talk_about_it_2_processed.json`
-      
+
       // Fetch both data sources
       const [response1, response2] = await Promise.all([
         fetch(url1),
-        fetch(url2)
-      ]);
+        fetch(url2),
+      ])
 
       if (!response1.ok || !response2.ok) {
-        throw new Error(`HTTP error! status: ${response1.status} or ${response2.status}`)
+        throw new Error(
+          `HTTP error! status: ${response1.status} or ${response2.status}`
+        )
       }
 
       // Parse both JSON responses
       const [data1, data2] = await Promise.all([
         response1.json(),
-        response2.json()
-      ]);
+        response2.json(),
+      ])
 
       // Merge the data from both sources
-      const rawWorkshopsData: RawWorkshopData[] = [...data1, ...data2]
-        .filter(workshop => workshop.workshop_type !== -1);
+      const rawWorkshopsData: RawWorkshopData[] = [...data1, ...data2].filter(
+        workshop => workshop.workshop_type !== -1
+      )
 
       // Map ALL raw workshops to Workshop[] type for the list
       workshopsForList.value = rawWorkshopsData.map(
