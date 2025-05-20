@@ -244,12 +244,8 @@
       "description": "Rethink your beliefs and be empowered as an architect of change"
     },
     "FresqueDuSol": {
-      "name": "Fresque du Sol",
+      "name": "The Soil Collage",
       "description": "Understand the complexity of soil impacts to better protect it"
-    },
-    "FresqueDesDechets": {
-      "name": "Fresque des Déchets",
-      "description": "3h to build a systemic vision of the waste sector"
     }
   },
   "talkAboutIt": {
@@ -267,8 +263,7 @@
     "kitEnglish": "Communication kit in English",
     "kitFrench": "Kit de communication en français",
     "kitSpanish": "Kit de comunicación en español",
-    "theMap": "The map",
-    "mapDescription": "We will soon add here the workshops of the Let's Talk About It campaign: (don't worry if you have filled the form and don't see them appearing yet, it's cooking!)"
+    "theMap": "The map"
   },
   "homepage": {
     "hero": {

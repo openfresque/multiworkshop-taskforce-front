@@ -246,10 +246,6 @@
     "FresqueDuSol": {
       "name": "Fresque du Sol",
       "description": "Comprendre la complexité des enjeux sol pour les protéger"
-    },
-    "FresqueDesDechets": {
-      "name": "Fresque des Déchets",
-      "description": "3h pour construire une vision globale du secteur des déchets"
     }
   },
   "talkAboutIt": {
@@ -267,8 +263,7 @@
     "kitEnglish": "Kit de communication en anglais",
     "kitFrench": "Kit de communication en français",
     "kitSpanish": "Kit de communication en espagnol",
-    "theMap": "La carte",
-    "mapDescription": "Nous ajouterons bientôt ici les ateliers internationaux de la campagne Let's Talk About It. Ne vous inquiétez pas si vous avez rempli le formulaire et que vous ne les voyez pas encore apparaître, c'est en cours !"
+    "theMap": "La carte"
   },
   "homepage": {
     "hero": {

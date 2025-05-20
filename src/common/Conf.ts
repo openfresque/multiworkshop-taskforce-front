@@ -298,7 +298,7 @@ export const ATELIERS: Record<number, Atelier> = {
     logo: '/assets/images/logo/logo_FresqueDuSol.png',
     name: i18n.global.t('workshops.FresqueDuSol.name'),
     description: i18n.global.t('workshops.FresqueDuSol.description'),
-    promoted: false,
+    promoted: true,
     website: 'https://fresquedusol.com/',
   },
 }
