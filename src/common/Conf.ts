@@ -285,6 +285,14 @@ export const ATELIERS: Record<number, Atelier> = {
     promoted: true,
     website: 'https://zoofresque.wordpress.com/',
   },
+  705: {
+    code: 'NotreTour',
+    logo: '/assets/images/logo/logo_notre_tour.png',
+    name: i18n.global.t('workshops.NotreTour.name'),
+    description: i18n.global.t('workshops.NotreTour.description'),
+    promoted: true,
+    website: 'https://www.wearemush.com/notre-tour',
+  },
   800: {
     code: 'PlanetC',
     logo: '/assets/images/logo/logo_PlanetC.jpg',

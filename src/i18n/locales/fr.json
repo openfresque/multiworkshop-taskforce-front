@@ -239,6 +239,10 @@
       "name": "ZooFresque",
       "description": "Comprendre nos relations aux animaux"
     },
+    "NotreTour": {
+      "name": "Notre Tour",
+      "description": "Prenez en main les enjeux écologiques"
+    },
     "PlanetC": {
       "name": "Planet C Play Again",
       "description": "Questionnez vos croyances et devenez architecte du changement"
