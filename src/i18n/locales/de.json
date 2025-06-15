@@ -272,23 +272,22 @@
   },
   "homepage": {
     "hero": {
-      "title": "We have the objective of developing the interaction between local groups and the global community to accelerate the spread of environmental raising-awareness workshops.",
-      "subtitle": "Welcome to Find a Fresk - a platform by and for the community. Not for profit.",
-      "description": "We are an enthusiastic global movement of science-based workshop facilitators. We use tools such as the Climate Fresk workshops to engage people into meaningful action through awareness, system thinking and collective intelligence."
+      "title": "Unser Ziel ist es, die Interaktion zwischen Lokalen Gruppe und der globalen Gesellschaft zu fördern, um die Verbreitung von ansteckender Workshops zur Sensibilisierung für die Umwelt zu beschleunigen.",
+      "subtitle": "Willkommen bei Find a Fresk - eine Plattform von and für die Gesellschaft. Nicht gewinnorientiert.",
+      "description": "Wir sind eine enthusiastische globale Bewegung von wissenschaftsbasierten Workshop-Moderatoren. Wir nutzen Instrumente vie die Klima-Puzzle Workshops, um Menschen durch Bewusstsein, Systemdenken and kollektive Intelligence zu sinnvollem Handeln zu bewegen."
     },
     "movement": {
-      "title": "Climate Fresk has sparked a global movement of experience-based learning",
-      "button": "Find a Fresk"
+      "title": "Climate Fresk hat eine globale Bewegung für erfahrungsbasiertes Lernen ausgelöst.",
     },
     "collaboration": {
-      "title": "None of us can do it alone!",
-      "description": "We put out a call to talk about the different ways people are Multi-Fresking internationally. We realised we have some shared pain points and even more lessons to share.",
-      "button": "Join our taskforce"
+      "title": "Keiner von uns kann es allein schaffen!",
+      "description": "Wir haben einen Aufruf veröffentlicht, um über die verschiedenen Arten zu sprechen, wie Menschen ihre Workshops international durchführen. Wir haben festgestellt, dass wir einige gemeinsame Probleme haben und noch mehr Ehrfahrungen austauschen können.",
+      "button": "Treten Sie unserer Taskforce bei (English only)"
     },
     "mapping": {
-      "title": "Mapping groups around the World!",
-      "description": "Are you part of a local group / NGO delivering workshops? We are trying to compile a list of all the Multi-Workshop groups around the world. We aim to bring visibility to these groups worldwide.",
-      "button": "Discover local groups"
+      "title": "Kartierung von Gruppen auf der ganzen Welt!",
+      "description": "Sind Sie Teil einer lokalen Gruppe oder NGO, die Workshops bietet? Wir sind dabei, eine Liste aller Multi-Workshop-Gruppen auf der ganzen Welt zu erstellen. Unser Ziel ist es, diese Gruppen weltweit bekannt zu machen.",
+      "button": "Lokale Gruppen entdecken"
     }
   },
   "taskforce": {
