@@ -1,0 +1,368 @@
+{
+  "locale": {
+    "de": "German",
+    "en": "English",
+    "fr": "French"
+  },
+  "welcome": "Find a Fresk near you",
+  "searchField": "City, Postal Code, Department...",
+  "banner": "Find a Fresk will soon be internationalized! In the meantime, visit the <a href=\"https://www.findafresk.org\">project page</a>, and follow us on <a href=\"https://www.linkedin.com/company/trouver-une-fresque\">LinkedIn</a>!",
+  "footer": "Find a Fresk is not an official tool, is NOT exhaustive, and does not replace manual searches, especially when no available workshops are listed on our site.",
+  "navigation": {
+    "home": "Home",
+    "news": "News",
+    "findAFresk": "Find a Fresk",
+    "map": "Fresk Map",
+    "talkAboutIt": "Let's Talk About It (May 2025)",
+    "community": "Community",
+    "taskforce": "Taskforce",
+    "localGroups": "Local Groups",
+    "communityNews": "News",
+    "about": "About"
+  },
+  "map": {
+    "address": "Address",
+    "booking": "Booking"
+  },
+  "buttons": {
+    "license": "Find a Fresk - AGPL-3.0",
+    "legal": "Legal Notices",
+    "contact": "Contact"
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "search": {
+    "includeOnline": "Include online workshops",
+    "attendWorkshop": "Participate in a workshop",
+    "attendTrainingWorkshop": "Become a facilitator",
+    "attendJuniorWorkshop": "Find a junior workshop",
+    "area": "Search area",
+    "all": "all"
+  },
+  "results": {
+    "workshop": "workshop",
+    "training": "training",
+    "junior": "junior",
+    "orOnline": "or Online",
+    "doYouWantOnline": "Do you want to include online workshops?",
+    "includeOnline": "View online workshops",
+    "lastUpdate": "Last update:",
+    "for": "for",
+    "around": "around",
+    "today": "today",
+    "yesterday": "yesterday",
+    "missingWorkshop": "Your workshop doesn't appear? Check the guide on the homepage!"
+  },
+  "resultsListing": {
+    "online": "Online",
+    "book": "Book a ticket",
+    "bookShort": "Book",
+    "soldOut": "[SOLD OUT] - Check"
+  },
+  "qa": {
+    "title": "What is Find a Fresk?",
+    "description": "Find a Fresk is a search engine that lists Fresk-type workshops in France.",
+    "sections": {
+      "interest": {
+        "title": "What is the goal of Find a Fresk?",
+        "description": "Find a Fresk is a platform that allows you to find a Fresk-type workshop in your department. Currently listed workshops include: Fresque du Climat, Atelier 2tonnes, Fresque de la Diversité, Fresque Océane, Fresque de la Construction, Fresque Agri'Alim, Fresque des Nouveaux Récits, Fresque de la Mobilité, Fresque de l'Alimentation, Atelier Inventons Nos Vies Bas Carbone, Atelier OGRE, Fresque de l'Eau, Fresque de l'Économie Circulaire, Ateliers Futurs Proches, Fresque du Textile, Fresque des Déchets, Fresque des Frontières Planétaires, Atelier Horizons Décarbonés, Atelier 2030 Glorieuses, Fresque de la Biodiversité, Fresque du Sexisme, Fresque du Numérique, Puzzle Climat, Fresque de la Finance, Fresque de la RSE, Cyber Fresque, Fresque du Plastique, Fresque du Bénévolat. Workshop reservations are made through associated ticketing platforms. We are not affiliated with any of these structures."
+      },
+      "functionality": {
+        "title": "How does Find a Fresk work?",
+        "description": "Find a Fresk's algorithms analyze various Fresk workshop reservation platforms (Billetweb.fr, Eventbrite.fr, Fresqueduclimat.org, Lafresquedeleconomiecirculaire.com) to aggregate them and make their search more accessible. The list of workshops on our platform is NOT exhaustive."
+      },
+      "non_profit": {
+        "title": "Is Find a Fresk non-profit?",
+        "description": "Yes, Find a Fresk is non-profit. The platform is free, ad-free, and does not require registration. We comply with GDPR by not storing any personal data and comply with the European cookie directive by not storing cookies. The <a href='https://github.com/trouver-une-fresque/trouver-une-fresque-scraper'>source code is freely available</a>."
+      },
+      "support": {
+        "title": "How can I support the platform's development?",
+        "description": "Developing open-source software takes time and money, not only for the initial work but also for ongoing maintenance. If you wish to support the development of this platform, you can <a href='https://fr.liberapay.com/trouver-une-fresque/'>contribute financially via Liberapay</a> (payment via PayPal). You can also share our platform on social media. Thank you!"
+      },
+      "help": {
+        "title": "Help! I published a Fresk event that doesn't appear on Find a Fresk!",
+        "description": "Your event does not meet all the conditions to be automatically retrieved. Please modify it on the original platform after reading our <a href='https://github.com/trouver-une-fresque/trouver-une-fresque/blob/main/TUTORIAL.md'>guide for Fresk organizers</a>."
+      }
+    }
+  },
+  "legal_mentions": {
+    "title": "Legal Notices",
+    "sections": {
+      "edition": {
+        "title": "Edition",
+        "content": "This site is edited by <a href='https://github.com/thomas-bouvier'>Thomas Bouvier</a> and <a href='https://github.com/TimotF'>Timothé Frignac</a> and hosted by Hostinger, headquartered at HOSTINGER INTERNATIONAL LTD, 61 Lordou Vironos Street, 6023 Larnaca, Cyprus, contactable via: <a href='https://www.hostinger.fr/contact'>https://www.hostinger.fr/contact</a>."
+      },
+      "personal_data": {
+        "title": "Personal Data",
+        "content": "Your IP address and the page reference you visited are part of the personal information stored on the server hosting this site. This data may be used to diagnose issues but will never be shared with third parties and is automatically deleted. For any questions regarding your personal data, you can contact us at: <a href='mailto:contact@trouverunefresque.org'>contact@trouverunefresque.org</a>."
+      },
+      "license": {
+        "title": "License",
+        "content": "<a href='https://github.com/trouver-une-fresque/multiworkshop-taskforce-front/blob/main/LICENSE'>AGPL-3.0</a>"
+      }
+    }
+  },
+  "workshops": {
+    "FresqueNouveauxRecits": {
+      "name": "New Narratives Collage",
+      "description": "Promote a different society through a collaborative and engaging workshop"
+    },
+    "FresqueOceane": {
+      "name": "Ocean Collage",
+      "description": "Discover the challenges related to the ocean and how we can all act to preserve it"
+    },
+    "FresqueBiodiversite": {
+      "name": "Biodiversity Collage",
+      "description": "Discover the systemic aspect of biodiversity erosion: what it is, what it allows, and what degrades it"
+    },
+    "FresqueAgriAlim": {
+      "name": "Agri'Food Collage",
+      "description": "Understand the challenges of our agricultural and food model"
+    },
+    "FresqueNumerique": {
+      "name": "Digital Collage",
+      "description": "A workshop to understand as a team and in a fun way the environmental issues of digital technology"
+    },
+    "FresqueMobilite": {
+      "name": "Mobility Fresk",
+      "description": "Discover how to adopt a more sustainable mobility individually and collectively"
+    },
+    "FresqueAlimentation": {
+      "name": "Food Fresk",
+      "description": "Discover the environmental, health, and social issues related to your diet"
+    },
+    "OGRE": {
+      "name": "OGRE",
+      "description": "Understand the challenges of the energy transition"
+    },
+    "FresqueConstruction": {
+      "name": "Construction Collage",
+      "description": "Raise awareness of the impacts of construction as a team to act effectively"
+    },
+    "FresqueSexisme": {
+      "name": "Sexism Fresk",
+      "description": "Dismantle sexist mechanisms and project yourself into an egalitarian society"
+    },
+    "AtelierInventonsNosViesBasCarbone": {
+      "name": "Designing our Sustainable Lives",
+      "description": "Imagine together necessary, possible, and desirable actions for the climate"
+    },
+    "FresqueDeLeau": {
+      "name": "Water Fresk",
+      "description": "Understand the keys to understanding water, its origin, its use, and the evolution of this resource"
+    },
+    "FutursProches": {
+      "name": "Near Futures",
+      "description": "Imagine together desirable, plural, alternative, and sustainable futures"
+    },
+    "FresqueDiversite": {
+      "name": "Diversity Fresk",
+      "description": "41 cards to foster more inclusive awareness"
+    },
+    "FresqueDuTextile": {
+      "name": "Textiles Untangled",
+      "description": "Discover the ins and outs of the textile industry, its impacts, and alternatives for sustainable fashion"
+    },
+    "FresqueDesDechets": {
+      "name": "Waste Fresk",
+      "description": "Discover the complexity of waste treatment, what happens to it, and its impact on the environment"
+    },
+    "PuzzleClimat": {
+      "name": "Climate Puzzle",
+      "description": "A workshop to halve your carbon footprint in 5 years without going back to the oil lamp!"
+    },
+    "FresqueFinance": {
+      "name": "Finance Fresk",
+      "description": "Raise awareness of the role of finance in the socio-ecological transition and encourage citizens to think about levers of action"
+    },
+    "FresqueRSE": {
+      "name": "CSR Fresk",
+      "description": "Contribute to a positive, ethical, and sustainable company and become an actor of change yourself"
+    },
+    "2tonnes": {
+      "name": "2tonnes Workshop",
+      "description": "Explore the future as a team and try to limit climate change"
+    },
+    "AtelierCompteGouttes": {
+      "name": "Drip Workshop",
+      "description": "Explore the impact of climate change on water"
+    },
+    "FresqueBenevolat": {
+      "name": "Volunteering Fresk",
+      "description": "Put your energy at the service of great causes and discover volunteering in all its forms"
+    },
+    "FresquePlastique": {
+      "name": "Plastic Collage",
+      "description": "Take a look at the entire life cycle of plastics"
+    },
+    "CyberFresque": {
+      "name": "Cyber Fresk",
+      "description": "Demystify cybersecurity and boost your digital hygiene!"
+    },
+    "FresqueClimat": {
+      "name": "Climate Fresk",
+      "description": "Do you want to act for the climate but don't have the time to become a climatologist?"
+    },
+    "FresqueEcoCirculaire": {
+      "name": "Circular Economy Collage",
+      "description": "Understand the challenges of transforming our production-consumption system"
+    },
+    "FresqueFrontieresPlanetaires": {
+      "name": "Planetary Boundaries Fresco",
+      "description": "Discover the set of processes compromising the habitability of our planet"
+    },
+    "HorizonsDecarbones": {
+      "name": "Decarbonized Horizons Workshop",
+      "description": "Project yourself into a carbon-neutral French society and discover what tomorrow's future looks like!"
+    },
+    "2030Glorieuses": {
+      "name": "Glorious 2030s Workshop",
+      "description": "Set off to discover this fabulous era in which a more just, sustainable, and happy society has emerged!"
+    },
+    "FresqueRenovation": {
+      "name": "Renovation Fresk",
+      "description": "Understand the challenges, steps, and benefits of energy renovation"
+    },
+    "FresqueEnergie": {
+      "name": "Energy Fresk",
+      "description": "Address the fundamentals of the contemporary energy system in a fun and self-learning way"
+    },
+    "FresqueDesPossibles": {
+      "name": "Possibilities Fresk",
+      "description": "Identify and share concrete solutions to participate in the transition on your territory"
+    },
+    "FresqueCommunication": {
+      "name": "Communication Fresk",
+      "description": "Address the best practices of responsible communication"
+    },
+    "ZooFresque": {
+      "name": "Zoo Fresk",
+      "description": "Understand our relationship with animals"
+    },
+    "NotreTour": {
+      "name": "Notre Tour",
+      "description": "Take ecological issues into your own hands"
+    },
+    "PlanetC": {
+      "name": "Planet C Play Again",
+      "description": "Rethink your beliefs and be empowered as an architect of change"
+    },
+    "FresqueDuSol": {
+      "name": "The Soil Collage",
+      "description": "Understand the complexity of soil impacts to better protect it"
+    }
+  },
+  "talkAboutIt": {
+    "title": "Let's Talk About It (May 2025)",
+    "campaign": "In May 2025, let's facilitate around the globe! We are pleased to host (here on findafresk.org) the global campaign Let's Talk About It.",
+    "whatFor": "What is this campaign for?",
+    "throughoutMay": "Throughout May 2025, let's unite under the 'Let's Talk About It!' campaign by organizing as many workshops as possible across the globe.",
+    "aimOfOperation": "The aim of this joint operation is to put a spotlight on the international facilitators community and to help you recruit participants for your workshops through:",
+    "jointCommunication": "Joint and harmonised communication between associations over a short period of time",
+    "commonMap": "A common map highlighting the workshops of this campaign (soon here!) and local communities.",
+    "ticketingTools": "Ticketing tools and prices adapted to your context, so as not to be an obstacle to recruiting participants",
+    "yourRole": "What is your role as facilitator or community lead?",
+    "planWorkshops": "It is easy: Plan one or more workshops in May 2025, all over the world!",
+    "createSessions": "You must create the sessions before April 24, by going through the normal processes of the associations in charge of each workshop 🙂",
+    "kitEnglish": "Communication kit in English",
+    "kitFrench": "Kit de communication en français",
+    "kitSpanish": "Kit de comunicación en español",
+    "theMap": "The map"
+  },
+  "homepage": {
+    "hero": {
+      "title": "We have the objective of developing the interaction between local groups and the global community to accelerate the spread of environmental raising-awareness workshops.",
+      "subtitle": "Welcome to Find a Fresk - a platform by and for the community. Not for profit.",
+      "description": "We are an enthusiastic global movement of science-based workshop facilitators. We use tools such as the Climate Fresk workshops to engage people into meaningful action through awareness, system thinking and collective intelligence."
+    },
+    "movement": {
+      "title": "Climate Fresk has sparked a global movement of experience-based learning",
+      "button": "Find a Fresk"
+    },
+    "collaboration": {
+      "title": "None of us can do it alone!",
+      "description": "We put out a call to talk about the different ways people are Multi-Fresking internationally. We realised we have some shared pain points and even more lessons to share.",
+      "button": "Join our taskforce"
+    },
+    "mapping": {
+      "title": "Mapping groups around the World!",
+      "description": "Are you part of a local group / NGO delivering workshops? We are trying to compile a list of all the Multi-Workshop groups around the world. We aim to bring visibility to these groups worldwide.",
+      "button": "Discover local groups"
+    }
+  },
+  "taskforce": {
+    "title": "The Taskforce",
+    "intro": "This webpage is maintained by a group called 'Multiworkshop taskforce'. This group was created by local facilitators communities around the world and meets regularly to identify needs and develop solutions.",
+    "goal": {
+      "title": "Our goal",
+      "text": "Develop cooperation between the local multi-workshop communities and their ecosystem to accelerate the spread of environmental raising-awareness workshops at a global level."
+    },
+    "structure": {
+      "title": "Here is how we are structured",
+      "ecosystem": {
+        "title": "Multi-workshop Ecosystem",
+        "point1": "Gather insights, map stakeholders, and identify gaps in the multi-workshop movement through a structured taskforce with representatives from existing and upcoming local groups.",
+        "point2": "Propose strategies for healthy governance and financial flows to help answer questions like: \"Which legal structures work well?\", \"How to balance the needs of volunteers and professionals?\".",
+        "point3": "Enhance the visibility of the movement through branding and collaboration with initiatives like the Climate Fresk and other collages workshops."
+      },
+      "tools": {
+        "title": "Global Digital Tools and Platforms",
+        "point1": "Identify digital pain points for players, facilitators, and associations that slow the global rollout of pedagogically innovative tools.",
+        "point3": "Advocate for the development of international digital tools/platforms, to better serve these stakeholders at a local and global level, favouring open source and open data."
+      },
+      "local": {
+        "title": "Local Communities",
+        "point1": "Help new local communities to structure their multi-workshop activities.",
+        "point2": "Recommend local financing models with pro/volunteer synergies.",
+        "point3": "Gather experience from existing groups. This knowledge will culminate in a handbook for local multi-workshop structures.",
+        "point4": "Connect these local groups with the global community and its tools. This will be useful to avoid repeating others' mistakes."
+      }
+    },
+    "progress": {
+      "title": "What have we done so far?",
+      "team": {
+        "title": "We built a team!",
+        "text1": "We gathered representatives from over 30 local groups, collectives and NGOs who shared the same interest for collective intelligence workshops."
+      },
+      "consulting": {
+        "question": "Are you responsible for a workshop or a local community?",
+        "understand": "We put out a call to talk about the different ways people are Multi-Fresking internationally. We realised we have some shared pain points and even more lessons to share. We want to understand…",
+        "point1": "Your tech stack",
+        "point2": "Your pain points.",
+        "point3": "Your facilitators' needs.",
+        "support": "… in how you support your facilitator community to organise workshops."
+      },
+      "mapping": {
+        "title": "Mapping groups around the World!",
+        "question": "Are you part of a group delivering workshops?",
+        "compile": "We are trying to compile a list of all the Multi-Workshop groups around the world to give them visibility."
+      }
+    },
+    "interviewUs": "Let us interview you",
+    "addGroup": "Add your group or entity",
+    "button": {
+      "joinTeam": "Join the team",
+      "discoverLocalGroups": "Discover local groups"
+    }
+  },
+  "localGroups": {
+    "title": "Local Groups",
+    "globalCommunity": {
+      "heading": "A global multi-workshop community",
+      "paragraph": "Our global multi-workshop community often originated from the rollout of the Climate Fresk association. Other NGOs have now created many other workshops and tools, based on the same collective intelligence principles, always rooted in published science. After having played a workshop, individuals get trained as facilitators and are empowered to join the community and to start spreading awareness around them."
+    },
+    "builtByLocal": {
+      "heading": "A community built by local groups",
+      "paragraph1": "Local communitites are now structuring their activities to best deploy these multiple tools in specific regions. We've listed more than 40 of them groups that spread our favorite workshops. All over the world!",
+      "paragraph2": "A dot on this map does not represent the diversity of culture, purpose and maturity of these groups. But who knows, maybe it helps you getting in touch with them?"
+    },
+    "missing": {
+      "paragraph": "If your local group is missing, please click the button to fill-in the form.",
+      "button": "Add a local group to the map"
+    },
+    "unique": {
+      "paragraph": "Every local community is unique! In the next steps, we aim to make nuances more visible: which of these groups are focused on empowering communities?"
+    }
+  }
+}
