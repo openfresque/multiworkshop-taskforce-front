@@ -87,19 +87,19 @@
     }
   },
   "legal_mentions": {
-    "title": "Legal Notices",
+    "title": "Rechtliche Hinweise",
     "sections": {
       "edition": {
-        "title": "Edition",
-        "content": "This site is edited by <a href='https://github.com/thomas-bouvier'>Thomas Bouvier</a> and <a href='https://github.com/TimotF'>Timothé Frignac</a> and hosted by Hostinger, headquartered at HOSTINGER INTERNATIONAL LTD, 61 Lordou Vironos Street, 6023 Larnaca, Cyprus, contactable via: <a href='https://www.hostinger.fr/contact'>https://www.hostinger.fr/contact</a>."
+        "title": "Ausgabe",
+        "content": "Diese Webseite wird von <a href='https://github.com/thomas-bouvier'>Thomas Bouvier</a> und <a href='https://github.com/TimotF'>Timothé Frignac</a> bearbeitet und von Hostinger gehostet, das seinen Hauptsitz an HOSTINGER INTERNATIONAL LTD, 61 Lordou Vironos Street, 6023 Larnaca, Cyprus, hat und das unter <a href='https://www.hostinger.fr/contact'>https://www.hostinger.fr/contact</a> eirreichbar ist."
       },
       "personal_data": {
-        "title": "Personal Data",
-        "content": "Your IP address and the page reference you visited are part of the personal information stored on the server hosting this site. This data may be used to diagnose issues but will never be shared with third parties and is automatically deleted. For any questions regarding your personal data, you can contact us at: <a href='mailto:contact@trouverunefresque.org'>contact@trouverunefresque.org</a>."
+        "title": "Persönliche Daten",
+        "content": "Ihre IP-Adresse und die Adresse der Seite, die zu dieser Website verlinkt hat, sind Teil der persönlichen Daten, die auf dem Server, der diese Website hostet, gespeichert werden. Diese Daten können zur Fehlerdiagnose verwendet werden, werden aber niemals an Dritte weitergegeben und werden automatisch gelöscht. Wenn Sie Fragen zu Ihren persönlichen Daten haben, können Sie sich an uns unter <a href='mailto:contact@trouverunefresque.org'>contact@trouverunefresque.org</a> wenden."
       },
       "license": {
-        "title": "License",
-        "content": "<a href='https://github.com/trouver-une-fresque/multiworkshop-taskforce-front/blob/main/LICENSE'>AGPL-3.0</a>"
+        "title": "Lizenz",
+        "content": "<a href='https://github.com/trouver-une-fresque/multiworkshop-taskforce-front/blob/main/LICENSE'>AGPL-3.0</a> (auf Englisch)."
       }
     }
   },
