@@ -2,7 +2,8 @@
   "locale": {
     "de": "German",
     "en": "English",
-    "fr": "French"
+    "fr": "French",
+    "es": "Spanish"
   },
   "welcome": "Find a Fresk near you",
   "searchField": "City, Postal Code, Department...",

@@ -2,7 +2,8 @@
   "locale": {
     "de": "Deutsch",
     "en": "Englisch",
-    "fr": "Französich"
+    "fr": "Französich",
+    "es": "Spanisch"
   },
   "welcome": "Finden Sie einen Workshop in Ihrer Nähe",
   "searchField": "Stadt, Postleitzahl, Kanton...",

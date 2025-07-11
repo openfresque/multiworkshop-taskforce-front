@@ -2,7 +2,8 @@
   "locale": {
     "de": "Allemand",
     "en": "Anglais",
-    "fr": "Français"
+    "fr": "Français",
+    "es": "Espagnol"
   },
   "welcome": "Trouvez une Fresque près de chez vous",
   "searchField": "Commune, Code postal, Département...",
