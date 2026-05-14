@@ -258,6 +258,10 @@
       "name": "Notre Tour",
       "description": "Prenez en main les enjeux écologiques"
     },
+    "FresqueDuMouvement": {
+      "name": "Fresque du Mouvement",
+      "description": "Comprendre les effets de la sédentarité et de l'inactivité physique"
+    },
     "PlanetC": {
       "name": "Planet C Play Again",
       "description": "Questionnez vos croyances et devenez architecte du changement"

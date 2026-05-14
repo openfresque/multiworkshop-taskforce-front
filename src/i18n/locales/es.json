@@ -254,6 +254,10 @@
       "name": "Nuestro Turno",
       "description": "Tome el control de los desafíos ecológicos"
     },
+    "FresqueDuMouvement": {
+      "name": "Mural del Movimiento",
+      "description": "Comprender los efectos del sedentarismo y la inactividad física"
+    },
     "PlanetC": {
       "name": "Planet C Jugar de nuevo",
       "description": "Cuestiona tus creencias y conviértete en arquitecto del cambio"

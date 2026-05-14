@@ -227,11 +227,11 @@
       "description": "Discover the set of processes compromising the habitability of our planet"
     },
     "HorizonsDecarbones": {
-      "name": "Decarbonized Horizons Workshop",
+      "name": "Decarbonized Horizons",
       "description": "Project yourself into a carbon-neutral French society and discover what tomorrow's future looks like!"
     },
     "2030Glorieuses": {
-      "name": "Glorious 2030s Workshop",
+      "name": "Glorious 2030sp",
       "description": "Set off to discover this fabulous era in which a more just, sustainable, and happy society has emerged!"
     },
     "FresqueRenovation": {
@@ -257,6 +257,10 @@
     "NotreTour": {
       "name": "Notre Tour",
       "description": "Take ecological issues into your own hands"
+    },
+    "FresqueDuMouvement": {
+      "name": "The Movement Fresco",
+      "description": "Understand the effects of sedentarism and physical inactivity"
     },
     "PlanetC": {
       "name": "Planet C Play Again",

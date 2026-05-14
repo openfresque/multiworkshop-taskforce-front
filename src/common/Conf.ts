@@ -221,7 +221,9 @@ export const ATELIERS: Record<number, Atelier> = {
     code: 'FresqueEntrepriseRegenerative',
     logo: '/assets/images/logo/logo_FresqueEntrepriseRegenerative.png',
     name: i18n.global.t('workshops.FresqueEntrepriseRegenerative.name'),
-    description: i18n.global.t('workshops.FresqueEntrepriseRegenerative.description'),
+    description: i18n.global.t(
+      'workshops.FresqueEntrepriseRegenerative.description'
+    ),
     promoted: true,
     website: 'https://www.fresquedelentrepriseregenerative.fr/',
   },
@@ -315,6 +317,14 @@ export const ATELIERS: Record<number, Atelier> = {
     promoted: true,
     website: 'https://www.wearemush.com/notre-tour',
   },
+  706: {
+    code: 'FresqueDuMouvement',
+    logo: '/assets/images/logo/logo_FresqueMouvement.jpg',
+    name: i18n.global.t('workshops.FresqueDuMouvement.name'),
+    description: i18n.global.t('workshops.FresqueDuMouvement.description'),
+    promoted: true,
+    website: 'https://fresquedumouvement.org/',
+  },
   800: {
     code: 'PlanetC',
     logo: '/assets/images/logo/logo_PlanetC.jpg',
@@ -351,7 +361,9 @@ export const ATELIERS: Record<number, Atelier> = {
     code: 'FresqueBonheurDurablePartage',
     logo: '/assets/images/logo/logo_FresqueBonheurDurablePartage.png',
     name: i18n.global.t('workshops.FresqueBonheurDurablePartage.name'),
-    description: i18n.global.t('workshops.FresqueBonheurDurablePartage.description'),
+    description: i18n.global.t(
+      'workshops.FresqueBonheurDurablePartage.description'
+    ),
     promoted: true,
     website: 'https://phare-eudia.org/fresque-bdp/',
   },
